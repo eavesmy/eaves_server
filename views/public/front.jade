@@ -1,0 +1,41 @@
+doctype html
+html
+	head
+		meta(name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0")
+		link(rel="stylesheet", href="/css/eaves.css")
+		script(src="http://cdn.bootcss.com/jquery/2.2.1/jquery.min.js")
+		script(src="/js/react.js")
+		script(src="/js/eaves.js")
+		title #{_public.title}
+	body
+		nav#nav
+			.container
+				.top
+					.top-body
+						a.first(href="/") 聚合
+						a.cloumn aaa
+						a.cloumn aaa
+			.nav
+				.container
+					.nav-user
+						.nav-logo EAVES
+						#nav-btn =
+						if _privite.status === 1
+							.nav-user-container 
+								a.nav-user-name(href="#{_privite.url}") Hi,#{_privite.name}
+		.container.main
+			if _privite.status === 1
+				.main-bar
+					label
+						a Publish
+						span btn
+					label
+						a Music
+						span btn
+					label
+						a Space
+						span btn
+					label
+						a Information
+						span btn
+			block content

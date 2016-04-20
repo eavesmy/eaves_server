@@ -11,8 +11,13 @@
     "debug": "~2.2.0",
     "express": "~4.13.1",
     "jade": "~1.11.0",
+    "jquery": "^2.2.3",
+    "jsx-loader": "^0.13.2",
     "morgan": "~1.6.1",
-    "serve-favicon": "~2.3.0"
+    "react": "^15.0.1",
+    "react-dom": "^15.0.1",
+    "serve-favicon": "~2.3.0",
+    "webpack": "^1.12.15"
   },
   "description": "Eaves community.",
   "main": "./bin/www",
@@ -25,5 +30,9 @@
   "bugs": {
     "url": "https://github.com/zdy23216340/eaves/issues"
   },
-  "homepage": "https://github.com/zdy23216340/eaves#readme"
+  "homepage": "https://github.com/zdy23216340/eaves#readme",
+  "devDependencies": {
+    "babel-core": "^6.7.6",
+    "babel-loader": "^6.2.4"
+  }
 }
