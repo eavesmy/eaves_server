@@ -6,7 +6,7 @@ module.exports = {
         eaves: ['./webpack-js/eaves.js']
     },
     output: {
-        path: './public/js/',
+        path: './public/',
         filename: '[name].js'
     },
     externals: {        

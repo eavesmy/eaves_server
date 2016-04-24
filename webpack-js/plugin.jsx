@@ -5,4 +5,4 @@ var UserPublish = require('./UserPublish');
 
 window.onload = function(){
 	ReactDOM.render(<UserPublish />,document.getElementById('userpublish'));
-}
+};

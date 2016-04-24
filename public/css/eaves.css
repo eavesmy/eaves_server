@@ -5,13 +5,49 @@
 	font-weight:400;
 	letter-spacing:0.1em;
 }
+a{
+	text-decoration: none;
+}
+input,button,select,textarea{outline:none}
+
 body,html{
 	width:100vw;
 	overflow:hidden;
 }
+.input{
+	border-radius: 5px;
+	border:1px solid #ccc;
+	padding:10px 2vw;
+}
+.input-coffee{
+	border:none;
+	border-radius:0;
+	background: rgba(230, 224, 184, 0.25);
+	color: #444;
+}
+.input-full{
+	width:76vw;
+}
 .container{
 	width:80vw;
 	margin:0 auto;
+}
+.btn{
+	padding: 5px 10px;
+	border-radius: 5px;
+	cursor: pointer;
+}
+.btn-coffee{
+	background: #fff;
+	border-radius:0;
+    border:none;
+	border-bottom:2px solid #C2A16D
+}
+
+.bg-black{
+	background: #4b4b4b;
+	color:#fff;
+	letter-spacing:0.2em;
 }
 /* Left & Right block */
 
@@ -40,10 +76,10 @@ nav .top::-webkit-scrollbar{
 	height:5px;
 }
 
-nav .top::-webkit-scrollbar-thumb { 
+nav .top::-webkit-scrollbar-thumb {
 	background-color:#FFFFFF;
-	 -webkit-border-radius: 2em; 
-	 -moz-border-radius: 2em; 
+	 -webkit-border-radius: 2em;
+	 -moz-border-radius: 2em;
 	border-radius:2em;
 }
 
@@ -155,9 +191,7 @@ a.nav-user-name{
 	display:block;
 	flex:1;
 }
-.user-nav{
-	overflow:none;
-}
+
 .user-colum{
 	position:relative;
 	left:-130px;
@@ -203,9 +237,63 @@ a.nav-user-name{
 }
 
 
+
+
+
+/* Plugin css */
+#userpublish input{
+	font-size:150%;
+}
+#userpublish .body{
+	display:-webkit-flex;
+	height:70vh;
+}
+#userpublish .body .left,#userpublish .body .right{
+	flex:1;
+	height:60vh;
+	width:50%;
+}
+#userpublish .body .right{
+	overflow-y:auto;
+	background: #dcd9b1;
+    width:50%;
+	height:61vh;
+	color:#4b4b4b;
+	padding:1vh;
+}
+#userpublish textarea{
+	width:36vw;
+	padding:2vh,2vw;
+	height:60vh;
+	resize:none;
+}
+#userpublish .bottom{
+	border-top:2px solid #dcd9b1;
+}
+#userpublish .bottom span{
+	float:right;
+	font-size:80%;
+	color:#4b4b4b;
+}
+
+
+
 @media screen and (max-width: 1024px) {
 	.main .main-bar{
 		width:40vw;
 		left:-30vw;
+	}
+	#userpublish .body{
+		height:50vh;
+	}
+	#userpublish .body .left{
+		height: 45vh;
+	}
+	#userpublish .body .right{
+		display:none;
+	}
+	#userpublish textarea{
+		width:76vw;
+		height: 45vh;
 	}
 }
