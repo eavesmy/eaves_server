@@ -5,14 +5,14 @@
  */
 
 var app = require('../app');
-var debug = require('debug')('eaves:server');
+var debug = require('debug')('EAVES:server');
 var http = require('http');
 
 /**
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '8088');
+var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
 /**
@@ -88,4 +88,3 @@ function onListening() {
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
 }
-console.log('Welcome to the Eaves.')
