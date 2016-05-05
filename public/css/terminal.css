@@ -1,5 +1,44 @@
+*{
+	color:#333;
+	font-family:'msyh','Microsoft YaHei','微软雅黑';
+}
+input{
+	outline:none;
+}
 body{
-    margin:0;
-    padding:1vw;
+	width:90vw;
+    margin:0 auto;
     background: rgba(191, 189, 97, 0.47);
+}
+
+#terminal .title{
+	font-size:200%;
+	text-align: center;
+}
+#terminal .body{}
+#terminal .body .row{
+	margin:1vh 0;
+}
+#terminal .input{
+	margin:1vh 0;
+	border-bottom:1px solid #ccc;
+}
+#terminal .input .input-title{
+	width:10vw;
+}
+#terminal .input #user-input{
+	width:50vw;
+	border:none;
+	background: rgba(191, 189, 97, 0);
+	color: #333;
+	padding:1vh 1vw;
+}
+.text-logo{
+	color: #79c563;
+}
+.text-unactivated{
+	color: #a8a8a8;
+}
+.text-reminder{
+	color: #9fa9ff;
 }
