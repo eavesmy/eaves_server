@@ -1,32 +1,52 @@
 var tools = require('../tools');
 var Code = require('./terminal-code');
+var API = require('../api-routes');
 
-exports.render = function(req,res){
-    res.render('eaves-terminal',{
-        _privite:tools._info
+exports.render = function(req, res) {
+    res.render('eaves-terminal', {
+        _privite: tools._info
     });
 };
+exports.code = function(req, res) {
+    var CodeRes = function(status, info) {
+            (status === 404) ? (info = ' 您的指令不对哦～') : (true);
+            var main = {
+                _info: info,
+                _status: status
+            };
+            return res.send(main);
+        },
+        code = req.body._code,
+        query = req.body._query;
+        Code(code,query,CodeRes);
+};
 
+/*
 exports.code = function(req,res){
-    var CodeErr = function(info){
-        var err = {
-            info:info,
-            status:500
+    var CodeRes = function(status,info){
+        (status === 404)?(info=' 您的指令不对哦～'):(true);
+        var main = {
+            _info:info,
+            _status:status
         };
-        return res.send(err);
+        return res.send(main);
     }, FindOrder = function(code,query,callback){
-        (!Code[code])?(CodeErr('还没有这个命令哦～')):(callback(code,query));
+        (!Code[code])?(CodeRes(404)):(callback(code,query));
     }, FindQuery = function(code,query){
+        if (query.length === 1 && query[0] ===''){
+            query = 0;
+        }
         var i;
         for(i = 0;i<query.length;i++){
-            if(!Code[code].query[query[i]] || Code[code].query[query[i]]===undefined){
-                return CodeErr('没有这个参数哦～')
+            if(!Code[code].query[query[i]]||Code[code].query[query[i]]===undefined){
+                return CodeRes(404)
             }
         }
         RunCode(code,query);
     },RunCode = function(code,query){
-        res.send('命令：'+code+'有参数'+query+'可以执行');
-        //写到这里了，该写数据库了。
+        API.run(code,query,function(body){
+           CodeRes(200,body.run);
+        });
     };
     FindOrder(req.body._code,req.body._query.split(','),FindQuery);
-};
+};*/

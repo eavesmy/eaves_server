@@ -18,6 +18,8 @@ body{
 #terminal .body{}
 #terminal .body .row{
 	margin:1vh 0;
+	padding-left:2vw;
+	font-size:80%;
 }
 #terminal .input{
 	margin:1vh 0;
@@ -35,6 +37,9 @@ body{
 }
 .text-logo{
 	color: #79c563;
+}
+.text-waring{
+	color: #cc4c4b;
 }
 .text-unactivated{
 	color: #a8a8a8;

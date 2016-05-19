@@ -13,9 +13,15 @@ class Terminal extends React.Component{
             (e.keyCode === 13)?(CodeInterface()):(false)
         });
 
-        var CodeInterface = (a)=>{
-            a = document.getElementById('user-input').value;
-            CodeDeal(a);
+        var CodeInterface = ()=>{
+            var domShow = this.refs.userShow,
+                a = this.refs.userInput,
+                div = document.createElement('div');
+            div.setAttribute('class','text-reminder');
+            div.innerText = '>'+a.value;
+            domShow.appendChild(div);
+            CodeDeal(a.value);
+            a.value = '';
         };
 
         var CodeDeal = (_code)=>{
@@ -23,7 +29,6 @@ class Terminal extends React.Component{
             _code = _code.split(' ');
             code = _code.splice(0,1).toString();
             query = _code.toString();
-            console.log(code,query);
             ajax({
                 url:'/terminal',
                 method:'POST',
@@ -32,14 +37,17 @@ class Terminal extends React.Component{
                     _query:query
                 },
                 success:function(res){
-                    console.log(res);
+                    return CodeShow(res)
                 }
             });
         };
 
-        var CodeShow = (domShow)  =>{
-            domShow = document.getElementById('user-show');
-            console.log('codeshow')
+        var CodeShow = (main)  =>{
+            var domShow = this.refs.userShow,
+                row = document.createElement('div');
+            row.setAttribute('class','row');
+            (main._status === 404)?(row.innerHTML = '<span class="text-waring">'+main._status+'</span>'+main._info):(row.innerHTML = '<span>'+main._info+'</span>')
+            domShow.appendChild(row);
         }
     }
     render(){
@@ -47,7 +55,7 @@ class Terminal extends React.Component{
             <div className="title">
                 EAVES
             </div>
-            <div className="body" id="user-show">
+            <div ref="userShow" className="body">
                 {this.props.name},use <span className="text-reminder">help</span> to show how to use this.
             </div>
             <div className="input">
@@ -56,7 +64,7 @@ class Terminal extends React.Component{
                     <span className="text-logo">@EAVES</span>
                     $
                 </span>
-                <input id="user-input" type="text" placeholder="Tap here"/>
+                <input ref="userInput" id="user-input" type="text" placeholder="Tap here"/>
             </div>
         </div>
     }
