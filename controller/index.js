@@ -1,1 +1,1 @@
-exports.terminal = require('./terminal');
+ exports.terminal = require('./terminal');

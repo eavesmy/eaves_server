@@ -6,7 +6,7 @@ module.exports = {
       terminal:'./webpack-js/terminal.js'
   },
   output:{
-      path:'./public/js',
+      path:'./public/state/js',
       filename:'[name].js'
   },
   module: {

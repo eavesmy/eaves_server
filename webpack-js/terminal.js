@@ -37,7 +37,7 @@ class Terminal extends React.Component{
                     _query:query
                 },
                 success:function(res){
-                    return CodeShow(res)
+                    CodeShow(res);
                 }
             });
         };
