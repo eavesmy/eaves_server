@@ -73,30 +73,58 @@
 	    age: 25
 	};
 
-	var Terminal = function (_React$Component) {
-	    _inherits(Terminal, _React$Component);
+	var Contain = function (_React$Component) {
+	    _inherits(Contain, _React$Component);
 
-	    function Terminal() {
-	        _classCallCheck(this, Terminal);
+	    function Contain() {
+	        _classCallCheck(this, Contain);
 
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Terminal).apply(this, arguments));
+	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Contain).apply(this, arguments));
 	    }
 
-	    _createClass(Terminal, [{
+	    _createClass(Contain, [{
 	        key: 'render',
 	        value: function render() {
 	            return _react2.default.createElement(
 	                'div',
-	                null,
-	                'aaa'
+	                { className: 'contain' },
+	                'This is contain'
 	            );
 	        }
 	    }]);
 
-	    return Terminal;
+	    return Contain;
 	}(_react2.default.Component);
 
-	_reactDom2.default.render(_react2.default.createElement(Terminal, { name: 'editor' }), document.getElementById('terminal'));
+	var Input = function (_React$Component2) {
+	    _inherits(Input, _React$Component2);
+
+	    function Input() {
+	        _classCallCheck(this, Input);
+
+	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Input).apply(this, arguments));
+	    }
+
+	    _createClass(Input, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'input' },
+	                _react2.default.createElement('input', { type: 'text', id: 'user-input' })
+	            );
+	        }
+	    }]);
+
+	    return Input;
+	}(_react2.default.Component);
+
+	_reactDom2.default.render(_react2.default.createElement(
+	    'div',
+	    null,
+	    _react2.default.createElement(Contain, null),
+	    _react2.default.createElement(Input, null)
+	), document.getElementById('terminal'));
 
 /***/ },
 /* 1 */

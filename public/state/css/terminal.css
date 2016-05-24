@@ -1,6 +1,7 @@
 *{
 	color:#333;
 	font-family:'msyh','Microsoft YaHei','微软雅黑';
+	letter-spacing: 0.11em;
 }
 input{
 	outline:none;

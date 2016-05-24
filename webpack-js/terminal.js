@@ -7,14 +7,23 @@ let _info = {
     age:25
 };
 
-
-
-class Terminal extends React.Component{
+class Contain extends React.Component{
     render(){
-        return <div>
-            aaa
+        return <div className="contain">
+            This is contain
         </div>
     }
 }
 
-ReactDom.render(<Terminal name="editor" />,document.getElementById('terminal'));
+class Input extends React.Component{
+    render(){
+        return <div className="input">
+            <input type="text" id="user-input"/>
+        </div>
+    }
+}
+
+ReactDom.render(<div>
+    <Contain />
+    <Input />
+</div>,document.getElementById('terminal'));
