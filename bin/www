@@ -87,5 +87,5 @@ function onListening() {
     ? 'pipe ' + addr
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
-  console.log('Info : Server start on port ',port);
+  console.log('Info : Server start on port',port);
 }

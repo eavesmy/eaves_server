@@ -6,14 +6,12 @@ input{
 	outline:none;
 }
 body{
-	width:90vw;
+	width:80vw;
     margin:0 auto;
-    background: rgba(191, 189, 97, 0.47);
 }
 
-#terminal .title{
-	font-size:200%;
-	text-align: center;
+.title{
+	font-size:350%;
 }
 #terminal .body{}
 #terminal .body .row{
@@ -23,7 +21,9 @@ body{
 }
 #terminal .input{
 	margin:1vh 0;
-	border-bottom:1px solid #ccc;
+	border-bottom:2px ridge #646464;
+	font-size:140%;
+	font-weight: 600;
 }
 #terminal .input .input-title{
 	width:10vw;
@@ -34,9 +34,10 @@ body{
 	background: rgba(191, 189, 97, 0);
 	color: #333;
 	padding:1vh 1vw;
+	font-size: 90%;
 }
 .text-logo{
-	color: #79c563;
+	color: #39bf70;
 }
 .text-waring{
 	color: #cc4c4b;
