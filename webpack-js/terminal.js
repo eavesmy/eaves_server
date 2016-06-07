@@ -18,6 +18,7 @@ class Contain extends React.Component{
 class Input extends React.Component{
     render(){
         return <div className="input">
+            <span className="input-title">{this.props.name}</span>
             <input type="text" id="user-input"/>
         </div>
     }
@@ -26,4 +27,4 @@ class Input extends React.Component{
 ReactDom.render(<div>
     <Contain />
     <Input />
-</div>,document.getElementById('terminal'));
+</div>, document.getElementById('terminal'));

@@ -21,10 +21,13 @@ body{
 	font-size:80%;
 }
 #terminal .input{
+	width:80vw;
 	margin:1vh 0;
 	border-bottom:2px ridge #646464;
 	font-size:140%;
 	font-weight: 600;
+	position: absolute;
+	bottom:10vh;
 }
 #terminal .input .input-title{
 	width:10vw;
