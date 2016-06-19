@@ -14,8 +14,12 @@ body{
 .title{
 	font-size:350%;
 }
-#terminal .body{}
-#terminal .body .row{
+#terminal .contain{
+	height:80vh;
+	width:80vw;
+
+}
+#terminal .contain .row{
 	margin:1vh 0;
 	padding-left:2vw;
 	font-size:80%;
@@ -26,8 +30,6 @@ body{
 	border-bottom:2px ridge #646464;
 	font-size:140%;
 	font-weight: 600;
-	position: absolute;
-	bottom:10vh;
 }
 #terminal .input .input-title{
 	width:10vw;
