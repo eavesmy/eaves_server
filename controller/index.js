@@ -1,1 +1,0 @@
- exports.terminal = require('./terminal');
