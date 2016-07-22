@@ -1,1 +1,1 @@
-console.log('Server start.')
+var config = require('../package.json');global._error = require('../server/tools').error;var server = require('../server/net');server.listen(config.port);console.info('Server started');

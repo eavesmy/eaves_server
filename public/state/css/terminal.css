@@ -24,6 +24,24 @@ body{
 	padding-left:2vw;
 	font-size:80%;
 }
+
+
+#terminal .contain .popUp{
+	border:1px solid #ccc;
+	border-radius: 5px;
+	margin:0 auto;
+	max-width:60vw;
+	position: absolute;
+	top:40%;
+	left:50%;
+	transform: translate(-50%,-50%);
+	padding:1vw;
+	background: #eeeeee;
+	box-shadow: #ccc 5px 5px 10px;
+	display: none;
+}
+
+
 #terminal .input{
 	width:80vw;
 	margin:1vh 0;

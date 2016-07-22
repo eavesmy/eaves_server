@@ -2,7 +2,6 @@ var webpack = require('webpack');
 
 module.exports = {
   entry:{
-      eaves:'./webpack-js/eaves.js',
       terminal:'./webpack-js/terminal.js'
   },
   output:{

@@ -44,9 +44,15 @@
 /* 0 */
 /***/ function(module, exports) {
 
-	"use strict";
+	'use strict';
 
-	var listenEnter = function listenEnter() {};
+	var eaves = function eaves() {};
+
+	eaves.prototype.listenKey = function () {
+	    console.log('Start to listen key');
+	};
+
+	module.exports = eaves;
 
 /***/ }
 /******/ ]);
