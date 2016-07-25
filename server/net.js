@@ -1,4 +1,6 @@
-var server = require('http').createServer();
+var app = require('./app');
+
+var server = require('http').createServer(app);
 var io = require('socket.io')(server);
 
 var packMgr = require('./packMgr');
