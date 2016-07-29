@@ -1,26 +1,27 @@
 var url = require('url');
 var path = require('path');
-var viewPath = '/views/pages/';
 var jade = require('jade');
-var fs = require('fs');
+var fs = require('fs'); 
 
-var app = function (req, res) {
+var D =  require('./dictionary');
+
+var app = function(req, res) {
     var u = path.parse(req.url).name;
-    viewPath += (u + '.jade');
-    fs.exists(__dirname+viewPath, function (exists) {
-        if (!exists) {
-            res.writeHead(404, {'Content-Type': 'text/plain'});
-
-            res.write("This request URL " + viewPath + " was not found on this server.");
-
-            res.end();
-        }else{
-
-        }
-    })
+    console.log('Debug : get a url ->',u);
+    //viewPath += u;
+    /*fs.exists(__dirname + viewPath, function(exists) {
+        !exists ? router.notFound() : router.render();
+    });*/
 }
+/*router.notFound = function() {
+    
+    res.writeHead(404, {
+        'Content-Type': 'text/plain'
+    });
 
-/*var pathname = url.parse(req.url).pathname;
- pathname = pathname.replace('/', '') + '.jade';*/
+    res.write("This request URL " + viewPath + " was not found on this server.");
 
+    res.end();
+}
+*/
 module.exports = app;
