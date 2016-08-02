@@ -1,1 +1,0 @@
-exports.viewPath = '/views/pages/';
