@@ -4,17 +4,13 @@ head
 	meta(charset="UTF-8")
 	meta(name="viewport" content="width=device-width, initial-scale=1")
 	link(rel="stylesheet", href="/state/css/eaves.css")
-	title Document
+	title EAVES
 body
 	#top
 		span EAVES
 	#nav
-		.block aaa
-	script.
-		window.onload = function(){
-			var dom = document.getElementById('nav');
-			var h  =dom.offsetTop;
-			dom.style.top = h-75+'px';
-			console.log(h);
-		}
+		#nav-block
+			#nav-list
 	block content
+	script(src="http://cdn.bootcss.com/velocity/1.2.3/velocity.min.js")
+	script(src="/state/js/eaves.js")

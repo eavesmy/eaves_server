@@ -5,6 +5,8 @@
 html,body{
 	margin: 0;
 	padding: 0;
+	width: 100vw;
+	overflow: hidden;
 }
 
 #top{
@@ -27,12 +29,91 @@ html,body{
 #nav{
 	width: 90vw;
 	margin: 0 auto;
-	position: absolute;
+	position: relative;
+	top: -75px;
 	padding: 0 5vw;
 	/* background: #000; */
 }
-#nav .block{
+
+#nav #nav-block{
 	width: 150px;
 	height: 150px;
-	background: #000;
+	border: 1px solid #000;
+	overflow: hidden;
+}
+#nav #nav-block #nav-list {
+	position: relative;
+}
+#nav #nav-block #nav-list .block{
+	height: 150px;
+	background: #fff;
+	text-align:center;
+}
+#nav #nav-block #nav-list .block:hover{
+	cursor: pointer;
+}
+
+#head-bar {
+	width: 100vw;
+	font-size:140%;
+	display: flex;
+	background: #9FDDBE;
+	color: #3B3B3B;
+	position: absolute;
+	top: 5vh;
+	left: -80vw;
+	border-radius: 10px;
+	padding: 1vw;
+	border: 1px solid #ccc;
+}
+
+#head-bar div{
+	flex: 1;
+	cursor: pointer;
+	text-align: center;
+}
+
+#contain{
+	width: 90vw;
+	height: 100vh;
+	margin: 0 auto;
+	overflow-y: auto;
+}
+
+#contain .block{
+	width: 80vw;
+	margin: 2vh 10vw;
+	display: flex;
+}
+
+#contain .block .main{
+	flex: 5;
+	border: 1px solid #ccc;
+	border-radius: 10px;
+	padding: 2vw;
+	background: #eee;
+}
+
+#contain .block .space{
+	flex: 1;
+}
+#contain .block .index{
+	flex: 2;
+	border-left: 1px solid #000;
+}
+
+#contain .block .main .title{
+} 
+
+#contain .block .index{
+	
+}
+
+#contain .block .index .time{
+	position: relative;
+	bottom: 0;
+}
+#contain .block .index .author{
+	position: relative;
+	bottom: 0;
 }

@@ -2,7 +2,9 @@ var webpack = require('webpack');
 
 module.exports = {
   entry:{
-      terminal:'./webpack-js/terminal.js'
+      terminal:'./webpack-js/terminal.js',
+      home:'./webpack-js/home.js',
+      center:'./webpack-js/center.js'
   },
   output:{
       path:'./public/state/js',

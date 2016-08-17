@@ -1,3 +1,6 @@
+var nano = require('nano');
+
+
 var article = module.exports = {};
 
 article.save = function(req,res){

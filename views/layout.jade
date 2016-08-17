@@ -4,17 +4,13 @@ head
 	meta(charset="UTF-8")
 	meta(name="viewport" content="width=device-width, initial-scale=1")
 	link(rel="stylesheet", href="/state/css/eaves.css")
+	script(src="/state/js/center.js")
 	title Document
 body
-	#top
-		span EAVES
-	#nav
-		.block aaa
-	script.
-		window.onload = function(){
-			var dom = document.getElementById('nav');
-			var h  =dom.offsetTop;
-			dom.style.top = h-75+'px';
-			console.log(h);
-		}
+	#head-bar
+		.head-block EAVES
+		.head-block All
+		.head-block Text
+		.head-block Imgs
+		.head-block EAVES
 	block content
