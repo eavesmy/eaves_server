@@ -40,26 +40,22 @@
 /******/ 	return __webpack_require__(0);
 /******/ })
 /************************************************************************/
-/******/ ({
-
-/***/ 0:
+/******/ ([
+/* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var _eaves = __webpack_require__(176);
+	var _eaves = __webpack_require__(1);
 
 	var _eaves2 = _interopRequireDefault(_eaves);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	window.onload = function () {
-		(0, _eaves2.default)('#head-bar');
-	};
+	window.onload = function () {};
 
 /***/ },
-
-/***/ 176:
+/* 1 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -186,33 +182,20 @@
 	}
 	*/
 
-	var Eaves = function Eaves() {};
-
-	Eaves.prototype.animate = function (option, callback) {
-	    //Velocity(this, option)
-	    callback && callback();
-	};
-	Eaves.prototype.say = function () {
-	    console.log('aaa');
-	};
-	Eaves.prototype.on = function (event, cb) {
-	    console.log(this);
-	    this.addEventListener(event, function (e) {
-	        cb(this, e);
-	    });
+	var Eaves = {
+	    on: Document.prototype.addEventListener
 	};
 
 	var $ = module.exports = function (str) {
 	    var t = str.substr(0, 1),
 	        name = str.substr(1, str.length);
-	    var obj = new Eaves(),
-	        dom;
-
+	    var dom;
 	    t === '#' ? dom = document.getElementById(name) : dom = document.getElementsByClassName(name);
 
-	    return Eaves.prototype.on.bind(dom);
+	    Object.prototype.on = Eaves.on;
+
+	    return dom;
 	};
 
 /***/ }
-
-/******/ });
+/******/ ]);
