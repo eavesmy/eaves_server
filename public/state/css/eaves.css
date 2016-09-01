@@ -10,12 +10,17 @@ html,body{
 	overflow: hidden;
 }
 
+.select{
+	padding: 5px 10px;
+	border-radius: 5px;
+}
+
 #top{
 	width: 100vw;
 	height: 50vh;
 	background: #ccc;
 	opacity: 0.3;
-		border-bottom: 1px solid #000;
+	border-bottom: 1px solid #000;
 }
 #top span{
 	position: absolute;
@@ -24,7 +29,6 @@ html,body{
 	transform: translate(-50%, -50%);
 	font-size: 5vw;
 	letter-spacing: 1em;
-
 }
 
 #nav{
@@ -136,4 +140,46 @@ input.blog-head{
 	font-size: 160%;
 	font-weight: 600;
 	flex: 1;
+}
+.blog-head span select{
+	border-radius: 5px;
+}
+
+#blog-body{
+	width: 70vw;
+	margin: 0 10vw;
+}
+
+#blog-body .main{
+	display: flex;
+	height: 85vh;
+}
+#blog-body .main .blog-body{
+}
+
+#blog-write{
+	background: ;
+	flex: 5;
+	resize: none;
+	border: none;
+}
+#blog-opacity{
+	flex: 1;
+}
+#opacity-bar{
+	width: 1px;
+	border-left: 1px solid #ccc;
+	margin: 0 auto;
+	height: 83vh;
+	position: relative;
+	top: 2vh;
+}
+#opacity-bar-btn{
+	width: 50px;
+	height: 10px;
+	border-radius: 5px;
+	background: #000;
+	position: relative;
+	left: -25px;
+	cursor: pointer;
 }

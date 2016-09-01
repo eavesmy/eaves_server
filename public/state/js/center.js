@@ -40,8 +40,9 @@
 /******/ 	return __webpack_require__(0);
 /******/ })
 /************************************************************************/
-/******/ ([
-/* 0 */
+/******/ ({
+
+/***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -50,12 +51,29 @@
 
 	var _eaves2 = _interopRequireDefault(_eaves);
 
+	var _blog = __webpack_require__(177);
+
+	var _blog2 = _interopRequireDefault(_blog);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	window.onload = function () {};
+	window.onload = function () {
+		var inputArea = (0, _eaves2.default)('#blog-write');
+		var showArea = (0, _eaves2.default)('#blog-show');
+
+		_blog2.default.sync(inputArea, showArea);
+
+		var btn = (0, _eaves2.default)('#opacity-bar-btn');
+		var s, end;
+
+		btn.on('mousedown', _blog2.default.recordStartPosition);
+		btn.on('mousemove', _blog2.default.recordMovePosition);
+		btn.on('mouseup', _blog2.default.recordLeavePosition);
+	};
 
 /***/ },
-/* 1 */
+
+/***/ 1:
 /***/ function(module, exports) {
 
 	'use strict';
@@ -183,8 +201,15 @@
 	*/
 
 	var Eaves = {
-	    on: Document.prototype.addEventListener
+	    on: Document.prototype.addEventListener,
+	    animate: function animate(action, callback) {}
 	};
+
+	var arr = Object.keys(Eaves);
+
+	arr.forEach(function (opt) {
+	    Object.prototype[opt] = Eaves[opt];
+	});
 
 	var $ = module.exports = function (str) {
 	    var t = str.substr(0, 1),
@@ -192,10 +217,40 @@
 	    var dom;
 	    t === '#' ? dom = document.getElementById(name) : dom = document.getElementsByClassName(name);
 
-	    Object.prototype.on = Eaves.on;
-
 	    return dom;
 	};
 
+/***/ },
+
+/***/ 177:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var eaves = __webpack_require__(1);
+
+	var Blog = module.exports = {};
+
+	var text;
+
+	Blog.sync = function (a, b) {
+	    a.on('keyup', function () {
+	        b.innerHTML = a.value;
+	        console.log(b.innerHTML);
+	    });
+	};
+
+	Blog.setOpacity = function (e) {};
+
+	var mouseState = false;
+	Blog.recordStartPosition = function (e) {
+	    mouseState = true;
+	};
+	Blog.recordMovePosition = function (e) {};
+	Blog.recordLeavePosition = function (e) {
+	    mouseState = false;
+	};
+
 /***/ }
-/******/ ]);
+
+/******/ });

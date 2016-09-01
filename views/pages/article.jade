@@ -5,10 +5,18 @@ block content
 		#blog-main
 			#blog-head
 				input.blog-head(placeholder="Title")
-				.blog-head
+			.blog-head
 					span
-						select
+						select.select
+							option(value="0") 栏目选择 
 							option aaa
 							option bbb
 					span
 						input
+			#blog-body
+				.main
+					textarea#blog-write.blog-body(placeholder="Text here.")
+					#blog-opacity.blog-body
+						#opacity-bar
+							#opacity-bar-btn
+				#blog-show

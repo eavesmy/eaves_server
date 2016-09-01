@@ -121,16 +121,23 @@ eaves.init = function() {
 */
 
 var Eaves = {
-    on: Document.prototype.addEventListener
+    on: Document.prototype.addEventListener,
+    animate: function(action, callback) {
+
+    }
 }
+
+var arr = Object.keys(Eaves);
+
+arr.forEach(function(opt) {
+    Object.prototype[opt] = Eaves[opt];
+});
 
 var $ = module.exports = function(str) {
     var t = str.substr(0, 1),
         name = str.substr(1, str.length);
     var dom;
     t === '#' ? dom = document.getElementById(name) : dom = document.getElementsByClassName(name);
-
-    Object.prototype.on = Eaves.on
 
     return dom;
 };
