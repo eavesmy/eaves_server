@@ -11,13 +11,9 @@ block content
 					option() Tec
 				input.input(placeholder="添加关键字,以 ' , ' 分割")
 			.box-flex-2
-				button.btn.left-margin 保存
-				button.btn.left-margin 发布
-				button.btn.left-margin 删除
-		.row.box
-			.box-flex-5
-				textarea#blog-write(placeholder="Editor here.")
-				#blog-show
-			.box-flex-1
-				#blog-opacity.left-margin
-					#blog-opacity-btn
+				button.btn.left-margin#blog-btn-save 保存
+				button.btn.left-margin#blog-btn-push 发布
+				button.btn.left-margin#blog-btn-clear 清空
+		.row
+			textarea#blog-write(placeholder="Editor here.")
+			#blog-show

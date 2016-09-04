@@ -7,10 +7,12 @@ window.onload = function(){
 
 	blog.sync(inputArea,showArea);
 
-	var btn = $('#opacity-bar-btn');
-	var s,end;
+	var btnSave = $('#blog-btn-save');
+	btnSave.on('click',blog.save);
 
-	btn.on('mousedown',blog.recordStartPosition);
-	btn.on('mousemove',blog.recordMovePosition);
-	btn.on('mouseup',blog.recordLeavePosition);
+	var btnPush = $('#blog-btn-push');
+	btnPush.on('click',blog.push);
+
+	var btnClear = $('#blog-btn-clear');
+	btnClear.on('click',blog.clear);
 }
