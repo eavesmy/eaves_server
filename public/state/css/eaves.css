@@ -9,11 +9,54 @@ html,body{
 	width: 100vw;
 	overflow: hidden;
 }
-
-.select{
-	padding: 5px 10px;
-	border-radius: 5px;
+input{
+	padding: 0;
 }
+.box{
+	display: flex;
+}
+.box-flex-1{
+	flex:1;
+}
+.box-flex-2{
+	flex:2;
+}
+.box-flex-3{
+	flex:3;
+}
+.box-flex-4{
+	flex: 4;
+}
+.box-flex-5{
+	flex: 5;
+}
+
+
+.row{
+	padding: 10px 0;
+}
+
+.btn,.input{
+	margin: 5px 10px;
+}
+.btn{
+	border-radius: 5px;
+	border: 1px solid #ccc;
+	padding: 5px 10px;
+	height: 2.5em;
+}
+
+.input{
+	height: 1.5rem;
+	border-radius: 5px;
+	border: 1px solid #ccc;
+	padding: 5px 10px;
+}
+
+.left-margin{
+	margin-left: 20px;
+}
+
 
 #top{
 	width: 100vw;
@@ -123,63 +166,35 @@ html,body{
 	bottom: 0;
 }
 
-#blog-main{
-	height: 90vh;
-	margin: 5vh 0;
-}
-#blog-head{
-	width: 90vw;
-	height: 5vh;
-	border-bottom: 2px solid #ccc;
-	display: flex;
-	overflow: hidden;
-}
-
-input.blog-head{
-	border: none;
+#blog-title{
 	font-size: 160%;
-	font-weight: 600;
-	flex: 1;
-}
-.blog-head span select{
-	border-radius: 5px;
-}
-
-#blog-body{
-	width: 70vw;
-	margin: 0 10vw;
-}
-
-#blog-body .main{
-	display: flex;
-	height: 85vh;
-}
-#blog-body .main .blog-body{
-}
-
-#blog-write{
-	background: ;
-	flex: 5;
-	resize: none;
+	padding: 5px 0;
+	margin-top: 5vh;
+	width: 99%;
 	border: none;
+	border-bottom: 2px solid #ccc;
+}
+#blog-write,#blog-show{
+	width: 99%;
+	height: 30vh;
+	border: none;
+}
+#blog-write{
+	border-bottom: 1px solid #ccc;
+	resize: none;
 }
 #blog-opacity{
-	flex: 1;
+	width: 0px;
+	height: 60vh;
+	border: 1px solid #ccc;
 }
-#opacity-bar{
-	width: 1px;
-	border-left: 1px solid #ccc;
-	margin: 0 auto;
-	height: 83vh;
-	position: relative;
-	top: 2vh;
-}
-#opacity-bar-btn{
+#blog-opacity-btn{
 	width: 50px;
-	height: 10px;
+	height: 15px;
 	border-radius: 5px;
-	background: #000;
+	background: #ccc;
 	position: relative;
+	top: 0;
 	left: -25px;
 	cursor: pointer;
 }

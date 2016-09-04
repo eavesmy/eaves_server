@@ -2,21 +2,22 @@ extends ../layout
 
 block content
 	#contain
-		#blog-main
-			#blog-head
-				input.blog-head(placeholder="Title")
-			.blog-head
-					span
-						select.select
-							option(value="0") 栏目选择 
-							option aaa
-							option bbb
-					span
-						input
-			#blog-body
-				.main
-					textarea#blog-write.blog-body(placeholder="Text here.")
-					#blog-opacity.blog-body
-						#opacity-bar
-							#opacity-bar-btn
+		.row
+			input#blog-title(placeholder="Title")
+		.row.box
+			.box-flex-5
+				select.btn
+					option(value=0) 选择专栏
+					option() Tec
+				input.input(placeholder="添加关键字,以 ' , ' 分割")
+			.box-flex-2
+				button.btn.left-margin 保存
+				button.btn.left-margin 发布
+				button.btn.left-margin 删除
+		.row.box
+			.box-flex-5
+				textarea#blog-write(placeholder="Editor here.")
 				#blog-show
+			.box-flex-1
+				#blog-opacity.left-margin
+					#blog-opacity-btn
