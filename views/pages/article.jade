@@ -6,14 +6,14 @@ block content
 			input#blog-title(placeholder="Title")
 		.row.box
 			.box-flex-5
-				select.btn
+				select.btn#blog-cloumn
 					option(value=0) 选择专栏
-					option() Tec
-				input.input(placeholder="添加关键字,以 ' , ' 分割")
+					option(value="Tec") Tec
+				input.input#blog-keys(placeholder="添加关键字,以 ' , ' 分割")
 			.box-flex-2
 				button.btn.left-margin#blog-btn-save 保存
 				button.btn.left-margin#blog-btn-push 发布
 				button.btn.left-margin#blog-btn-clear 清空
 		.row
-			textarea#blog-write(placeholder="Editor here.")
+			textarea#blog-write(placeholder="Editor here.",oninput="this.editor.update()")
 			#blog-show

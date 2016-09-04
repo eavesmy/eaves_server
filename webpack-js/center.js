@@ -2,11 +2,13 @@ import $ from './func/eaves';
 import blog from './func/blog';
 
 window.onload = function(){
+
+	blog.message.author = 'editor';
 	var inputArea = $('#blog-write');
 	var showArea = $('#blog-show');
 
-	blog.sync(inputArea,showArea);
-
+	new blog.Sync(inputArea,showArea);
+	
 	var btnSave = $('#blog-btn-save');
 	btnSave.on('click',blog.save);
 

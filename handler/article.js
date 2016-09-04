@@ -8,7 +8,7 @@ article.render = function(req,res){
 };
 
 article.save = function(req,res){
-
+	console.log(req.body)
 };
 
 article.push = function(req,res){
