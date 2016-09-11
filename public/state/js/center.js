@@ -40,9 +40,8 @@
 /******/ 	return __webpack_require__(0);
 /******/ })
 /************************************************************************/
-/******/ ({
-
-/***/ 0:
+/******/ ([
+/* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -76,8 +75,7 @@
 	};
 
 /***/ },
-
-/***/ 1:
+/* 1 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -225,15 +223,14 @@
 	};
 
 /***/ },
-
-/***/ 2:
+/* 2 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	var eaves = __webpack_require__(1);
-	var reqwest = __webpack_require__(178);
-	var markdown = __webpack_require__(180).markdown;
+	var reqwest = __webpack_require__(3);
+	var markdown = __webpack_require__(5).markdown;
 
 	var Blog = module.exports = {};
 
@@ -275,142 +272,39 @@
 	};
 
 	Blog.push = function (text) {
-	    console.log(Blog.txt, 'push');
+	    reqwest({
+	        url: 'article/push',
+	        method: 'POST',
+	        data: Blog.message,
+	        error: function error(e) {
+	            console.log(e);
+	        },
+	        success: function success(data) {
+	            console.log(data);
+	        }
+	    });
 	};
 
-	Blog.clear = function (text) {
-	    console.log(Blog.txt, 'clear');
+	Blog.clear = function (text) {};
+
+	Blog.getArticle = function () {
+	    reqwest({
+	        url: 'article/getArticle',
+	        method: 'POST',
+	        data: {
+	            index: 0
+	        },
+	        error: function error(e) {
+	            console.log(e);
+	        },
+	        success: function success(data) {
+	            console.log(data);
+	        }
+	    });
 	};
 
 /***/ },
-
-/***/ 5:
-/***/ function(module, exports) {
-
-	// shim for using process in browser
-
-	var process = module.exports = {};
-
-	// cached from whatever global is present so that test runners that stub it
-	// don't break things.  But we need to wrap it in a try catch in case it is
-	// wrapped in strict mode code which doesn't define any globals.  It's inside a
-	// function because try/catches deoptimize in certain engines.
-
-	var cachedSetTimeout;
-	var cachedClearTimeout;
-
-	(function () {
-	  try {
-	    cachedSetTimeout = setTimeout;
-	  } catch (e) {
-	    cachedSetTimeout = function () {
-	      throw new Error('setTimeout is not defined');
-	    }
-	  }
-	  try {
-	    cachedClearTimeout = clearTimeout;
-	  } catch (e) {
-	    cachedClearTimeout = function () {
-	      throw new Error('clearTimeout is not defined');
-	    }
-	  }
-	} ())
-	var queue = [];
-	var draining = false;
-	var currentQueue;
-	var queueIndex = -1;
-
-	function cleanUpNextTick() {
-	    if (!draining || !currentQueue) {
-	        return;
-	    }
-	    draining = false;
-	    if (currentQueue.length) {
-	        queue = currentQueue.concat(queue);
-	    } else {
-	        queueIndex = -1;
-	    }
-	    if (queue.length) {
-	        drainQueue();
-	    }
-	}
-
-	function drainQueue() {
-	    if (draining) {
-	        return;
-	    }
-	    var timeout = cachedSetTimeout(cleanUpNextTick);
-	    draining = true;
-
-	    var len = queue.length;
-	    while(len) {
-	        currentQueue = queue;
-	        queue = [];
-	        while (++queueIndex < len) {
-	            if (currentQueue) {
-	                currentQueue[queueIndex].run();
-	            }
-	        }
-	        queueIndex = -1;
-	        len = queue.length;
-	    }
-	    currentQueue = null;
-	    draining = false;
-	    cachedClearTimeout(timeout);
-	}
-
-	process.nextTick = function (fun) {
-	    var args = new Array(arguments.length - 1);
-	    if (arguments.length > 1) {
-	        for (var i = 1; i < arguments.length; i++) {
-	            args[i - 1] = arguments[i];
-	        }
-	    }
-	    queue.push(new Item(fun, args));
-	    if (queue.length === 1 && !draining) {
-	        cachedSetTimeout(drainQueue, 0);
-	    }
-	};
-
-	// v8 likes predictible objects
-	function Item(fun, array) {
-	    this.fun = fun;
-	    this.array = array;
-	}
-	Item.prototype.run = function () {
-	    this.fun.apply(null, this.array);
-	};
-	process.title = 'browser';
-	process.browser = true;
-	process.env = {};
-	process.argv = [];
-	process.version = ''; // empty string to avoid regexp issues
-	process.versions = {};
-
-	function noop() {}
-
-	process.on = noop;
-	process.addListener = noop;
-	process.once = noop;
-	process.off = noop;
-	process.removeListener = noop;
-	process.removeAllListeners = noop;
-	process.emit = noop;
-
-	process.binding = function (name) {
-	    throw new Error('process.binding is not supported');
-	};
-
-	process.cwd = function () { return '/' };
-	process.chdir = function (dir) {
-	    throw new Error('process.chdir is not supported');
-	};
-	process.umask = function() { return 0; };
-
-
-/***/ },
-
-/***/ 178:
+/* 3 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -434,7 +328,7 @@
 	  } else {
 	    var XHR2
 	    try {
-	      XHR2 = __webpack_require__(179)
+	      XHR2 = __webpack_require__(4)
 	    } catch (ex) {
 	      throw new Error('Peer dependency `xhr2` required! Please npm install xhr2')
 	    }
@@ -1046,25 +940,22 @@
 
 
 /***/ },
-
-/***/ 179:
+/* 4 */
 /***/ function(module, exports) {
 
 	/* (ignored) */
 
 /***/ },
-
-/***/ 180:
+/* 5 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// super simple module for the most common nodejs use case.
-	exports.markdown = __webpack_require__(181);
+	exports.markdown = __webpack_require__(6);
 	exports.parse = exports.markdown.toHTML;
 
 
 /***/ },
-
-/***/ 181:
+/* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Released under MIT license
@@ -1196,7 +1087,7 @@
 
 	// node
 	function mk_block_inspect() {
-	  var util = __webpack_require__(182);
+	  var util = __webpack_require__(7);
 	  return "Markdown.mk_block( " +
 	          util.inspect(this.toString()) +
 	          ", " +
@@ -2797,8 +2688,7 @@
 
 
 /***/ },
-
-/***/ 182:
+/* 7 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global, process) {// Copyright Joyent, Inc. and other Node contributors.
@@ -3326,7 +3216,7 @@
 	}
 	exports.isPrimitive = isPrimitive;
 
-	exports.isBuffer = __webpack_require__(183);
+	exports.isBuffer = __webpack_require__(9);
 
 	function objectToString(o) {
 	  return Object.prototype.toString.call(o);
@@ -3370,7 +3260,7 @@
 	 *     prototype.
 	 * @param {function} superCtor Constructor function to inherit prototype from.
 	 */
-	exports.inherits = __webpack_require__(184);
+	exports.inherits = __webpack_require__(10);
 
 	exports._extend = function(origin, add) {
 	  // Don't do anything if add isn't an object
@@ -3388,11 +3278,135 @@
 	  return Object.prototype.hasOwnProperty.call(obj, prop);
 	}
 
-	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(5)))
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(8)))
 
 /***/ },
+/* 8 */
+/***/ function(module, exports) {
 
-/***/ 183:
+	// shim for using process in browser
+
+	var process = module.exports = {};
+
+	// cached from whatever global is present so that test runners that stub it
+	// don't break things.  But we need to wrap it in a try catch in case it is
+	// wrapped in strict mode code which doesn't define any globals.  It's inside a
+	// function because try/catches deoptimize in certain engines.
+
+	var cachedSetTimeout;
+	var cachedClearTimeout;
+
+	(function () {
+	  try {
+	    cachedSetTimeout = setTimeout;
+	  } catch (e) {
+	    cachedSetTimeout = function () {
+	      throw new Error('setTimeout is not defined');
+	    }
+	  }
+	  try {
+	    cachedClearTimeout = clearTimeout;
+	  } catch (e) {
+	    cachedClearTimeout = function () {
+	      throw new Error('clearTimeout is not defined');
+	    }
+	  }
+	} ())
+	var queue = [];
+	var draining = false;
+	var currentQueue;
+	var queueIndex = -1;
+
+	function cleanUpNextTick() {
+	    if (!draining || !currentQueue) {
+	        return;
+	    }
+	    draining = false;
+	    if (currentQueue.length) {
+	        queue = currentQueue.concat(queue);
+	    } else {
+	        queueIndex = -1;
+	    }
+	    if (queue.length) {
+	        drainQueue();
+	    }
+	}
+
+	function drainQueue() {
+	    if (draining) {
+	        return;
+	    }
+	    var timeout = cachedSetTimeout(cleanUpNextTick);
+	    draining = true;
+
+	    var len = queue.length;
+	    while(len) {
+	        currentQueue = queue;
+	        queue = [];
+	        while (++queueIndex < len) {
+	            if (currentQueue) {
+	                currentQueue[queueIndex].run();
+	            }
+	        }
+	        queueIndex = -1;
+	        len = queue.length;
+	    }
+	    currentQueue = null;
+	    draining = false;
+	    cachedClearTimeout(timeout);
+	}
+
+	process.nextTick = function (fun) {
+	    var args = new Array(arguments.length - 1);
+	    if (arguments.length > 1) {
+	        for (var i = 1; i < arguments.length; i++) {
+	            args[i - 1] = arguments[i];
+	        }
+	    }
+	    queue.push(new Item(fun, args));
+	    if (queue.length === 1 && !draining) {
+	        cachedSetTimeout(drainQueue, 0);
+	    }
+	};
+
+	// v8 likes predictible objects
+	function Item(fun, array) {
+	    this.fun = fun;
+	    this.array = array;
+	}
+	Item.prototype.run = function () {
+	    this.fun.apply(null, this.array);
+	};
+	process.title = 'browser';
+	process.browser = true;
+	process.env = {};
+	process.argv = [];
+	process.version = ''; // empty string to avoid regexp issues
+	process.versions = {};
+
+	function noop() {}
+
+	process.on = noop;
+	process.addListener = noop;
+	process.once = noop;
+	process.off = noop;
+	process.removeListener = noop;
+	process.removeAllListeners = noop;
+	process.emit = noop;
+
+	process.binding = function (name) {
+	    throw new Error('process.binding is not supported');
+	};
+
+	process.cwd = function () { return '/' };
+	process.chdir = function (dir) {
+	    throw new Error('process.chdir is not supported');
+	};
+	process.umask = function() { return 0; };
+
+
+/***/ },
+/* 9 */
 /***/ function(module, exports) {
 
 	module.exports = function isBuffer(arg) {
@@ -3403,8 +3417,7 @@
 	}
 
 /***/ },
-
-/***/ 184:
+/* 10 */
 /***/ function(module, exports) {
 
 	if (typeof Object.create === 'function') {
@@ -3433,5 +3446,4 @@
 
 
 /***/ }
-
-/******/ });
+/******/ ]);

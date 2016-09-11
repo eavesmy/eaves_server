@@ -1,4 +1,4 @@
-var nano = require('nano');
+var nano = require('nano')(config.couchdb);
 
 var article = module.exports = {};
 const pages = 10;
