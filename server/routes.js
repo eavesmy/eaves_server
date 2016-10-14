@@ -5,9 +5,6 @@ var handler = require('../handler');
 var home = handler.home;
 Router.get('/', home.render);
 
-var terminal = handler.terminal;
-Router.get('/terminal',terminal.render);
-
 var center = handler.center;
 Router.get('/center',center.render);
 

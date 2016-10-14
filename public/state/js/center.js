@@ -44,180 +44,51 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	var $ = __webpack_require__(1);
+	var blog = __webpack_require__(2);
 
-	var _eaves = __webpack_require__(1);
+	window.onload = function(){
 
-	var _eaves2 = _interopRequireDefault(_eaves);
+	/*	blog.message.author = 'editor';
+		var inputArea = $('#blog-write');
+		var showArea = $('#blog-show');
 
-	var _blog = __webpack_require__(2);
+		new blog.Sync(inputArea,showArea);
+		
+		var btnSave = $('#blog-btn-save');
+		btnSave.on('click',blog.save);
 
-	var _blog2 = _interopRequireDefault(_blog);
+		var btnPush = $('#blog-btn-push');
+		btnPush.on('click',blog.push);
 
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+		var btnClear = $('#blog-btn-clear');
+		btnClear.on('click',blog.clear);*/
 
-	window.onload = function () {
-
-		_blog2.default.message.author = 'editor';
-		var inputArea = (0, _eaves2.default)('#blog-write');
-		var showArea = (0, _eaves2.default)('#blog-show');
-
-		new _blog2.default.Sync(inputArea, showArea);
-
-		var btnSave = (0, _eaves2.default)('#blog-btn-save');
-		btnSave.on('click', _blog2.default.save);
-
-		var btnPush = (0, _eaves2.default)('#blog-btn-push');
-		btnPush.on('click', _blog2.default.push);
-
-		var btnClear = (0, _eaves2.default)('#blog-btn-clear');
-		btnClear.on('click', _blog2.default.clear);
-	};
+		var barBtn = $("#barBtn");
+		barBtn.animation({top:10+'vh'})
+	}
 
 /***/ },
 /* 1 */
 /***/ function(module, exports) {
 
-	'use strict';
-
-	/*var eaves = {};
-
-	eaves.assign = function(a, b, filter) {
-	    for (var k in b) {
-	        if (filter && !a[k]) continue;
-	        a[k] = b[k];
-	    }
-	    return a;
-	}
-
-	eaves.removeAnimate = function(dom) {
-	    var style = dom.getAttribute('style');
-	    console.log(1, style, dom.getAttribute('style'), dom);
-
-	    console.log(2, style, dom.getAttribute('style'), dom);
-	}
-
-	eaves.createHomeBlock = function(arr) {
-	    arr = [{
-	        img: '',
-	        text: 'Test block 1'
-	    }, {
-	        img: '',
-	        text: 'Test block 2'
-	    }, {
-	        img: '',
-	        text: 'Test block 3'
-	    }, {
-	        img: '',
-	        text: 'Test block 4'
-	    }, {
-	        img: '',
-	        text: 'Test block 5'
-	    }, {
-	        img: '',
-	        text: 'Test block 6'
-	    }, {
-	        img: '',
-	        text: 'Test block 7'
-	    }]
-
-	    var i = 0,
-	        l = arr.length;
-	    var navList = document.getElementById('nav-list');
-	    navList.style.height = arr.length * 150 + 'px';
-
-	    for (i; i < l; i++) {
-	        var dom = document.createElement('div');
-
-	        dom.setAttribute('class', 'block');
-	        dom.innerText = arr[i].text;
-
-	        navList.appendChild(dom);
-	    } // append block
-
-
-	    //console.log(maxWidth)
-	}
-
-	eaves.animation = function(dom, action, callback) {
-	    if (typeof dom !== 'object') {
-	        var _type = dom.substr(0, 1);
-	        var _name = dom.substr(1, dom.length);
-	        _type === '#' ? dom = document.getElementById(_name) : dom = document.getElementsByClassName(_name);
-	    }
-
-	    Velocity(dom, action)
-	    callback && callback(dom);
-	}
-
-	eaves.eventHomeBlockScroll = function() {
-	    var area = document.getElementById('nav-block');
-	    var _s, _e, interval;
-
-	    var mousedownEvent = function(e) {
-	        e.preventDefault();
-	        _s = e.y;
-	    }
-
-	    var mouseupEvent = function(e) {
-	        e.preventDefault();
-	        _e = e.y;
-
-	        interval = _e - _s;
-
-	        var dom = document.getElementById('nav-list');
-	        var h = dom.style.top;
-	        var height = dom.style.height;
-	        height = parseInt(height.substr(0, height.length - 2), 10) - 150;
-
-	        !h ? h = 0 : h = parseInt(h.substr(0, h.length - 2), 10);
-
-	        console.log(h, height);
-
-	        if (interval < -150 && h > -height) eaves.animation(dom, {
-	            top: h - 150
-	        }, eaves.listenHomeBlock);
-	        if (interval >= 150 && h < 0) eaves.animation(dom, {
-	            top: h + 150
-	        }, eaves.listenHomeBlock);
-	    }
-
-
-	    area.addEventListener('mousedown', mousedownEvent);
-	    document.addEventListener('mouseup', mouseupEvent);
-	    eaves.listenHomeBlock();
-	}
-
-	eaves.listenHomeBlock = function(dom) {
-	    var center; // get the absolute position of nav-lock,then check whitch block in list is the same;
-	}
-
-	eaves.init = function() {
-	    eaves.createHomeBlock();
-	    eaves.eventHomeBlockScroll();
-	}
-
-	/*window.onload = function() {
-	    eaves.init();
-	}
-	*/
-
 	var Eaves = {
-	    on: Document.prototype.addEventListener,
-	    animate: function animate(action, callback) {}
-	};
+	    _on:Document.prototype.addEventListener,
+	    animation:function(action,callback){
+	        Velocity(this, action);
+	        callback && callback(dom);
+	    }
+	}
 
-	var arr = Object.keys(Eaves);
 
-	arr.forEach(function (opt) {
-	    Object.prototype[opt] = Eaves[opt];
-	});
-
-	var $ = module.exports = function (str) {
+	var $ = module.exports = function(str) {
 	    var t = str.substr(0, 1),
 	        name = str.substr(1, str.length);
-	    var dom;
-	    t === '#' ? dom = document.getElementById(name) : dom = document.getElementsByClassName(name);
+	    var dom =  t === '#' ? document.getElementById(name) : document.getElementsByClassName(name);
+
+	    Object.keys(Eaves).forEach(function(opt){
+	        Object.prototype[opt] = Eaves[opt];
+	    });
 
 	    return dom;
 	};
@@ -225,8 +96,6 @@
 /***/ },
 /* 2 */
 /***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
 
 	var eaves = __webpack_require__(1);
 	var reqwest = __webpack_require__(3);
@@ -241,10 +110,10 @@
 	    time: '',
 	    keys: '',
 	    cloumn: ''
-	};
+	}
 
-	Blog.Sync = function (a, b) {
-	    this.update = function () {
+	Blog.Sync = function(a, b) {
+	    this.update = function() {
 	        b.innerHTML = markdown.toHTML(a.value);
 
 	        Blog.message.title = document.getElementById('blog-title').value;
@@ -257,51 +126,53 @@
 	    this.update();
 	};
 
-	Blog.save = function () {
+	Blog.save = function() {
 	    reqwest({
 	        url: 'article/save',
 	        method: 'POST',
 	        data: Blog.message,
-	        error: function error(e) {
+	        error: function(e) {
 	            console.log(e);
 	        },
-	        success: function success(data) {
-	            console.log(data);
+	        success: function(data) {
+	            console.log(data)
 	        }
 	    });
-	};
+	}
 
-	Blog.push = function (text) {
+	Blog.push = function(text) {
 	    reqwest({
 	        url: 'article/push',
 	        method: 'POST',
 	        data: Blog.message,
-	        error: function error(e) {
+	        error: function(e) {
 	            console.log(e);
 	        },
-	        success: function success(data) {
-	            console.log(data);
+	        success: function(data) {
+	            console.log(data)
 	        }
 	    });
-	};
+	}
 
-	Blog.clear = function (text) {};
+	Blog.clear = function(text) {
 
-	Blog.getArticle = function () {
+	}
+
+	Blog.getArticle = function() {
 	    reqwest({
 	        url: 'article/getArticle',
 	        method: 'POST',
 	        data: {
 	            index: 0
 	        },
-	        error: function error(e) {
+	        error: function(e) {
 	            console.log(e);
 	        },
-	        success: function success(data) {
-	            console.log(data);
+	        success: function(data) {
+	            console.log(data)
 	        }
 	    });
-	};
+	}
 
 /***/ },
 /* 3 */
@@ -2469,8 +2340,6 @@
 	};
 
 	function escapeHTML( text ) {
-	  if(typeof text !== 'string') return;
-	  
 	  return text.replace( /&/g, "&amp;" )
 	             .replace( /</g, "&lt;" )
 	             .replace( />/g, "&gt;" )
@@ -3285,7 +3154,6 @@
 /***/ function(module, exports) {
 
 	// shim for using process in browser
-
 	var process = module.exports = {};
 
 	// cached from whatever global is present so that test runners that stub it
@@ -3296,22 +3164,84 @@
 	var cachedSetTimeout;
 	var cachedClearTimeout;
 
+	function defaultSetTimout() {
+	    throw new Error('setTimeout has not been defined');
+	}
+	function defaultClearTimeout () {
+	    throw new Error('clearTimeout has not been defined');
+	}
 	(function () {
-	  try {
-	    cachedSetTimeout = setTimeout;
-	  } catch (e) {
-	    cachedSetTimeout = function () {
-	      throw new Error('setTimeout is not defined');
+	    try {
+	        if (typeof setTimeout === 'function') {
+	            cachedSetTimeout = setTimeout;
+	        } else {
+	            cachedSetTimeout = defaultSetTimout;
+	        }
+	    } catch (e) {
+	        cachedSetTimeout = defaultSetTimout;
 	    }
-	  }
-	  try {
-	    cachedClearTimeout = clearTimeout;
-	  } catch (e) {
-	    cachedClearTimeout = function () {
-	      throw new Error('clearTimeout is not defined');
+	    try {
+	        if (typeof clearTimeout === 'function') {
+	            cachedClearTimeout = clearTimeout;
+	        } else {
+	            cachedClearTimeout = defaultClearTimeout;
+	        }
+	    } catch (e) {
+	        cachedClearTimeout = defaultClearTimeout;
 	    }
-	  }
 	} ())
+	function runTimeout(fun) {
+	    if (cachedSetTimeout === setTimeout) {
+	        //normal enviroments in sane situations
+	        return setTimeout(fun, 0);
+	    }
+	    // if setTimeout wasn't available but was latter defined
+	    if ((cachedSetTimeout === defaultSetTimout || !cachedSetTimeout) && setTimeout) {
+	        cachedSetTimeout = setTimeout;
+	        return setTimeout(fun, 0);
+	    }
+	    try {
+	        // when when somebody has screwed with setTimeout but no I.E. maddness
+	        return cachedSetTimeout(fun, 0);
+	    } catch(e){
+	        try {
+	            // When we are in I.E. but the script has been evaled so I.E. doesn't trust the global object when called normally
+	            return cachedSetTimeout.call(null, fun, 0);
+	        } catch(e){
+	            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error
+	            return cachedSetTimeout.call(this, fun, 0);
+	        }
+	    }
+
+
+	}
+	function runClearTimeout(marker) {
+	    if (cachedClearTimeout === clearTimeout) {
+	        //normal enviroments in sane situations
+	        return clearTimeout(marker);
+	    }
+	    // if clearTimeout wasn't available but was latter defined
+	    if ((cachedClearTimeout === defaultClearTimeout || !cachedClearTimeout) && clearTimeout) {
+	        cachedClearTimeout = clearTimeout;
+	        return clearTimeout(marker);
+	    }
+	    try {
+	        // when when somebody has screwed with setTimeout but no I.E. maddness
+	        return cachedClearTimeout(marker);
+	    } catch (e){
+	        try {
+	            // When we are in I.E. but the script has been evaled so I.E. doesn't  trust the global object when called normally
+	            return cachedClearTimeout.call(null, marker);
+	        } catch (e){
+	            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error.
+	            // Some versions of I.E. have different rules for clearTimeout vs setTimeout
+	            return cachedClearTimeout.call(this, marker);
+	        }
+	    }
+
+
+
+	}
 	var queue = [];
 	var draining = false;
 	var currentQueue;
@@ -3336,7 +3266,7 @@
 	    if (draining) {
 	        return;
 	    }
-	    var timeout = cachedSetTimeout(cleanUpNextTick);
+	    var timeout = runTimeout(cleanUpNextTick);
 	    draining = true;
 
 	    var len = queue.length;
@@ -3353,7 +3283,7 @@
 	    }
 	    currentQueue = null;
 	    draining = false;
-	    cachedClearTimeout(timeout);
+	    runClearTimeout(timeout);
 	}
 
 	process.nextTick = function (fun) {
@@ -3365,7 +3295,7 @@
 	    }
 	    queue.push(new Item(fun, args));
 	    if (queue.length === 1 && !draining) {
-	        cachedSetTimeout(drainQueue, 0);
+	        runTimeout(drainQueue);
 	    }
 	};
 
