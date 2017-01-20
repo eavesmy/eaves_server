@@ -1,0 +1,25 @@
+{
+  "name": "eaves",
+  "version": "1.0.0",
+  "description": "Personal website project.",
+  "main": "app.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zdy23216340/eaves.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zdy23216340/eaves/issues"
+  },
+  "homepage": "https://github.com/zdy23216340/eaves#readme",
+  "dependencies": {
+    "colors": "^1.1.2",
+    "koa": "^2.0.0-alpha.7",
+    "koa-router": "^7.0.1",
+    "nano": "^6.2.0"
+  }
+}
