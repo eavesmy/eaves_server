@@ -1,0 +1,102 @@
+*{
+	font-family: "msyh";
+	outline: none;
+}
+html,body{
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+textarea{
+	resize: none;
+}
+
+#main{
+	width: 100vw;
+	margin: 0 auto;
+}
+
+#showDomain{
+	height: 90vh;
+	overflow: none;
+}
+
+#inputDomain{
+	width: 200vw;
+	background: #000;
+	height:10vh;
+	display: flex;
+	position: absolute;
+	left:-100vw;
+	line-height: 10vh;
+	overflow:none;
+}
+#inputDomain span{
+	margin-left: 5vw;
+}
+
+#inputDomain .bar{
+	flex:1;
+}
+
+#selectBar{
+	background: #68C89F;
+}
+
+#selectBar .title{
+	font-size: 160%;
+	font-weight: 800;
+	color: #fff;
+}
+#selectBar .info{
+	color: #DFDFDF;
+	margin-left: 1vw;
+}
+
+#terminalBar{
+	background: #fff;
+}
+
+#terminalBar #userName{
+	font-size: 140%;
+	line-height: 13vh;
+}
+
+#terminalBar #userInput{
+	width: 60vw;
+	margin-left: 5vw;
+	border: none;
+	border-bottom: 1px solid #000;	
+	font-size: 140%;
+}
+
+.plugin{
+	padding: 2vw;
+	font-size: 140%;
+	position:absolute;
+}
+
+/* 
+	Blog page
+ */
+#blog-title{
+	border: none;
+	border-bottom: 1px solid #000;
+	width: 100%;
+	font-size: 160%;
+}
+
+#blog-text{
+	width: 100%;
+	height: 72vh;
+	font-size:80%;
+	border: none;
+	border-bottom: 1px solid #ccc;
+}
+
+#blog-tags{
+	width: 100%;
+	height: 5vh;
+	font-size: 80%;
+	border:none;
+}
