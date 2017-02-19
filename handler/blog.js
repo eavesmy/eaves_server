@@ -1,19 +1,23 @@
 var a_db = require('../manager/dbMgr').A_db;
+var preTools = require('../preTools');
 
-var blog = module.exports = {
+module.exports = {
 
-  save: function(res,next) {
-    const t = typeof res;
-    if (t !== 'object') return console.trace("Argument type Error ,must be an object.");
+  save: function(ctx,next) {
+    let receiveData = ctx.request.fields;
+    if (typeof receiveData !== 'object' ||!receiveData ) return console.trace("Argument type Error ,must be an object.");
 
-    var receivedForm;
+    receiveData._id = preTools.Date.timeStamp();
+    //receiveData.author = "";
+    receiveData.tags = receiveData.tags.split(" ");
 
-    console.log(res);
-    /*a_db.insert(res,function(err,body){
+    //console.log(receiveData);
+    a_db.insert(receiveData,function(err,body){
     	if(err) throw new Error(err);
 
-        
-    });*/
+      console.log(ctx,body);
+      ctx.body = "Hello";
+    });
   },
 
   delete: function() {

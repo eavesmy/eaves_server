@@ -1,8 +1,9 @@
 var colors = require('colors');
 
-var Koa = require('koa');
+var BodyParse = require('koa-better-body');
 var Router = require('koa-router');
-var serve = require('koa-static-server');
+var StaticServe = require('koa-static-server');
+var Koa = require('koa');
 
 var app = new Koa();
 
@@ -10,8 +11,12 @@ var Router = new Router();
 var routes = require('./routes')(Router);
 
 app
+  .use(BodyParse())
   .use(Router.routes())
-  .use(serve({rootDir: __dirname, index: "/views/main.html"}));
+  .use(StaticServe({
+    rootDir: __dirname,
+    index: "/views/main.html"
+  }));
 
 
 app.listen("8080", function() {

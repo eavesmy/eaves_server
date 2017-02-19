@@ -53,6 +53,10 @@ class Dw {
 window.addEventListener("keypress", (e) => {
   let _result = e.charCode === 13;
 
+  (function(){
+    //if(e.charCode === 95){}
+  })();
+
   if (!_result) return;
 
   let _code = document.getElementById("userInput").value;
