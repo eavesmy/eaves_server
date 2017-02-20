@@ -11,15 +11,10 @@ var a = module.exports = {
       let dateResult = "";
 
       dateResult += y;
-      dateResult += "y";
       dateResult += m;
-      dateResult +="m";
       dateResult += d;
-      dateResult += "d";
       dateResult += h;
-      dateResult += "h";
       dateResult += min;
-      dateResult += "min";
 
       let random = Math.random() * 1000;
 
@@ -31,5 +26,3 @@ var a = module.exports = {
     }
   }
 };
-
-console.log(a.Date.timeStamp());

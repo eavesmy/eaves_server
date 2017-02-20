@@ -49,21 +49,19 @@ module.exports = {
         var blogStr = new FormData();
         blogStr.append("json", JSON.stringify(article));
 
-        console.log(blogStr, article);
-
         fetch(config.path.blog.publish, {
           method: "POST",
           headers: {
             "Content-Type": "application/json"
           },
-          credentials:"include",
+          credentials: "include",
           body: JSON.stringify(article)
         })
           .then(function(res) {
             console.log(res);
           })
           .then(function(err) {
-            console.log(err);
+            if (err) console.log(err);
           });
 
       },
