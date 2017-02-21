@@ -11,18 +11,18 @@ module.exports = {
     //receiveData.author = "";
     receiveData.tags = receiveData.tags.split(" ");
 
-    //console.log("Check article ->",receiveData);
     ctx.status = 200;
-    ctx.body = "aaa";
+    ctx.body = {
+      data:"Test"
+    };
 
     a_db.insert(receiveData,function(err,body){
     	if(err) throw new Error(err);
 
-      //ctx.status = 200;
-
+      //ctx    can't use on here.
+      
     });
 
-    console.log(a)
   },
 
   delete: function() {

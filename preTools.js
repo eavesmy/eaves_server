@@ -1,4 +1,4 @@
-var a = module.exports = {
+module.exports = {
   Date: {
     timeStamp: function() {
       let date = new Date(),
