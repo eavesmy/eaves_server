@@ -1,83 +1,80 @@
-const program = require('./program');
+var program = require('./program');
 
-const codeList = Object.keys(program);
+var codeList = Object.keys(program);
 
-class Dw {
-  constructor(_code) {
+var Dw = function(_code) {
     this.str = _code;
-  }
+};
 
-  splitCode() {
+Dw.prototype.splitCode = function() {
     this._arr = this.str.split(" ");
 
     this._input = {
-      code: this._arr.splice(0, 1)[0],
-      parma: this._arr
+        code: this._arr.splice(0, 1)[0],
+        parma: this._arr
     };
 
     this.str = null;
     this._arr = null;
 
     return this._input;
-  }
+};
 
-  inputCheck() {
-    let t = typeof this.str;
+Dw.prototype.inputCheck = function() {
+    var t = typeof this.str;
 
     if (t !== 'string') return false;
 
-    let _input = this.splitCode();
+    var _input = this.splitCode();
 
     return codeList.indexOf(_input.code) > -1;
-  }
+};
 
-  argsHook() {
+Dw.prototype.argsHook = function() {
     var arrFunc = [];
 
-    let len = this._input.parma.length;
-    
-    for (let i = 0; i < len; i++) {
+    var len = this._input.parma.length;
 
-      let opt = this._input.parma[i];
-      let handler = this.handler.args[opt];
+    for (var i = 0; i < len; i++) {
 
-      if (!!handler) arrFunc.push(handler);
+        var opt = this._input.parma[i];
+        var handler = this.handler.args[opt];
+
+        if (!!handler) arrFunc.push(handler);
     }
 
     return arrFunc;
-  }
-
-}
+};
 
 
 window.addEventListener("keypress", (e) => {
-  let _result = e.charCode === 13;
+    var _result = e.charCode === 13;
 
-  (function(){
-    //if(e.charCode === 95){}
-  })();
+    (function() {
+        //if(e.charCode === 95){}
+    })();
 
-  if (!_result) return;
+    if (!_result) return;
 
-  let _code = document.getElementById("userInput").value;
+    var _code = document.getElementById("userInput").value;
 
-  let dw = new Dw(_code);
+    var dw = new Dw(_code);
 
-  if (!dw.inputCheck()) return;
+    if (!dw.inputCheck()) return;
 
-  dw.handler = program[dw._input.code];
-  let targetDomName = dw.handler.plugin;
+    dw.handler = program[dw._input.code];
+    var targetDomName = dw.handler.plugin;
 
-  var targetDom = document.getElementById(targetDomName);
+    var targetDom = document.getElementById(targetDomName);
 
-  let args = dw._input.parma;
+    var args = dw._input.parma;
+    
+    if (!args.length) return dw.handler.default(targetDom);
 
-  if (!args.length) return dw.handler.default(targetDom);
+    var funcLine = dw.argsHook();
 
-  let funcLine = dw.argsHook();
-
-  funcLine.forEach(function(opt){
-    opt(targetDom);
-  });
+    funcLine.forEach(function(opt) {
+        opt(targetDom);
+    });
 
 });

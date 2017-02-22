@@ -10,6 +10,8 @@ var app = new Koa();
 var Router = new Router();
 var routes = require('./routes')(Router);
 
+app.keys = "testCookiesKey";
+
 app
   .use(BodyParse())
   .use(Router.routes())
@@ -17,7 +19,6 @@ app
     rootDir: __dirname,
     index: "/views/main.html"
   }));
-
 
 app.listen("8080", function() {
   console.log("=======================================".green);
