@@ -11,7 +11,6 @@ module.exports = {
     //receiveData.author = "";
     receiveData.tags = receiveData.tags.split(" ");
 
-
     var db_status = a_db.insert(receiveData, function(err, body) {
       if (err) throw new Error(err);
 

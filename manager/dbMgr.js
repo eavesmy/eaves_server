@@ -2,6 +2,15 @@ var nano = require('nano')('http://localhost:5984');
 var article = nano.use("article");
 
 var dbMgr = module.exports = {
+	_list : [],
 	
-	A_db : article
+	_db:article,
+
+	insert:function(body){
+
+	},
+
+	loop:function(){
+		
+	}
 };
