@@ -7,6 +7,9 @@ module.exports = {
     plugin: "plugin-home",
     default:(dom)=>{
       pluginAdd(dom);
+    },
+    render:function(article){
+
     }
   },
   help: {
