@@ -1,7 +1,11 @@
 var dbMgr = require('./manager/dbMgr');
+var containMgr = require('./manager/containMgr');
 
 const loop=module.exports = function(){
 
-	dbMgr.check();
-	setTimeout(loop,500);
+	dbMgr.handler();
+	
+	containMgr.checkDefaultList();
+
+	setTimeout(loop,200);
 };

@@ -68,7 +68,7 @@ window.addEventListener("keypress", (e) => {
     var targetDom = document.getElementById(targetDomName);
 
     var args = dw._input.parma;
-    
+
     if (!args.length) return dw.handler.default(targetDom);
 
     var funcLine = dw.argsHook();

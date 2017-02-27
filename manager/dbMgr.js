@@ -1,16 +1,45 @@
 var nano = require('nano')('http://localhost:5984');
+var containMgr = require('./containMgr');
 
-var dbData = function(db,type,body){
-	this.db = db;
-	this.type = type;
-	this.body = body;
+var dbData = function(db, type, body,cb) {
+
+  this.dbName = db;
+  this.db;
+  this.type = type;
+  this.body = body;
+  this.cb = cb;
 };
 
-dbData.prototype.insert = function(db,cb){
-	db.insert(this.body,cb);
+dbData.prototype.switch = function(cb) {
+
+  switch (this.type) {
+    case "insert":
+      this.insert(cb);
+      break;
+    case "view":
+      this.view(cb);
+  }
+
 };
 
-dbData.prototype.delete = function(){};
+dbData.prototype.insert = function(cb) {
+  this.db.insert(this.body, cb);
+};
+
+dbData.prototype.delete = function() {
+
+};
+
+dbData.prototype.view = function(cb){
+  var that = this;
+
+  that.db.view(this.body.designName,this.body.viewName,function(err,body){
+    cb(null,body);
+
+    if(that.cb) that.cb(body);
+    
+  });
+};
 
 
 var dbMgr = module.exports = {
@@ -19,11 +48,10 @@ var dbMgr = module.exports = {
 
   _list: [],
 
-  insert:function(db,type,body){
-  	var data = new dbData(arguments);
+  insert: function(db, type, body,cb) {
+    var data = new dbData(db, type, body,cb);
 
-  	
-  	
+    this._list.push(data);
   },
 
   loadDB: function(dbName) {
@@ -32,14 +60,31 @@ var dbMgr = module.exports = {
 
     if (!exists) return console.trace("Not exists this db ->", dbName);
 
-    this._db = nano.use(dbName);
+    return nano.use(dbName);
   },
 
-
-  check: function() {
-    var len = this._list.length;
+  handler: function() {
+    var that = this;
+    var len = that._list.length;
     if (!len) return;
 
+    var _data = that._list[0];
 
+    if (!_data) {
+      that._list.splice(0, 1);
+      return;
+    }
+
+  _data.db = that.loadDB(_data.dbName);
+
+    _data.switch(function(err, body) {
+
+      if (err) throw new Error(err);
+
+      if (!!body) {
+        //console.log("check db view list -> ",body);
+        that._list.splice(0, 1);
+      }
+    });
   }
 };

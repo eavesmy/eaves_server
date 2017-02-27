@@ -1,4 +1,4 @@
-var a_db = require('../manager/dbMgr').A_db;
+var dbMgr = require('../manager/dbMgr');
 var preTools = require('../preTools');
 
 module.exports = {
@@ -11,12 +11,9 @@ module.exports = {
     //receiveData.author = "";
     receiveData.tags = receiveData.tags.split(" ");
 
-    var db_status = a_db.insert(receiveData, function(err, body) {
-      if (err) throw new Error(err);
+    dbMgr.insert("article","insert",receiveData);
 
-    });
-
-    if (!!db_status.writable) ctx.status = 200;
+    ctx.status = 200;
   },
 
   delete: function() {

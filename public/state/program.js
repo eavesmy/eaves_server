@@ -1,10 +1,13 @@
-var config = require('./config');
 var pluginAdd = require('./pluginAdd');
+var netMgr = require('./netMgr');
 //var vuePlugin = require('./plugin');
 
 module.exports = {
   home: {
     plugin: "plugin-home",
+    default:(dom)=>{
+      pluginAdd(dom);
+    }
   },
   help: {
     plugin: "plugin-help",
@@ -48,23 +51,9 @@ module.exports = {
         var blogStr = new FormData();
         blogStr.append("json", JSON.stringify(article));
 
-        fetch(config.path.blog.publish, {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json"
-            },
-            credentials: "include",
-            body: JSON.stringify(article)
-          })
-          .then(function(res) {
-            var res_status = res.status;
-            if(res_status === 200) {
-               
-            }
-          })
-          .then(function(err) {
-            if (err) console.log(err);
-          });
+        var status = netMgr.post(config.path.blog.publish,JSON.stringify(article));
+
+        if(!!status.err) console.log("Fetch failed");
 
       },
       "-s": (dom) => {},
@@ -72,6 +61,7 @@ module.exports = {
       "-t": (dom) => {},
       "-d": (dom) => {},
       "-h": (dom) => {},
+      "-v": (dom) => {}
     }
   }
 };

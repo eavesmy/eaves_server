@@ -71,9 +71,11 @@ textarea{
 }
 
 .plugin{
+	width: 80vw;
 	padding: 2vw;
 	font-size: 140%;
 	position:absolute;
+	margin-left: 7vw;
 }
 
 /* 
@@ -99,4 +101,30 @@ textarea{
 	height: 5vh;
 	font-size: 80%;
 	border:none;
+}
+
+/*
+	Home page
+*/
+#plugin-home .home-block{
+	margin: 1vw auto;
+	border-radius: 5px;
+	padding-top: 10px;
+	border: 1px solid #ccc;
+}
+
+#plugin-home .home-block .title .text{
+	border-bottom:1px solid #eee;
+	padding: 5px 10px;
+	font-size: 140%;
+}
+
+#plugin-home .home-block .title .no{
+	font-size: 70%;
+	color: #ccc;
+}
+
+#plugin-home .home-block .contain{
+	font-size: 100%;
+	padding: 2px 10px;
 }

@@ -1,4 +1,5 @@
 var Wp = require('webpack');
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 const _path = "./public/state/";
 
@@ -16,6 +17,8 @@ module.exports = {
 
   resolve: {
     extensions: ['.js', '.json']
-  }
+  },
+
+  devtool: "source-map", // any "source-map"-like devtool is possible
 
 };
