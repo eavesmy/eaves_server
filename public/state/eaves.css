@@ -17,8 +17,9 @@ textarea{
 }
 
 #showDomain{
+	width: 100vw;
 	height: 90vh;
-	overflow: none;
+	overflow-y: auto;
 }
 
 #inputDomain{
@@ -74,8 +75,7 @@ textarea{
 	width: 80vw;
 	padding: 2vw;
 	font-size: 140%;
-	position:absolute;
-	margin-left: 7vw;
+	margin: 0 auto;
 }
 
 /* 
@@ -106,6 +106,9 @@ textarea{
 /*
 	Home page
 */
+#plugin-home {
+	overflow-y: auto;
+}
 #plugin-home .home-block{
 	margin: 1vw auto;
 	border-radius: 5px;

@@ -5,10 +5,48 @@ var netMgr = require('./netMgr');
 module.exports = {
   home: {
     plugin: "plugin-home",
-    default:(dom)=>{
+    default: (dom) => {
       pluginAdd(dom);
     },
-    render:function(article){
+    render: function(article) {
+      var blockDom = document.createElement("div"),
+       titleDom = document.createElement("div"),
+       titleTextDom = document.createElement("span"),
+       titleNoDom = document.createElement("span"),
+       containDom = document.createElement("div");
+
+       blockDom.className = "home-block";
+       titleDom.className = "title";
+       titleTextDom.className = "text";
+       titleNoDom.className = "no";
+       containDom.className = "contain";
+
+       blockDom
+       .appendChild(titleDom)
+       .appendChild(titleTextDom);
+
+       titleDom.appendChild(titleNoDom);
+
+       blockDom.appendChild(containDom);
+
+       titleTextDom.innerText = article.title;
+       titleNoDom.innerText = article._id;
+       containDom.innerText = article.contain;
+
+/*      let template = ` 
+        <div class="home-block">
+          <div class="title"> 
+            <span class="text">${article.title}</span>
+            <span class="no"> No.${article._id}</span>
+            </div>
+          <div class="contain">${article.contain}</div>
+        </div>
+      `;*/
+      var dom = document.getElementById("plugin-home");
+      blockDom.style.display = "none";
+
+      
+      dom.appendChild(blockDom);
 
     }
   },
@@ -54,9 +92,9 @@ module.exports = {
         var blogStr = new FormData();
         blogStr.append("json", JSON.stringify(article));
 
-        var status = netMgr.post(config.path.blog.publish,JSON.stringify(article));
+        var status = netMgr.post(config.path.blog.publish, JSON.stringify(article));
 
-        if(!!status.err) console.log("Fetch failed");
+        if (!!status.err) console.log("Fetch failed");
 
       },
       "-s": (dom) => {},

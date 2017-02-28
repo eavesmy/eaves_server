@@ -1,5 +1,6 @@
 global.config = require('./config');
 var netMgr = require('./netMgr');
+var program = require('./program');
 
 var hiddenPlugin = function() {
   let arr_dom = document.getElementsByClassName("plugin");
@@ -19,13 +20,20 @@ var loadHome = function() {
   var pages = netMgr.post(config.path.home.getMain);
 
   if (pages.err) return pagres.err.then(function(err) {
-    console.log(err);
+    throw new Error(err);
   });
 
   pages.success.then(function(res) {
     res.text()
       .then(function(articles) {
         articles = JSON.parse(articles);
+
+        articles.forEach(function(_article){
+
+          program.home.render(_article);
+
+        });
+
       });
   });
 };

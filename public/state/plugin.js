@@ -4,8 +4,5 @@ var Vue = require('vue');
 Vue.config.devtools = false;
 
 module.exports = {
-  Blog: new Vue({
-    el: "#plugin-blog",
-    name: "blog",
-  })
+	
 };
