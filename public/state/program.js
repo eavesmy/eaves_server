@@ -1,51 +1,52 @@
+var Animate = require('velocity-animate');
 var pluginAdd = require('./pluginAdd');
 var netMgr = require('./netMgr');
 //var vuePlugin = require('./plugin');
 
 module.exports = {
   home: {
+
     plugin: "plugin-home",
+
     default: (dom) => {
       pluginAdd(dom);
     },
+
     render: function(article) {
       var blockDom = document.createElement("div"),
-       titleDom = document.createElement("div"),
-       titleTextDom = document.createElement("span"),
-       titleNoDom = document.createElement("span"),
-       containDom = document.createElement("div");
+        titleDom = document.createElement("div"),
+        titleTextDom = document.createElement("span"),
+        titleNoDom = document.createElement("span"),
+        containDom = document.createElement("div");
 
-       blockDom.className = "home-block";
-       titleDom.className = "title";
-       titleTextDom.className = "text";
-       titleNoDom.className = "no";
-       containDom.className = "contain";
+      blockDom.className = "home-block";
+      titleDom.className = "title";
+      titleTextDom.className = "text";
+      titleNoDom.className = "no";
+      containDom.className = "contain";
 
-       blockDom
-       .appendChild(titleDom)
-       .appendChild(titleTextDom);
+      blockDom
+        .appendChild(titleDom)
+        .appendChild(titleTextDom);
 
-       titleDom.appendChild(titleNoDom);
+      titleDom.appendChild(titleNoDom);
 
-       blockDom.appendChild(containDom);
+      blockDom.appendChild(containDom);
 
-       titleTextDom.innerText = article.title;
-       titleNoDom.innerText = article._id;
-       containDom.innerText = article.contain;
+      titleTextDom.innerText = article.title;
+      titleNoDom.innerText = "id." + article._id;
+      containDom.innerText = article.contain;
 
-/*      let template = ` 
-        <div class="home-block">
-          <div class="title"> 
-            <span class="text">${article.title}</span>
-            <span class="no"> No.${article._id}</span>
-            </div>
-          <div class="contain">${article.contain}</div>
-        </div>
-      `;*/
       var dom = document.getElementById("plugin-home");
-      blockDom.style.display = "none";
+      //blockDom.style.display = "none";
 
-      
+      Animate(blockDom, {
+        marginTop: 0,
+        opacity: 1
+      }, {
+        delay: 500
+      });
+
       dom.appendChild(blockDom);
 
     }

@@ -111,13 +111,15 @@ textarea{
 }
 #plugin-home .home-block{
 	margin: 1vw auto;
-	border-radius: 5px;
+	/*border-radius: 5px;*/
 	padding-top: 10px;
-	border: 1px solid #ccc;
+	margin-top: 500px;
+	opacity: 0;
+
+	border-bottom:1px solid #eee;
 }
 
 #plugin-home .home-block .title .text{
-	border-bottom:1px solid #eee;
 	padding: 5px 10px;
 	font-size: 140%;
 }
