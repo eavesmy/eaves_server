@@ -38,7 +38,8 @@ module.exports = {
       containDom.innerText = article.contain;
 
       var dom = document.getElementById("plugin-home");
-      //blockDom.style.display = "none";
+
+      dom.appendChild(blockDom);
 
       Animate(blockDom, {
         marginTop: 0,
@@ -46,8 +47,6 @@ module.exports = {
       }, {
         delay: 500
       });
-
-      dom.appendChild(blockDom);
 
     }
   },

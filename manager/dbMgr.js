@@ -43,7 +43,6 @@ dbData.prototype.view = function(cb){
   });
 };
 
-
 var dbMgr = module.exports = {
 
   _dbs: ["article"],
