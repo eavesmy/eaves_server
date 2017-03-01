@@ -17,13 +17,17 @@ var containMgr = module.exports = {
 
       if (!articleList) return;
 
-      articleList.rows.forEach(function(article, index) {
 
-        containMgr._list.push(article.value);
-        if (index > 20) return;
-        
-      });
+      var i = 0,
+        opt;
+      for (; i < 20; i++) {
 
+        if (containMgr._list.length >= 20) return;
+
+        opt = articleList.rows[0];
+
+        containMgr._list.push(opt.value);
+      }
     });
   }
 };

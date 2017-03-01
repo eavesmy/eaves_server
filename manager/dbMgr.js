@@ -23,7 +23,9 @@ dbData.prototype.switch = function(cb) {
 };
 
 dbData.prototype.insert = function(cb) {
+  
   this.db.insert(this.body, cb);
+
 };
 
 dbData.prototype.delete = function() {
@@ -51,9 +53,26 @@ var dbMgr = module.exports = {
   insert: function(db, type, body,cb) {
     var data = new dbData(db, type, body,cb);
 
+    if(!this.checkList(data)) return;
+
     this._list.push(data);
   },
 
+  checkList:function(data){
+    var i = 0,len = this._list.length,opt,condition;
+
+
+    for(;i<len;i++){
+      
+      opt = this._list[0];
+
+      condition = opt.type === data.type && opt.db === data.db && opt.body === data.body && opt.cb === data.cb;
+
+      if(condition) return false;
+    }
+
+    return true;
+  },
   loadDB: function(dbName) {
     if (typeof dbName !== "string") return console.trace("DB name must be string");
     var exists = this._dbs.indexOf(dbName) > -1;
