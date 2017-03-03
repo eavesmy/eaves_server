@@ -52,6 +52,10 @@ Dw.prototype.argsHook = function() {
   return arrFunc;
 };
 
+Dw.prototype.lockArea = function(){
+  
+};
+
 
 window.addEventListener("keypress", (e) => {
   var _result = e.charCode === 13;
@@ -68,7 +72,6 @@ window.addEventListener("keypress", (e) => {
     _inputDom.focus();
 
     _inputDom.value = "";
-
   }
 
   if (!_result) return;
