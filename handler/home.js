@@ -7,7 +7,7 @@ module.exports = {
 		var sendList = [];
 
 		defaultList.forEach(function(opt){
-			!!opt && sendList.push(containMgr._list[opt]);
+			if(!!opt) sendList.push(containMgr._list[opt]);
 		});
 
 		ctx.status = 200;

@@ -1,4 +1,6 @@
 global.config = require('./config');
+global.keyPool = [];
+
 var netMgr = require('./netMgr');
 var program = require('./program');
 
@@ -28,7 +30,7 @@ var loadHome = function() {
       .then(function(articles) {
         articles = JSON.parse(articles);
 
-        articles.forEach(function(_article){
+        articles.forEach(function(_article) {
 
           program.home.render(_article);
 
@@ -43,7 +45,6 @@ var app = function() {
 
   hiddenPlugin();
   loadHome();
-
 };
 
 app();
