@@ -1,8 +1,10 @@
 package home
 
 import (
+	"fmt"
 	"github.com/teambition/gear"
 	"globalGet"
+	"manager"
 )
 
 func Get(ctx *gear.Context) error {
@@ -13,4 +15,9 @@ func Get(ctx *gear.Context) error {
 
 func GetPages(ctx *gear.Context) error {
 
+	articleLIST := manager.GetHomePages()
+
+	fmt.Println(articleLIST)
+
+	return ctx.HTML(200, "oka")
 }

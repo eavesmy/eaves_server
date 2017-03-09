@@ -28,13 +28,17 @@ var loadHome = function() {
   pages.success.then(function(res) {
     res.text()
       .then(function(articles) {
-        articles = JSON.parse(articles);
+
+        console.log("Get article ->",articles);
+        console.log("++++++++++++")
+
+        /*articles = JSON.parse(articles);
 
         articles.forEach(function(_article) {
 
           program.home.render(_article);
 
-        });
+        });*/
 
       });
   });
