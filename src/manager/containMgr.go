@@ -13,7 +13,6 @@ func GetHomePages() []Articles {
 	return HomePagesStorage
 }
 
-/*func UpdateAtricles(){
+/*func UpdateAtricles() {
 
-}
-*/
+}*/

@@ -29,9 +29,6 @@ var loadHome = function() {
     res.text()
       .then(function(articles) {
 
-        console.log("Get article ->",articles);
-        console.log("++++++++++++")
-
         /*articles = JSON.parse(articles);
 
         articles.forEach(function(_article) {
