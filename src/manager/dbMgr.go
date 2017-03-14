@@ -16,7 +16,11 @@ func DBcheck() {
 }
 
 func DBloop() {
-	if DBpip.len != 0 {
+	//if len(DBpip) != 0 {
+	//	dealData(DBpip[0,1])
+	//}
+}
 
-	}
+func dealData(_data *DBdata) {
+
 }

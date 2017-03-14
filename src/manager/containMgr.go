@@ -1,5 +1,9 @@
 package manager
 
+import (
+	"gopkg.in/redis.v5"
+)
+
 type Article struct {
 	Id      string
 	Title   string
@@ -13,6 +17,6 @@ func GetHomePages() []Articles {
 	return HomePagesStorage
 }
 
-/*func UpdateAtricles() {
+func UpdateAtricles() {
 
-}*/
+}
