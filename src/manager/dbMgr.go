@@ -14,7 +14,7 @@ type baseData struct {
 	author  string `json:author`
 }
 
-func dbConnect(dbName string) couchdb.DatabaseService {
+func DBConnect(dbName string) couchdb.DatabaseService {
 	u, err := url.Parse("http://127.0.0.1:5984/")
 
 	if err != nil {
