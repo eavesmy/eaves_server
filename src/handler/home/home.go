@@ -9,7 +9,6 @@ import (
 
 func Get(ctx *gear.Context) error {
 	Gconfig := globalGet.GlobalData()
-
 	return ctx.HTML(200, Gconfig.HtmlPage)
 }
 

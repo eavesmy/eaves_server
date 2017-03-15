@@ -1,7 +1,6 @@
 package manager
 
 import (
-	"gopkg.in/redis.v5"
 )
 
 type Article struct {
@@ -11,9 +10,9 @@ type Article struct {
 	Time    string
 }
 
-var HomePagesStorage []Articles
+var HomePagesStorage []Article
 
-func GetHomePages() []Articles {
+func GetHomePages() []Article {
 	return HomePagesStorage
 }
 

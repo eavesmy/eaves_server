@@ -1,10 +1,18 @@
-package main
+package manager
 
 import (
 	"github.com/zemirco/couchdb"
-	"log"
 	"net/url"
 )
+
+type baseData struct {
+	couchdb.Document
+	_id     string `json:"_id"`
+	title   string `json:"title"`
+	contain string `json:"contain"`
+	timeTmp string `json:"time"`
+	author  string `json:author`
+}
 
 func dbConnect(dbName string) couchdb.DatabaseService {
 	u, err := url.Parse("http://127.0.0.1:5984/")
@@ -18,12 +26,4 @@ func dbConnect(dbName string) couchdb.DatabaseService {
 
 	return db
 
-}
-
-func main() {
-	articleDB := dbConnect("article")
-
-	name := articleDB.Name()
-
-	log.Println(name)
 }

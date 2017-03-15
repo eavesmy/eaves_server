@@ -20,6 +20,7 @@ var Gconfig Config
 func GetConfig() {
 
 	path, _ := os.Getwd()
+	path += "/src"
 	Gconfig.HtmlPath = path + "/main.html"
 	Gconfig.CssPath = path + "/static/eaves.css"
 	Gconfig.JsPath = path + "/static/terminal.js"

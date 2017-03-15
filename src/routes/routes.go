@@ -4,6 +4,7 @@ import (
 	"github.com/teambition/gear"
 	"globalGet"
 	"handler/home"
+	"handler/blog"
 )
 
 func Router() *gear.Router {
@@ -21,6 +22,8 @@ func Router() *gear.Router {
 	})
 
 	router.Get("/", home.Get)
+
+	router.Post("/blog/publish",blog.Publish)
 	router.Post("/home", home.GetPages)
 
 	return router
