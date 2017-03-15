@@ -1,37 +1,29 @@
-package manager
+package main
 
-import(
-	"gopkg.in/redis.v5"
+import (
+	"github.com/zemirco/couchdb"
+	"log"
+	"net/url"
 )
 
-type DBdata struct {
-	Name    string
-	Handler string
-	Data	string
-}
+func dbConnect(dbName string) couchdb.DatabaseService {
+	u, err := url.Parse("http://127.0.0.1:5984/")
 
-var DBpip []DBdata
-
-func DBinsert(insertData *DBdata) {
-	DBpip = append(DBpip,insertData)
-}
-
-func DBcheck() {
-
-}
-
-func DBloop() {
-	if len(DBpip) != 0 {
-		dealData(DBpip[0,1])
+	if err != nil {
+		panic(err)
 	}
+
+	client, err := couchdb.NewClient(u)
+	db := client.Use(dbName)
+
+	return db
+
 }
 
-func dealData(_data *DBdata) {
-	_handler := _data.Handler
-	
-	switch handler{
-		case "insert":
-			
+func main() {
+	articleDB := dbConnect("article")
 
-	}
+	name := articleDB.Name()
+
+	log.Println(name)
 }
