@@ -3,16 +3,19 @@ package blog
 import(
 	"fmt"
 	"github.com/teambition/gear"
-	"manager"
+	"github.com/zemirco/couchdb"
 )
+
+type articleTemp struct{
+	Title 	string `json:"title"`
+	Contain string `json:"contain"`
+	TimeTmp string `json:"time"`
+	Author string `json:"author"`
+}
 
 type baseData struct {
 	couchdb.Document
-	_id     string `json:"_id"`
-	title   string `json:"title"`
-	contain string `json:"contain"`
-	timeTmp string `json:"time"`
-	author  string `json:author`
+	article
 }
 
 func Update(ctx *gear.Context) error{
@@ -22,10 +25,12 @@ func Update(ctx *gear.Context) error{
 }
 
 func Publish(ctx *gear.Context)error{
-	article,_ := ctx.Req.GetBody()
+	article := articleTemp&{}
+
+	ctx.ParseBody(article)
 
 	fmt.Println(article)
-	articleDB := DBConnect("article")
 
-	return ctx.HTML(status)
+
+	return ctx.HTML(200,"ok")
 }
