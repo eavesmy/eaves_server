@@ -1,6 +1,7 @@
 package manager
 
 import (
+	"fmt"
 )
 
 type Article struct {
@@ -16,6 +17,9 @@ func GetHomePages() []Article {
 	return HomePagesStorage
 }
 
-func UpdateAtricles() {
+func UpdateArticles() {
+	db := DBConnect("article")
+	articles, _ := db.AllDesignDocs(AllDesignDocs)
 
+	fmt.Println(articles)
 }

@@ -3,9 +3,14 @@ package main
 import (
 	"github.com/teambition/gear"
 	//"github.com/teambition/gear/middleware/static"
+	//"./manager"
 	"globalGet"
 	"routes"
 )
+
+func loop() {
+	//manager.UpdateArticles()
+}
 
 func main() {
 
@@ -18,9 +23,7 @@ func main() {
 
 	app.UseHandler(router)
 
-	/*	app.Use(static.New(static.Options{
-		Root: "./static",
-	}))*/
-
 	app.Error(app.Listen(":3000"))
+
+	loop()
 }

@@ -1,36 +1,55 @@
 package blog
 
-import(
+import (
 	"fmt"
 	"github.com/teambition/gear"
 	"github.com/zemirco/couchdb"
+	"manager"
+	"tools"
 )
 
-type articleTemp struct{
-	Title 	string `json:"title"`
+type articleTemp struct {
+	Id      int64  `json:"_id"`
+	Title   string `json:"title"`
 	Contain string `json:"contain"`
-	TimeTmp string `json:"time"`
-	Author string `json:"author"`
+	Author  string `json:"author"`
+	Tags    string `json:"tags"`
 }
 
 type baseData struct {
 	couchdb.Document
-	article
+	articleTemp
 }
 
-func Update(ctx *gear.Context) error{
-	_,err :=fmt.Println(ctx)
+func Update(ctx *gear.Context) error {
+	_, err := fmt.Println(ctx)
 
 	return err
 }
 
-func Publish(ctx *gear.Context)error{
-	article := articleTemp&{}
+func (b *articleTemp) Validate() error {
+	return nil
+}
+
+func Publish(ctx *gear.Context) error {
+
+	article := &baseData{}
 
 	ctx.ParseBody(article)
 
-	fmt.Println(article)
+	timeTamp := tools.TimeTemp()
 
+	article.Id = timeTamp
+	article.Author = "eaves"
 
-	return ctx.HTML(200,"ok")
+	db := manager.DBConnect("article")
+
+	dbRep, _ := db.Post(article)
+
+	if dbRep.Ok == true {
+		return ctx.HTML(200, "ok")
+	} else {
+		return ctx.HTML(501, "failed")
+	}
+
 }

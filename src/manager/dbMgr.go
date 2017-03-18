@@ -5,15 +5,6 @@ import (
 	"net/url"
 )
 
-type baseData struct {
-	couchdb.Document
-	_id     string `json:"_id"`
-	title   string `json:"title"`
-	contain string `json:"contain"`
-	timeTmp string `json:"time"`
-	author  string `json:author`
-}
-
 func DBConnect(dbName string) couchdb.DatabaseService {
 	u, err := url.Parse("http://127.0.0.1:5984/")
 
@@ -25,5 +16,4 @@ func DBConnect(dbName string) couchdb.DatabaseService {
 	db := client.Use(dbName)
 
 	return db
-
 }
