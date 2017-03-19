@@ -19,10 +19,11 @@ var Gconfig Config
 
 func GetConfig() {
 
-	path, _ := os.Getwd()
-	Gconfig.HtmlPath = path + "/static/main.html"
-	Gconfig.CssPath = path + "/static/eaves.css"
-	Gconfig.JsPath = path + "/static/terminal.js"
+	path := "./frontend/"
+
+	Gconfig.HtmlPath = path + "index.html"
+	Gconfig.CssPath = path + "eaves.css"
+	Gconfig.JsPath = path + "main.js"
 }
 
 func PreHotStatic() {
