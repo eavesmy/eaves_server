@@ -18,5 +18,5 @@ func GetPages(ctx *gear.Context) error {
 
 	fmt.Println(articleLIST)
 
-	return ctx.HTML(200, "oka")
+	return ctx.JSON(200, articleLIST)
 }

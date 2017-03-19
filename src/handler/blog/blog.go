@@ -49,7 +49,7 @@ func Publish(ctx *gear.Context) error {
 	if dbRep.Ok == true {
 		return ctx.HTML(200, "ok")
 	} else {
-		return ctx.HTML(501, "failed")
+		return ctx.HTML(505, "failed")
 	}
 
 }

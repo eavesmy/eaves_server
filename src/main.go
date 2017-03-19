@@ -2,20 +2,16 @@ package main
 
 import (
 	"github.com/teambition/gear"
-	//"github.com/teambition/gear/middleware/static"
-	//"./manager"
 	"globalGet"
+	"manager"
 	"routes"
 )
-
-func loop() {
-	//manager.UpdateArticles()
-}
 
 func main() {
 
 	globalGet.GetConfig()
 	globalGet.PreHotStatic()
+	manager.UpdateArticles()
 
 	app := gear.New()
 
@@ -23,7 +19,6 @@ func main() {
 
 	app.UseHandler(router)
 
-	app.Error(app.Listen(":3000"))
+	app.Listen(":3000")
 
-	loop()
 }

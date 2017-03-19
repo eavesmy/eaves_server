@@ -20,7 +20,7 @@ var hiddenPlugin = function() {
 
 var loadHome = function() {
   var pages = netMgr.post(config.path.home.getMain);
-
+	
   if (pages.err) return pagres.err.then(function(err) {
     throw new Error(err);
   });
@@ -28,7 +28,8 @@ var loadHome = function() {
   pages.success.then(function(res) {
     res.text()
       .then(function(articles) {
-
+		
+		console.log(articles)
         /*articles = JSON.parse(articles);
 
         articles.forEach(function(_article) {
@@ -42,7 +43,7 @@ var loadHome = function() {
 };
 
 var app = function() {
-  console.log("APP START");
+  console.log("APP START & test");
 
   hiddenPlugin();
   loadHome();
