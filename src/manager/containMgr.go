@@ -12,9 +12,9 @@ type Article struct {
 	Time    string `json:"time"`
 }
 
-var HomePagesStorage []*Article
+var HomePagesStorage []Article
 
-func GetHomePages() []*Article {
+func GetHomePages() []Article {
 	return HomePagesStorage
 }
 
@@ -22,13 +22,13 @@ func UpdateArticles() {
 
 	db := DBConnect("article")
 
-	var _bool bool = true
-	var includeDocs *bool
+	INCLUDEDOC := true
+	//	var includeDocs *bool
 
-	includeDocs = &_bool
+	//	includeDocs = &_bool
 
 	queryParms := &couchdb.QueryParameters{
-		IncludeDocs: includeDocs,
+		IncludeDocs: &INCLUDEDOC,
 	}
 
 	viewRep, _ := db.AllDocs(queryParms)
@@ -39,7 +39,7 @@ func UpdateArticles() {
 
 		_opt := articles[i].Doc
 
-		article := &Article{
+		article := Article{
 			Id:      _opt["_id"].(string),
 			Title:   _opt["title"].(string),
 			Contain: _opt["contain"].(string),
