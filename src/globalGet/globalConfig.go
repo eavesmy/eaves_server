@@ -19,11 +19,11 @@ var Gconfig Config
 
 func GetConfig() {
 
-	path := "./frontend/"
+	path := "./web/"
 
 	Gconfig.HtmlPath = path + "index.html"
 	Gconfig.CssPath = path + "eaves.css"
-	Gconfig.JsPath = path + "main.js"
+	Gconfig.JsPath = path + "app.js"
 }
 
 func PreHotStatic() {
