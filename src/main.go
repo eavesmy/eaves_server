@@ -1,24 +1,21 @@
 package main
 
 import (
-	"github.com/teambition/gear"
-	"globalGet"
-	"manager"
-	"routes"
+	"./cos"
+	"./github.com/teambition/gear"
+	"./manager"
+	// "github.com/teambition/gear/middleware/favicon"
 )
 
 func main() {
-
-	globalGet.GetConfig()
-	globalGet.PreHotStatic()
-	manager.UpdateArticles()
-
 	app := gear.New()
+	// app.Use(favicon.New("./favicon.ico"))
 
-	router := routes.Router()
+	mainRouter := manager.Routes()
+	staticRouter := manager.Static()
 
-	app.UseHandler(router)
+	app.UseHandler(staticRouter)
+	app.UseHandler(mainRouter)
 
-	app.Listen(":3000")
-
+	app.Error(app.Listen(cos.Get("PORT")))
 }
