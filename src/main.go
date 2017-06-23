@@ -9,7 +9,7 @@ import (
 
 func main() {
 	app := gear.New()
-	// app.Use(favicon.New("./favicon.ico"))
+	// app.Use(favicon.New("./web/favicon.ico"))
 
 	mainRouter := manager.Routes()
 	staticRouter := manager.Static()
