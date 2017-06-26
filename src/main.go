@@ -2,20 +2,20 @@ package main
 
 import (
 	"./cos"
-	"./github.com/teambition/gear"
-	"./manager"
-	// "github.com/teambition/gear/middleware/favicon"
+	"./router"
+	"github.com/teambition/gear"
+	"github.com/teambition/gear/logging"
+	"github.com/teambition/gear/middleware/favicon"
 )
 
 func main() {
 	app := gear.New()
-	// app.Use(favicon.New("./web/favicon.ico"))
 
-	mainRouter := manager.Routes()
-	staticRouter := manager.Static()
+	app.UseHandler(logging.Default(true))
+	app.Use(favicon.New("./web/favicon.ico"))
 
-	app.UseHandler(staticRouter)
-	app.UseHandler(mainRouter)
+	routes := router.Routes()
+	app.UseHandler(routes)
 
 	app.Error(app.Listen(cos.Get("PORT")))
 }

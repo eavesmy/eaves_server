@@ -1,4 +1,4 @@
-package manager
+package tools
 
 import (
 	"io/ioutil"
