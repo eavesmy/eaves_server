@@ -2,6 +2,7 @@ package manager
 
 import (
 	"../cos"
+	"fmt"
 	"github.com/robfig/cron"
 	"github.com/zemirco/couchdb"
 )
@@ -10,12 +11,14 @@ type Article struct {
 	Id    string `json:"id"`
 	Title string `json:"title"`
 	Tags  string `json:"tags"`
-	Time  string `json:"time"`
 }
 
 var Recommendation []Article
 
 func update() {
+
+	fmt.Println("Update article")
+
 	db := DbClient(cos.Get("DB_ARTICLE"))
 
 	INCLUDE := true
@@ -32,7 +35,7 @@ func update() {
 		_opt := articles[i].Doc
 
 		article := Article{
-			Id:    _opt["id"].(string),
+			Id:    _opt["_id"].(string),
 			Title: _opt["title"].(string),
 			Tags:  _opt["tags"].(string),
 		}
@@ -45,6 +48,9 @@ func GetRecommendation() []Article {
 }
 
 func Init() {
+
+	update()
+
 	task := cron.New()
 
 	task.AddFunc("@hourly", update)

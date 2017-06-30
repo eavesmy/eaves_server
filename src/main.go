@@ -2,6 +2,7 @@ package main
 
 import (
 	"./cos"
+	"./manager"
 	"./router"
 	"github.com/teambition/gear"
 	"github.com/teambition/gear/logging"
@@ -17,5 +18,6 @@ func main() {
 	routes := router.Routes()
 	app.UseHandler(routes)
 
+	manager.Init()
 	app.Error(app.Listen(cos.Get("PORT")))
 }

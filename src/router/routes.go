@@ -13,6 +13,7 @@ func Routes() *gear.Router {
 	router.Get("/web/app.js", handler.Get_Js)
 
 	router.Post("/blog/publish", handler.Blog_Publish)
+	router.Post("/blog/index", handler.Blog_Index)
 	router.Post("/blog/:ID", handler.Blog_One)
 
 	return router
