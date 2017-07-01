@@ -3,13 +3,13 @@ package handler
 import (
 	"../cos"
 	"../manager"
+	"fmt"
 	"github.com/teambition/gear"
 	"github.com/zemirco/couchdb"
 	"time"
 )
 
 type articleTemp struct {
-	Id      int64  `json:"_id"`
 	Title   string `json:"title"`
 	Contain string `json:"contain"`
 	Author  string `json:"author"`
@@ -26,7 +26,7 @@ func (b *articleTemp) Validate() error {
 }
 
 func Blog_Index(ctx *gear.Context) error {
-	articles := manager.GetRecommendation()
+	articles := manager.GetDocs()
 
 	return ctx.JSON(200, articles)
 }
@@ -45,7 +45,9 @@ func Blog_Publish(ctx *gear.Context) error {
 
 	timeTamp := time.Now().Unix()
 
-	article.Id = timeTamp
+	_id := fmt.Sprintf("%d", timeTamp)
+
+	article.Document.ID = _id //timeTamp
 	article.Author = "Eaves"
 
 	db := manager.DbClient(cos.Get("DB_ARTICLE"))
