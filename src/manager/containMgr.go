@@ -6,10 +6,23 @@ import (
 	"github.com/zemirco/couchdb"
 )
 
+type CouchDoc interface {
+	GetID() string
+	GetRev() string
+}
+
 type Article struct {
 	Id    string `json:"id"`
 	Title string `json:"title"`
 	Tags  string `json:"tags"`
+}
+
+type ArticleFull struct {
+	couchdb.Document
+	Contain string `json:"contain"`
+	Tags    string `json:tags`
+	Author  string `json:author`
+	Title   string `json:title`
 }
 
 func GetDocs() []Article {
@@ -40,4 +53,14 @@ func GetDocs() []Article {
 	}
 
 	return Recommendation
+}
+
+func GetOne(id string) *ArticleFull {
+	db := DbClient(cos.Get("DB_ARTICLE"))
+
+	doc := &ArticleFull{}
+
+	db.Get(doc, id)
+
+	return doc
 }

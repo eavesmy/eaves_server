@@ -21,7 +21,15 @@ type baseData struct {
 	articleTemp
 }
 
+type articleId struct {
+	Id string `json:"_id"`
+}
+
 func (b *articleTemp) Validate() error {
+	return nil
+}
+
+func (b *articleId) Validate() error {
 	return nil
 }
 
@@ -32,7 +40,14 @@ func Blog_Index(ctx *gear.Context) error {
 }
 
 func Blog_One(ctx *gear.Context) error {
-	article := &articleTemp{}
+
+	struct_id := &articleId{}
+
+	ctx.ParseBody(struct_id)
+
+	_id := struct_id.Id
+
+	article := manager.GetOne(_id)
 
 	return ctx.JSON(200, article)
 }
