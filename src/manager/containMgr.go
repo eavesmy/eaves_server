@@ -20,9 +20,10 @@ type Article struct {
 type ArticleFull struct {
 	couchdb.Document
 	Contain string `json:"contain"`
-	Tags    string `json:tags`
-	Author  string `json:author`
-	Title   string `json:title`
+	Tags    string `json:"tags"`
+	Author  string `json:"author"`
+	Title   string `json:"title"`
+	Time    string `json:"time"`
 }
 
 func GetDocs() []Article {
@@ -63,4 +64,22 @@ func GetOne(id string) *ArticleFull {
 	db.Get(doc, id)
 
 	return doc
+}
+
+func DeleteOne(id string) bool {
+	doc := &ArticleFull{}
+
+	doc.Document.ID = id
+
+	db := DbClient(cos.Get("DB_ARTICLE"))
+
+	err := db.Get(doc, id)
+
+	if err != nil {
+		return false
+	}
+
+	rep, _ := db.Delete(doc)
+
+	return rep.Ok
 }

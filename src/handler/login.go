@@ -2,9 +2,7 @@ package handler
 
 import (
 	"../cos"
-	"crypto/md5"
-	"encoding/hex"
-	"fmt"
+	"../manager"
 	"github.com/teambition/gear"
 )
 
@@ -23,16 +21,11 @@ func Login_Ver(ctx *gear.Context) error {
 
 	ctx.ParseBody(info)
 
-	fmt.Println(info)
-
-	if info.Passwd != cos.Get("Login") {
+	if info.Passwd != cos.Get("LOGIN") {
 		return ctx.HTML(403, "forbidden")
 	} else {
 
-		h := md5.New()
-		h.Write([]byte(cos.Get("Login")))
-		cipherStr := h.Sum(nil)
-		x := hex.EncodeToString(cipherStr)
+		x := manager.SetID()
 
 		res := ctx.Res
 
