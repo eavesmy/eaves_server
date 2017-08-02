@@ -14,8 +14,9 @@ func main() {
 	app.UseHandler(logging.Default(true))
 	app.Use(favicon.New("./web/favicon.ico"))
 
-	routes := router.Routes()
-	app.UseHandler(routes)
+	for _, router := range router.Routes() {
+		app.UseHandler(router)
+	}
 
 	app.Error(app.Listen(cos.Get("PORT")))
 }

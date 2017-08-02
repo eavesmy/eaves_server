@@ -5,18 +5,47 @@ import (
 	"github.com/teambition/gear"
 )
 
-func Routes() *gear.Router {
-	router := gear.NewRouter()
+var routes []*gear.Router
 
-	router.Get("/:name*", handler.Get_Home)
-	// router.Get("/web/eaves.css", handler.Get_Css)
-	// router.Get("/web/app.js", handler.Get_Js)
+func Routes() []*gear.Router {
 
-	router.Post("/api/publish", handler.Blog_Publish)
-	router.Post("/api/delete", handler.Blog_Delete)
-	router.Post("/api/index", handler.Blog_Index)
-	router.Post("/api/:ID", handler.Blog_One)
-	router.Post("/api/login", handler.Login_Ver)
+	blogRoutes := gear.NewRouter(gear.RouterOptions{
+		Root:                  "/api/blog",
+		IgnoreCase:            true,
+		FixedPathRedirect:     true,
+		TrailingSlashRedirect: true,
+	})
 
-	return router
+	blogRoutes.Post("/publish", handler.Blog_Publish)
+	blogRoutes.Post("/delete", handler.Blog_Delete)
+	blogRoutes.Post("/index", handler.Blog_Index)
+	blogRoutes.Post("/:ID", handler.Blog_One)
+	routes = append(routes, blogRoutes)
+
+	userRoutes := gear.NewRouter(gear.RouterOptions{
+		Root:                  "/api/user",
+		IgnoreCase:            true,
+		FixedPathRedirect:     true,
+		TrailingSlashRedirect: true,
+	})
+
+	userRoutes.Post("/login", handler.Login_Ver)
+	routes = append(routes, userRoutes)
+
+	reptileRoutes := gear.NewRouter(gear.RouterOptions{
+		Root:                  "/api/reptile",
+		IgnoreCase:            true,
+		FixedPathRedirect:     true,
+		TrailingSlashRedirect: true,
+	})
+
+	reptileRoutes.Post("/go", handler.Forward2Reptile)
+	routes = append(routes, reptileRoutes)
+
+	mainRouter := gear.NewRouter()
+
+	mainRouter.Get("/:name*", handler.Get_Home)
+	routes = append(routes, mainRouter)
+
+	return routes
 }

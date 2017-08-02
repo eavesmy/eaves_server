@@ -35,6 +35,7 @@ func (b *articleId) Validate() error {
 }
 
 func Blog_Index(ctx *gear.Context) error {
+
 	articles := manager.GetDocs()
 
 	return ctx.JSON(200, articles)

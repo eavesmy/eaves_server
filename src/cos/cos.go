@@ -9,6 +9,7 @@ var m = map[string]string{
 	"COUCHPATH":    "http://127.0.0.1:5984/",
 	"DB_ARTICLE":   "article",
 	"LOGIN":        "23216340eavesDL",
+	"REPTILE_HOST": "127.0.0.1:8005",
 }
 
 func Get(key string) string {
