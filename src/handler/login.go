@@ -3,12 +3,13 @@ package handler
 import (
 	"../cos"
 	"../manager"
+	"github.com/go-http-utils/cookie"
 	"github.com/teambition/gear"
 )
 
 type loginInfo struct {
-	User   string `json:"user"`
-	Passwd string `json: "passwd"`
+	User   string `json:user`
+	Passwd string `json:passwd`
 }
 
 func (b *loginInfo) Validate() error {
@@ -22,14 +23,19 @@ func Login_Ver(ctx *gear.Context) error {
 	ctx.ParseBody(info)
 
 	if info.Passwd != cos.Get("LOGIN") {
+
 		return ctx.HTML(403, "forbidden")
+
 	} else {
 
 		x := manager.SetID()
+		opt := &cookie.Options{}
 
-		res := ctx.Res
+		opt.HTTPOnly = true
+		opt.Secure = true
+		opt.Path = "/"
 
-		res.Set("Set-Cookie", "u="+x+"; HttpOnly")
+		ctx.Cookies.Set("u", x, opt)
 
 		return ctx.HTML(200, "ok")
 	}

@@ -16,9 +16,9 @@ func Routes() []*gear.Router {
 		TrailingSlashRedirect: true,
 	})
 
-	blogRoutes.Post("/publish", handler.Blog_Publish)
 	blogRoutes.Post("/delete", handler.Blog_Delete)
 	blogRoutes.Post("/index", handler.Blog_Index)
+	blogRoutes.Post("/publish", handler.Blog_Publish)
 	blogRoutes.Post("/:ID", handler.Blog_One)
 	routes = append(routes, blogRoutes)
 
