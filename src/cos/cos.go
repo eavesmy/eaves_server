@@ -8,6 +8,7 @@ var m = map[string]string{
 	"WEBSITE_JS":   "./web/app.js",
 	"COUCHPATH":    "http://127.0.0.1:5984/",
 	"DB_ARTICLE":   "article",
+	"DB_USERAGENT": "customer",
 	"LOGIN":        "23216340eavesDL",
 	"REPTILE_HOST": "127.0.0.1:8005",
 }

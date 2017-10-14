@@ -2,6 +2,7 @@ package main
 
 import (
 	"./cos"
+	"./manager"
 	"./router"
 	"github.com/teambition/gear"
 	"github.com/teambition/gear/logging"
@@ -12,6 +13,7 @@ func main() {
 	app := gear.New()
 
 	app.UseHandler(logging.Default(true))
+	app.Use(manager.RequestLog)
 	app.Use(favicon.New("./web/favicon.ico"))
 
 	for _, router := range router.Routes() {

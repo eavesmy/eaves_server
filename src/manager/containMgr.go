@@ -19,11 +19,12 @@ type Article struct {
 
 type ArticleFull struct {
 	couchdb.Document
-	Contain string `json:"contain"`
-	Tags    string `json:"tags"`
-	Author  string `json:"author"`
-	Title   string `json:"title"`
-	Time    string `json:"time"`
+	Contain    string `json:"contain"`
+	Tags       string `json:"tags"`
+	Author     string `json:"author"`
+	Title      string `json:"title"`
+	Time       string `json:"time"`
+	IsPersonal bool   `json:"isPersonal"`
 }
 
 func GetDocs() []Article {

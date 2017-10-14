@@ -1,0 +1,5189 @@
+<!DOCTYPE html><html><head><meta name="viewport" content="width=device-width initial-scale=1"><style>*{margin:0;padding:0;text-decoration:none;outline:0}
+html {height:100vh; font-size: 100%; overflow-y: scroll; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+body{
+color:#444;
+font-family:Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman', serif;
+font-size:12px;
+line-height:1.5em;
+max-width:42em;
+background:#fefefe;
+}
+
+#mainView ,#input{
+	position:relative;
+	left:15vw;
+	width:70vw;
+}
+#mainView{height:90vh;overflow-y:auto;}
+#input{height:10vh; }
+#input .row{height:8vh;border-bottom:1px solid #000;display:flex;line-height:10vh;}
+#input .row label{font-size:160%;margin-right:20px;flex:1;}
+#input .row #mainInput{border:0;font-size:140%;flex:9;position:relative;top:3vh;height:5vh}
+
+a{ color: #0645ad; text-decoration:none;}
+a:visited{ color: #0b0080; }
+a:hover{ color: #06e; }
+a:active{ color:#faa700; }
+a:focus{ outline: thin dotted; }
+a:hover, a:active{ outline: 0; }
+::-moz-selection{background:rgba(255,255,0,0.3);color:#000}
+::selection{background:rgba(255,255,0,0.3);color:#000}
+a::-moz-selection{background:rgba(255,255,0,0.3);color:#0645ad}
+a::selection{background:rgba(255,255,0,0.3);color:#0645ad}
+p{
+margin:1em 0;
+}
+img{
+max-width:100%;
+}
+h1,h2,h3,h4,h5,h6{
+font-weight:normal;
+color:#111;
+line-height:1em;
+}
+h4,h5,h6{ font-weight: bold; }
+h1{ font-size:2.5em; }
+h2{ font-size:2em; }
+h3{ font-size:1.5em; }
+h4{ font-size:1.2em; }
+h5{ font-size:1em; }
+h6{ font-size:0.9em; }
+blockquote{
+color:#666666;
+margin:0;
+padding-left: 3em;
+border-left: 0.5em #EEE solid;
+}
+hr { display: block; height: 2px; border: 0; border-top: 1px solid #aaa;border-bottom: 1px solid #eee; margin: 1em 0; padding: 0; }
+pre, code, kbd, samp { color: #000; font-family: monospace, monospace; _font-family: 'courier new', monospace; font-size: 0.98em; }
+pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
+b, strong { font-weight: bold; }
+dfn { font-style: italic; }
+ins { background: #ff9; color: #000; text-decoration: none; }
+mark { background: #ff0; color: #000; font-style: italic; font-weight: bold; }
+sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-align: baseline; }
+sup { top: -0.5em; }
+sub { bottom: -0.25em; }
+ul, ol { margin: 1em 0; padding: 0 0 0 2em; }
+li p:last-child { margin:0 }
+dd { margin: 0 0 0 2em; }
+img { border: 0; -ms-interpolation-mode: bicubic; vertical-align: middle; }
+table { border-collapse: collapse; border-spacing: 0; }
+td { vertical-align: top; }
+@media only screen and (min-width: 480px) {
+	body{font-size:14px;}
+	/*#mainView,#input{position: relative;left:1vw;width:98vw}*/
+}
+@media only screen and (min-width: 768px) {
+	body{font-size:16px;}
+	/*#mainView,#input{position:relative;left:1vw;width:98vw}*/
+}
+@media only screen and (max-width: 768px) {
+	body{font-size:16px;}
+	#mainView,#input{position:relative;left:1vw;width:98vw}
+}
+
+@media print {
+* { background: transparent !important; color: black !important; filter:none !important; -ms-filter: none !important; }
+hr { height: 1px; border:0; border-bottom:1px solid black; }
+a[href]:after { content: " (" attr(href) ")"; }
+abbr[title]:after { content: " (" attr(title) ")"; }
+.ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; }
+pre, blockquote { border: 1px solid #999; padding-right: 1em; page-break-inside: avoid; }
+tr, img { page-break-inside: avoid; }
+img { max-width: 100% !important; }
+@page :left { margin: 15mm 20mm 15mm 10mm; }
+@page :right { margin: 15mm 10mm 15mm 20mm; }
+p, h2, h3 { orphans: 3; widows: 3; }
+h2, h3 { page-break-after: avoid; }
+}
+</style><title>EAVES</title></head><body><div id="mainView"></div><div id="input"><div class="row"><label for="mainInput" id="userName">Guest</label><input id="mainInput"></div></div><script>/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId])
+/******/ 			return installedModules[moduleId].exports;
+
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			exports: {},
+/******/ 			id: moduleId,
+/******/ 			loaded: false
+/******/ 		};
+
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+
+/******/ 		// Flag the module as loaded
+/******/ 		module.loaded = true;
+
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+
+
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "/home/eaves/Documents/eaves_server/src/eaves_frontend-js-/web/";
+
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(0);
+/******/ })
+/************************************************************************/
+/******/ ([
+/* 0 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(global) {global.tools = __webpack_require__(1);
+	global.cosDefine = __webpack_require__(20);
+
+	global.Log = tools.Log;
+
+	var routerMgr = __webpack_require__(21);
+	var keyMgr = __webpack_require__(52);
+	var cookieMgr = __webpack_require__(50);
+
+	keyMgr.init(routerMgr);
+	cookieMgr.init();
+
+	var init = function (){
+
+		console.log(`
+
+	联系方式 : 
+	QQ : 75066483
+	E-mail : eavesmy@gmail.com
+		`)
+
+	}()
+
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	exports.Date = __webpack_require__(2);
+	exports.Math = __webpack_require__(3);
+	exports.Log = __webpack_require__(4);
+	exports.SBS = __webpack_require__(19);
+
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports) {
+
+	var date = module.exports = {};
+
+	/**
+	 * [A tool for date format]
+	 * @param  {[String]} time [A date format]
+	 * @return {[String]}      [A date formated]
+	 */
+	date.format = function(time, zone) {
+	    var date = new Date();
+
+	    if (typeof time !== 'string') {
+	        console.warn("The param 'args[0]' must be a string");
+	        return date;
+	    }
+
+	    if (zone && typeof zone !== 'number') {
+	        console.warn("The param 'args[1]' must be a number");
+	        return date;
+	    }
+
+	    var FDate = '';
+
+	    var len = time.length;
+	    var year = date.getFullYear();
+	    FDate += year;
+
+	    var month = date.getMonth() + 1;
+	    FDate += month;
+
+	    var day = date.getDate();
+	    FDate += day;
+
+	    var minutes = date.getMinutes();
+	    FDate += minutes;
+
+	    var seconds = date.getSeconds();
+	    FDate += seconds;
+
+	    return FDate;
+	}
+
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports) {
+
+	var math = module.exports = {};
+
+
+	/**
+	 * [Get a random list]
+	 * @param  {[Number]} min   
+	 * @param  {[Number]} max   
+	 * @param  {[Number]} count 
+	 * @return {[Array]}  randomArr [The random array];
+	 */
+	math.random = function(min, max, count, sameCount) { //count:要取几个值，sameCount:相同的值最多出现几次
+	    count = count || 1;
+	    sameCount = sameCount || count;
+
+	    if (count > (max - min) * sameCount) {
+	        //             console.trace("传来的随机数据不对");
+	        return 0;
+	    }
+
+	    var arr = [];
+	    for (var i = 0; i < count; i++) {
+
+	        var m = parseInt(min + Math.random() * (max - min)); //TODO : Mix
+
+	        var index = 0; //本次循环随机出的值在之前出现过的次数
+	        for (var j = 0; j < arr.length; j++) { //寻找本次循环随机出的值之前出现过的次数
+	            if (arr[j] === m)
+	                index++;
+	        }
+	        if (index < sameCount)
+	            arr.push(m); //随机出现的次数小于预设值，可以加到数组中
+	        else {
+	            if (sameCount)
+	                i--; //随机出的数出现次数大于等于预设值，这轮循环不算，重新开始新的循环
+	        }
+	    }
+	    return count === 1 ? arr[0] : arr;
+	}
+
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(module) {__webpack_require__(6);
+
+	var err = module.export = {
+		warn : function(err){
+			var timeTemp = new Date(),
+				_time = timeTemp.getHours() + ":"  + timeTemp.getMinutes() +  ":"  +timeTemp.getSeconds();
+			
+			Error.stackTraceLimit = 1;
+			var error = new Error();
+			
+			Error.stackTraceLimit.oldLimet;
+			errorTrace = error.stack.split("\n")[1].split("(")[1].split("/");
+			infoTrace = errorTrace[errorTrace.length - 1];
+			infoTrace = infoTrace.substr(0,infoTrace.length - 1);
+
+			console.log(`[${infoTrace}] Warn : ${ _time}`.red , error);
+		}
+	}
+
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)(module)))
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports) {
+
+	module.exports = function(module) {
+		if(!module.webpackPolyfill) {
+			module.deprecate = function() {};
+			module.paths = [];
+			// module.parent = undefined by default
+			module.children = [];
+			module.webpackPolyfill = 1;
+		}
+		return module;
+	}
+
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(module) {var colors = __webpack_require__(7);
+	module['exports'] = colors;
+
+	// Remark: By default, colors will add style properties to String.prototype
+	//
+	// If you don't wish to extend String.prototype you can do this instead and native String will not be touched
+	//
+	//   var colors = require('colors/safe);
+	//   colors.red("foo")
+	//
+	//
+	__webpack_require__(14)();
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)(module)))
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(module) {/*
+
+	The MIT License (MIT)
+
+	Original Library 
+	  - Copyright (c) Marak Squires
+
+	Additional functionality
+	 - Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+
+	Permission is hereby granted, free of charge, to any person obtaining a copy
+	of this software and associated documentation files (the "Software"), to deal
+	in the Software without restriction, including without limitation the rights
+	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	copies of the Software, and to permit persons to whom the Software is
+	furnished to do so, subject to the following conditions:
+
+	The above copyright notice and this permission notice shall be included in
+	all copies or substantial portions of the Software.
+
+	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+	THE SOFTWARE.
+
+	*/
+
+	var colors = {};
+	module['exports'] = colors;
+
+	colors.themes = {};
+
+	var ansiStyles = colors.styles = __webpack_require__(8);
+	var defineProps = Object.defineProperties;
+
+	colors.supportsColor = __webpack_require__(9);
+
+	if (typeof colors.enabled === "undefined") {
+	  colors.enabled = colors.supportsColor;
+	}
+
+	colors.stripColors = colors.strip = function(str){
+	  return ("" + str).replace(/\x1B\[\d+m/g, '');
+	};
+
+
+	var stylize = colors.stylize = function stylize (str, style) {
+	  if (!colors.enabled) {
+	    return str+'';
+	  }
+
+	  return ansiStyles[style].open + str + ansiStyles[style].close;
+	}
+
+	var matchOperatorsRe = /[|\\{}()[\]^$+*?.]/g;
+	var escapeStringRegexp = function (str) {
+	  if (typeof str !== 'string') {
+	    throw new TypeError('Expected a string');
+	  }
+	  return str.replace(matchOperatorsRe,  '\\$&');
+	}
+
+	function build(_styles) {
+	  var builder = function builder() {
+	    return applyStyle.apply(builder, arguments);
+	  };
+	  builder._styles = _styles;
+	  // __proto__ is used because we must return a function, but there is
+	  // no way to create a function with a different prototype.
+	  builder.__proto__ = proto;
+	  return builder;
+	}
+
+	var styles = (function () {
+	  var ret = {};
+	  ansiStyles.grey = ansiStyles.gray;
+	  Object.keys(ansiStyles).forEach(function (key) {
+	    ansiStyles[key].closeRe = new RegExp(escapeStringRegexp(ansiStyles[key].close), 'g');
+	    ret[key] = {
+	      get: function () {
+	        return build(this._styles.concat(key));
+	      }
+	    };
+	  });
+	  return ret;
+	})();
+
+	var proto = defineProps(function colors() {}, styles);
+
+	function applyStyle() {
+	  var args = arguments;
+	  var argsLen = args.length;
+	  var str = argsLen !== 0 && String(arguments[0]);
+	  if (argsLen > 1) {
+	    for (var a = 1; a < argsLen; a++) {
+	      str += ' ' + args[a];
+	    }
+	  }
+
+	  if (!colors.enabled || !str) {
+	    return str;
+	  }
+
+	  var nestedStyles = this._styles;
+
+	  var i = nestedStyles.length;
+	  while (i--) {
+	    var code = ansiStyles[nestedStyles[i]];
+	    str = code.open + str.replace(code.closeRe, code.open) + code.close;
+	  }
+
+	  return str;
+	}
+
+	function applyTheme (theme) {
+	  for (var style in theme) {
+	    (function(style){
+	      colors[style] = function(str){
+	        if (typeof theme[style] === 'object'){
+	          var out = str;
+	          for (var i in theme[style]){
+	            out = colors[theme[style][i]](out);
+	          }
+	          return out;
+	        }
+	        return colors[theme[style]](str);
+	      };
+	    })(style)
+	  }
+	}
+
+	colors.setTheme = function (theme) {
+	  if (typeof theme === 'string') {
+	    try {
+	      colors.themes[theme] = __webpack_require__(11)(theme);
+	      applyTheme(colors.themes[theme]);
+	      return colors.themes[theme];
+	    } catch (err) {
+	      console.log(err);
+	      return err;
+	    }
+	  } else {
+	    applyTheme(theme);
+	  }
+	};
+
+	function init() {
+	  var ret = {};
+	  Object.keys(styles).forEach(function (name) {
+	    ret[name] = {
+	      get: function () {
+	        return build([name]);
+	      }
+	    };
+	  });
+	  return ret;
+	}
+
+	var sequencer = function sequencer (map, str) {
+	  var exploded = str.split(""), i = 0;
+	  exploded = exploded.map(map);
+	  return exploded.join("");
+	};
+
+	// custom formatter methods
+	colors.trap = __webpack_require__(12);
+	colors.zalgo = __webpack_require__(13);
+
+	// maps
+	colors.maps = {};
+	colors.maps.america = __webpack_require__(15);
+	colors.maps.zebra = __webpack_require__(18);
+	colors.maps.rainbow = __webpack_require__(16);
+	colors.maps.random = __webpack_require__(17)
+
+	for (var map in colors.maps) {
+	  (function(map){
+	    colors[map] = function (str) {
+	      return sequencer(colors.maps[map], str);
+	    }
+	  })(map)
+	}
+
+	defineProps(colors, init());
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)(module)))
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(module) {/*
+	The MIT License (MIT)
+
+	Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+
+	Permission is hereby granted, free of charge, to any person obtaining a copy
+	of this software and associated documentation files (the "Software"), to deal
+	in the Software without restriction, including without limitation the rights
+	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	copies of the Software, and to permit persons to whom the Software is
+	furnished to do so, subject to the following conditions:
+
+	The above copyright notice and this permission notice shall be included in
+	all copies or substantial portions of the Software.
+
+	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+	THE SOFTWARE.
+
+	*/
+
+	var styles = {};
+	module['exports'] = styles;
+
+	var codes = {
+	  reset: [0, 0],
+
+	  bold: [1, 22],
+	  dim: [2, 22],
+	  italic: [3, 23],
+	  underline: [4, 24],
+	  inverse: [7, 27],
+	  hidden: [8, 28],
+	  strikethrough: [9, 29],
+
+	  black: [30, 39],
+	  red: [31, 39],
+	  green: [32, 39],
+	  yellow: [33, 39],
+	  blue: [34, 39],
+	  magenta: [35, 39],
+	  cyan: [36, 39],
+	  white: [37, 39],
+	  gray: [90, 39],
+	  grey: [90, 39],
+
+	  bgBlack: [40, 49],
+	  bgRed: [41, 49],
+	  bgGreen: [42, 49],
+	  bgYellow: [43, 49],
+	  bgBlue: [44, 49],
+	  bgMagenta: [45, 49],
+	  bgCyan: [46, 49],
+	  bgWhite: [47, 49],
+
+	  // legacy styles for colors pre v1.0.0
+	  blackBG: [40, 49],
+	  redBG: [41, 49],
+	  greenBG: [42, 49],
+	  yellowBG: [43, 49],
+	  blueBG: [44, 49],
+	  magentaBG: [45, 49],
+	  cyanBG: [46, 49],
+	  whiteBG: [47, 49]
+
+	};
+
+	Object.keys(codes).forEach(function (key) {
+	  var val = codes[key];
+	  var style = styles[key] = [];
+	  style.open = '\u001b[' + val[0] + 'm';
+	  style.close = '\u001b[' + val[1] + 'm';
+	});
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)(module)))
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(process) {/*
+	The MIT License (MIT)
+
+	Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+
+	Permission is hereby granted, free of charge, to any person obtaining a copy
+	of this software and associated documentation files (the "Software"), to deal
+	in the Software without restriction, including without limitation the rights
+	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	copies of the Software, and to permit persons to whom the Software is
+	furnished to do so, subject to the following conditions:
+
+	The above copyright notice and this permission notice shall be included in
+	all copies or substantial portions of the Software.
+
+	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+	THE SOFTWARE.
+
+	*/
+
+	var argv = process.argv;
+
+	module.exports = (function () {
+	  if (argv.indexOf('--no-color') !== -1 ||
+	    argv.indexOf('--color=false') !== -1) {
+	    return false;
+	  }
+
+	  if (argv.indexOf('--color') !== -1 ||
+	    argv.indexOf('--color=true') !== -1 ||
+	    argv.indexOf('--color=always') !== -1) {
+	    return true;
+	  }
+
+	  if (process.stdout && !process.stdout.isTTY) {
+	    return false;
+	  }
+
+	  if (process.platform === 'win32') {
+	    return true;
+	  }
+
+	  if ('COLORTERM' in process.env) {
+	    return true;
+	  }
+
+	  if (process.env.TERM === 'dumb') {
+	    return false;
+	  }
+
+	  if (/^screen|^xterm|^vt100|color|ansi|cygwin|linux/i.test(process.env.TERM)) {
+	    return true;
+	  }
+
+	  return false;
+	})();
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(10)))
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports) {
+
+	// shim for using process in browser
+	var process = module.exports = {};
+
+	// cached from whatever global is present so that test runners that stub it
+	// don't break things.  But we need to wrap it in a try catch in case it is
+	// wrapped in strict mode code which doesn't define any globals.  It's inside a
+	// function because try/catches deoptimize in certain engines.
+
+	var cachedSetTimeout;
+	var cachedClearTimeout;
+
+	function defaultSetTimout() {
+	    throw new Error('setTimeout has not been defined');
+	}
+	function defaultClearTimeout () {
+	    throw new Error('clearTimeout has not been defined');
+	}
+	(function () {
+	    try {
+	        if (typeof setTimeout === 'function') {
+	            cachedSetTimeout = setTimeout;
+	        } else {
+	            cachedSetTimeout = defaultSetTimout;
+	        }
+	    } catch (e) {
+	        cachedSetTimeout = defaultSetTimout;
+	    }
+	    try {
+	        if (typeof clearTimeout === 'function') {
+	            cachedClearTimeout = clearTimeout;
+	        } else {
+	            cachedClearTimeout = defaultClearTimeout;
+	        }
+	    } catch (e) {
+	        cachedClearTimeout = defaultClearTimeout;
+	    }
+	} ())
+	function runTimeout(fun) {
+	    if (cachedSetTimeout === setTimeout) {
+	        //normal enviroments in sane situations
+	        return setTimeout(fun, 0);
+	    }
+	    // if setTimeout wasn't available but was latter defined
+	    if ((cachedSetTimeout === defaultSetTimout || !cachedSetTimeout) && setTimeout) {
+	        cachedSetTimeout = setTimeout;
+	        return setTimeout(fun, 0);
+	    }
+	    try {
+	        // when when somebody has screwed with setTimeout but no I.E. maddness
+	        return cachedSetTimeout(fun, 0);
+	    } catch(e){
+	        try {
+	            // When we are in I.E. but the script has been evaled so I.E. doesn't trust the global object when called normally
+	            return cachedSetTimeout.call(null, fun, 0);
+	        } catch(e){
+	            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error
+	            return cachedSetTimeout.call(this, fun, 0);
+	        }
+	    }
+
+
+	}
+	function runClearTimeout(marker) {
+	    if (cachedClearTimeout === clearTimeout) {
+	        //normal enviroments in sane situations
+	        return clearTimeout(marker);
+	    }
+	    // if clearTimeout wasn't available but was latter defined
+	    if ((cachedClearTimeout === defaultClearTimeout || !cachedClearTimeout) && clearTimeout) {
+	        cachedClearTimeout = clearTimeout;
+	        return clearTimeout(marker);
+	    }
+	    try {
+	        // when when somebody has screwed with setTimeout but no I.E. maddness
+	        return cachedClearTimeout(marker);
+	    } catch (e){
+	        try {
+	            // When we are in I.E. but the script has been evaled so I.E. doesn't  trust the global object when called normally
+	            return cachedClearTimeout.call(null, marker);
+	        } catch (e){
+	            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error.
+	            // Some versions of I.E. have different rules for clearTimeout vs setTimeout
+	            return cachedClearTimeout.call(this, marker);
+	        }
+	    }
+
+
+
+	}
+	var queue = [];
+	var draining = false;
+	var currentQueue;
+	var queueIndex = -1;
+
+	function cleanUpNextTick() {
+	    if (!draining || !currentQueue) {
+	        return;
+	    }
+	    draining = false;
+	    if (currentQueue.length) {
+	        queue = currentQueue.concat(queue);
+	    } else {
+	        queueIndex = -1;
+	    }
+	    if (queue.length) {
+	        drainQueue();
+	    }
+	}
+
+	function drainQueue() {
+	    if (draining) {
+	        return;
+	    }
+	    var timeout = runTimeout(cleanUpNextTick);
+	    draining = true;
+
+	    var len = queue.length;
+	    while(len) {
+	        currentQueue = queue;
+	        queue = [];
+	        while (++queueIndex < len) {
+	            if (currentQueue) {
+	                currentQueue[queueIndex].run();
+	            }
+	        }
+	        queueIndex = -1;
+	        len = queue.length;
+	    }
+	    currentQueue = null;
+	    draining = false;
+	    runClearTimeout(timeout);
+	}
+
+	process.nextTick = function (fun) {
+	    var args = new Array(arguments.length - 1);
+	    if (arguments.length > 1) {
+	        for (var i = 1; i < arguments.length; i++) {
+	            args[i - 1] = arguments[i];
+	        }
+	    }
+	    queue.push(new Item(fun, args));
+	    if (queue.length === 1 && !draining) {
+	        runTimeout(drainQueue);
+	    }
+	};
+
+	// v8 likes predictible objects
+	function Item(fun, array) {
+	    this.fun = fun;
+	    this.array = array;
+	}
+	Item.prototype.run = function () {
+	    this.fun.apply(null, this.array);
+	};
+	process.title = 'browser';
+	process.browser = true;
+	process.env = {};
+	process.argv = [];
+	process.version = ''; // empty string to avoid regexp issues
+	process.versions = {};
+
+	function noop() {}
+
+	process.on = noop;
+	process.addListener = noop;
+	process.once = noop;
+	process.off = noop;
+	process.removeListener = noop;
+	process.removeAllListeners = noop;
+	process.emit = noop;
+	process.prependListener = noop;
+	process.prependOnceListener = noop;
+
+	process.listeners = function (name) { return [] }
+
+	process.binding = function (name) {
+	    throw new Error('process.binding is not supported');
+	};
+
+	process.cwd = function () { return '/' };
+	process.chdir = function (dir) {
+	    throw new Error('process.chdir is not supported');
+	};
+	process.umask = function() { return 0; };
+
+
+/***/ }),
+/* 11 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var map = {
+		"./colors": 7,
+		"./colors.js": 7,
+		"./custom/trap": 12,
+		"./custom/trap.js": 12,
+		"./custom/zalgo": 13,
+		"./custom/zalgo.js": 13,
+		"./extendStringPrototype": 14,
+		"./extendStringPrototype.js": 14,
+		"./index": 6,
+		"./index.js": 6,
+		"./maps/america": 15,
+		"./maps/america.js": 15,
+		"./maps/rainbow": 16,
+		"./maps/rainbow.js": 16,
+		"./maps/random": 17,
+		"./maps/random.js": 17,
+		"./maps/zebra": 18,
+		"./maps/zebra.js": 18,
+		"./styles": 8,
+		"./styles.js": 8,
+		"./system/supports-colors": 9,
+		"./system/supports-colors.js": 9
+	};
+	function webpackContext(req) {
+		return __webpack_require__(webpackContextResolve(req));
+	};
+	function webpackContextResolve(req) {
+		return map[req] || (function() { throw new Error("Cannot find module '" + req + "'.") }());
+	};
+	webpackContext.keys = function webpackContextKeys() {
+		return Object.keys(map);
+	};
+	webpackContext.resolve = webpackContextResolve;
+	module.exports = webpackContext;
+	webpackContext.id = 11;
+
+
+/***/ }),
+/* 12 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(module) {module['exports'] = function runTheTrap (text, options) {
+	  var result = "";
+	  text = text || "Run the trap, drop the bass";
+	  text = text.split('');
+	  var trap = {
+	    a: ["\u0040", "\u0104", "\u023a", "\u0245", "\u0394", "\u039b", "\u0414"],
+	    b: ["\u00df", "\u0181", "\u0243", "\u026e", "\u03b2", "\u0e3f"],
+	    c: ["\u00a9", "\u023b", "\u03fe"],
+	    d: ["\u00d0", "\u018a", "\u0500" , "\u0501" ,"\u0502", "\u0503"],
+	    e: ["\u00cb", "\u0115", "\u018e", "\u0258", "\u03a3", "\u03be", "\u04bc", "\u0a6c"],
+	    f: ["\u04fa"],
+	    g: ["\u0262"],
+	    h: ["\u0126", "\u0195", "\u04a2", "\u04ba", "\u04c7", "\u050a"],
+	    i: ["\u0f0f"],
+	    j: ["\u0134"],
+	    k: ["\u0138", "\u04a0", "\u04c3", "\u051e"],
+	    l: ["\u0139"],
+	    m: ["\u028d", "\u04cd", "\u04ce", "\u0520", "\u0521", "\u0d69"],
+	    n: ["\u00d1", "\u014b", "\u019d", "\u0376", "\u03a0", "\u048a"],
+	    o: ["\u00d8", "\u00f5", "\u00f8", "\u01fe", "\u0298", "\u047a", "\u05dd", "\u06dd", "\u0e4f"],
+	    p: ["\u01f7", "\u048e"],
+	    q: ["\u09cd"],
+	    r: ["\u00ae", "\u01a6", "\u0210", "\u024c", "\u0280", "\u042f"],
+	    s: ["\u00a7", "\u03de", "\u03df", "\u03e8"],
+	    t: ["\u0141", "\u0166", "\u0373"],
+	    u: ["\u01b1", "\u054d"],
+	    v: ["\u05d8"],
+	    w: ["\u0428", "\u0460", "\u047c", "\u0d70"],
+	    x: ["\u04b2", "\u04fe", "\u04fc", "\u04fd"],
+	    y: ["\u00a5", "\u04b0", "\u04cb"],
+	    z: ["\u01b5", "\u0240"]
+	  }
+	  text.forEach(function(c){
+	    c = c.toLowerCase();
+	    var chars = trap[c] || [" "];
+	    var rand = Math.floor(Math.random() * chars.length);
+	    if (typeof trap[c] !== "undefined") {
+	      result += trap[c][rand];
+	    } else {
+	      result += c;
+	    }
+	  });
+	  return result;
+
+	}
+
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)(module)))
+
+/***/ }),
+/* 13 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(module) {// please no
+	module['exports'] = function zalgo(text, options) {
+	  text = text || "   he is here   ";
+	  var soul = {
+	    "up" : [
+	      '̍', '̎', '̄', '̅',
+	      '̿', '̑', '̆', '̐',
+	      '͒', '͗', '͑', '̇',
+	      '̈', '̊', '͂', '̓',
+	      '̈', '͊', '͋', '͌',
+	      '̃', '̂', '̌', '͐',
+	      '̀', '́', '̋', '̏',
+	      '̒', '̓', '̔', '̽',
+	      '̉', 'ͣ', 'ͤ', 'ͥ',
+	      'ͦ', 'ͧ', 'ͨ', 'ͩ',
+	      'ͪ', 'ͫ', 'ͬ', 'ͭ',
+	      'ͮ', 'ͯ', '̾', '͛',
+	      '͆', '̚'
+	    ],
+	    "down" : [
+	      '̖', '̗', '̘', '̙',
+	      '̜', '̝', '̞', '̟',
+	      '̠', '̤', '̥', '̦',
+	      '̩', '̪', '̫', '̬',
+	      '̭', '̮', '̯', '̰',
+	      '̱', '̲', '̳', '̹',
+	      '̺', '̻', '̼', 'ͅ',
+	      '͇', '͈', '͉', '͍',
+	      '͎', '͓', '͔', '͕',
+	      '͖', '͙', '͚', '̣'
+	    ],
+	    "mid" : [
+	      '̕', '̛', '̀', '́',
+	      '͘', '̡', '̢', '̧',
+	      '̨', '̴', '̵', '̶',
+	      '͜', '͝', '͞',
+	      '͟', '͠', '͢', '̸',
+	      '̷', '͡', ' ҉'
+	    ]
+	  },
+	  all = [].concat(soul.up, soul.down, soul.mid),
+	  zalgo = {};
+
+	  function randomNumber(range) {
+	    var r = Math.floor(Math.random() * range);
+	    return r;
+	  }
+
+	  function is_char(character) {
+	    var bool = false;
+	    all.filter(function (i) {
+	      bool = (i === character);
+	    });
+	    return bool;
+	  }
+	  
+
+	  function heComes(text, options) {
+	    var result = '', counts, l;
+	    options = options || {};
+	    options["up"] =   typeof options["up"]   !== 'undefined' ? options["up"]   : true;
+	    options["mid"] =  typeof options["mid"]  !== 'undefined' ? options["mid"]  : true;
+	    options["down"] = typeof options["down"] !== 'undefined' ? options["down"] : true;
+	    options["size"] = typeof options["size"] !== 'undefined' ? options["size"] : "maxi";
+	    text = text.split('');
+	    for (l in text) {
+	      if (is_char(l)) {
+	        continue;
+	      }
+	      result = result + text[l];
+	      counts = {"up" : 0, "down" : 0, "mid" : 0};
+	      switch (options.size) {
+	      case 'mini':
+	        counts.up = randomNumber(8);
+	        counts.mid = randomNumber(2);
+	        counts.down = randomNumber(8);
+	        break;
+	      case 'maxi':
+	        counts.up = randomNumber(16) + 3;
+	        counts.mid = randomNumber(4) + 1;
+	        counts.down = randomNumber(64) + 3;
+	        break;
+	      default:
+	        counts.up = randomNumber(8) + 1;
+	        counts.mid = randomNumber(6) / 2;
+	        counts.down = randomNumber(8) + 1;
+	        break;
+	      }
+
+	      var arr = ["up", "mid", "down"];
+	      for (var d in arr) {
+	        var index = arr[d];
+	        for (var i = 0 ; i <= counts[index]; i++) {
+	          if (options[index]) {
+	            result = result + soul[index][randomNumber(soul[index].length)];
+	          }
+	        }
+	      }
+	    }
+	    return result;
+	  }
+	  // don't summon him
+	  return heComes(text, options);
+	}
+
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)(module)))
+
+/***/ }),
+/* 14 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(module) {var colors = __webpack_require__(7);
+
+	module['exports'] = function () {
+
+	  //
+	  // Extends prototype of native string object to allow for "foo".red syntax
+	  //
+	  var addProperty = function (color, func) {
+	    String.prototype.__defineGetter__(color, func);
+	  };
+
+	  var sequencer = function sequencer (map, str) {
+	      return function () {
+	        var exploded = this.split(""), i = 0;
+	        exploded = exploded.map(map);
+	        return exploded.join("");
+	      }
+	  };
+
+	  addProperty('strip', function () {
+	    return colors.strip(this);
+	  });
+
+	  addProperty('stripColors', function () {
+	    return colors.strip(this);
+	  });
+
+	  addProperty("trap", function(){
+	    return colors.trap(this);
+	  });
+
+	  addProperty("zalgo", function(){
+	    return colors.zalgo(this);
+	  });
+
+	  addProperty("zebra", function(){
+	    return colors.zebra(this);
+	  });
+
+	  addProperty("rainbow", function(){
+	    return colors.rainbow(this);
+	  });
+
+	  addProperty("random", function(){
+	    return colors.random(this);
+	  });
+
+	  addProperty("america", function(){
+	    return colors.america(this);
+	  });
+
+	  //
+	  // Iterate through all default styles and colors
+	  //
+	  var x = Object.keys(colors.styles);
+	  x.forEach(function (style) {
+	    addProperty(style, function () {
+	      return colors.stylize(this, style);
+	    });
+	  });
+
+	  function applyTheme(theme) {
+	    //
+	    // Remark: This is a list of methods that exist
+	    // on String that you should not overwrite.
+	    //
+	    var stringPrototypeBlacklist = [
+	      '__defineGetter__', '__defineSetter__', '__lookupGetter__', '__lookupSetter__', 'charAt', 'constructor',
+	      'hasOwnProperty', 'isPrototypeOf', 'propertyIsEnumerable', 'toLocaleString', 'toString', 'valueOf', 'charCodeAt',
+	      'indexOf', 'lastIndexof', 'length', 'localeCompare', 'match', 'replace', 'search', 'slice', 'split', 'substring',
+	      'toLocaleLowerCase', 'toLocaleUpperCase', 'toLowerCase', 'toUpperCase', 'trim', 'trimLeft', 'trimRight'
+	    ];
+
+	    Object.keys(theme).forEach(function (prop) {
+	      if (stringPrototypeBlacklist.indexOf(prop) !== -1) {
+	        console.log('warn: '.red + ('String.prototype' + prop).magenta + ' is probably something you don\'t want to override. Ignoring style name');
+	      }
+	      else {
+	        if (typeof(theme[prop]) === 'string') {
+	          colors[prop] = colors[theme[prop]];
+	          addProperty(prop, function () {
+	            return colors[theme[prop]](this);
+	          });
+	        }
+	        else {
+	          addProperty(prop, function () {
+	            var ret = this;
+	            for (var t = 0; t < theme[prop].length; t++) {
+	              ret = colors[theme[prop][t]](ret);
+	            }
+	            return ret;
+	          });
+	        }
+	      }
+	    });
+	  }
+
+	  colors.setTheme = function (theme) {
+	    if (typeof theme === 'string') {
+	      try {
+	        colors.themes[theme] = __webpack_require__(11)(theme);
+	        applyTheme(colors.themes[theme]);
+	        return colors.themes[theme];
+	      } catch (err) {
+	        console.log(err);
+	        return err;
+	      }
+	    } else {
+	      applyTheme(theme);
+	    }
+	  };
+
+	};
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)(module)))
+
+/***/ }),
+/* 15 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(module) {var colors = __webpack_require__(7);
+
+	module['exports'] = (function() {
+	  return function (letter, i, exploded) {
+	    if(letter === " ") return letter;
+	    switch(i%3) {
+	      case 0: return colors.red(letter);
+	      case 1: return colors.white(letter)
+	      case 2: return colors.blue(letter)
+	    }
+	  }
+	})();
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)(module)))
+
+/***/ }),
+/* 16 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(module) {var colors = __webpack_require__(7);
+
+	module['exports'] = (function () {
+	  var rainbowColors = ['red', 'yellow', 'green', 'blue', 'magenta']; //RoY G BiV
+	  return function (letter, i, exploded) {
+	    if (letter === " ") {
+	      return letter;
+	    } else {
+	      return colors[rainbowColors[i++ % rainbowColors.length]](letter);
+	    }
+	  };
+	})();
+
+
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)(module)))
+
+/***/ }),
+/* 17 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(module) {var colors = __webpack_require__(7);
+
+	module['exports'] = (function () {
+	  var available = ['underline', 'inverse', 'grey', 'yellow', 'red', 'green', 'blue', 'white', 'cyan', 'magenta'];
+	  return function(letter, i, exploded) {
+	    return letter === " " ? letter : colors[available[Math.round(Math.random() * (available.length - 1))]](letter);
+	  };
+	})();
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)(module)))
+
+/***/ }),
+/* 18 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(module) {var colors = __webpack_require__(7);
+
+	module['exports'] = function (letter, i, exploded) {
+	  return i % 2 === 0 ? letter : colors.inverse(letter);
+	};
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)(module)))
+
+/***/ }),
+/* 19 */
+/***/ (function(module, exports) {
+
+	var List = function() {
+	    this._count = 0;
+
+	    this.todoList = [];
+	}
+
+	List.prototype.add = function(item) {
+	    this.todoList.push(item)
+	};
+
+	List.prototype.start = function() {
+
+	    var that = this;
+
+	    return new Promise(function(resolve) {
+
+	        var v = [];
+
+	        const len = that.todoList.length;
+
+	        var gen = function*() {
+	            for (let i = 0; i < len; i++) {
+	                let opt = that.todoList[i];
+
+	                yield opt
+	            }
+	            return
+	        }()
+
+
+	        function next(val) {
+	            var result = gen.next(val);
+
+	            if (!result.done) {
+	                v.push(val);
+	                result.value.then(next)
+	            } else {
+	                resolve(v)
+	            }
+
+	        }
+
+	        next();
+
+	    });
+	}
+
+	module.exports = List;
+
+	/*
+	var a = new List();
+	a.add(new Promise(function(resolve) {
+	    resolve(1)
+	}));
+
+	a.add(new Promise(function(resolve) {
+	    resolve(2)
+	}));
+
+	a.start()
+	*/
+
+
+/***/ }),
+/* 20 */
+/***/ (function(module, exports) {
+
+	/* WEBPACK VAR INJECTION */(function(__dirname) {var _ = __dirname + "../plugin/";
+
+	const cos = module.exports = {
+	    get_global_const: function() {
+
+	    },
+
+	    ENTER_CODE: 13,
+	    SPLIT_CODE: 32,
+	    CANCLE_CODE: 27,
+
+	    FOCUS_MAIN_INPUT: [18, 13],
+
+	    vmDoms: {
+	        editor: "editor",
+	        home: "home",
+	        view: "view",
+	        preview: "preview",
+	        reptile: "reptile",
+	    },
+
+	    mainInput: "#mainInput",
+	    mainView: "#mainView",
+	    userName: "#userName",
+
+	    postPath: {
+	        blogPublish: "/api/blog/publish",
+	        blogAll: "/api/blog/index",
+	        blogOne: "/api/blog/",
+	        blogDelete: "/api/blog/delete",
+	        login: "/api/user/login",
+	        reptileGO: "/api/reptile/go",
+	    },
+
+	    urlSplice: ["program", "id"],
+
+	    COLORS: [
+	        "#34352C",
+	        "#228fbd",
+	        "#FD5B78",
+	        "#006c54",
+	    ],
+
+	    Tips: {
+	        Success: "#34352C",
+	        Faild: "red",
+			Timeout:1000 * 5,
+	    },
+
+	    LOGIN_STATE: "Login_state",
+	};
+
+	/* WEBPACK VAR INJECTION */}.call(exports, "/"))
+
+/***/ }),
+/* 21 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var Router = __webpack_require__(22);
+
+	var editor = __webpack_require__(25);
+	var home = __webpack_require__(46);
+	var blog = __webpack_require__(47);
+	var login = __webpack_require__(49);
+	var reptile = __webpack_require__(51);
+
+	Router.route("home", home);
+	Router.route("editor", editor);
+	Router.route("blog", blog);
+	Router.route("login", login);
+	Router.route("reptile",reptile);
+
+	module.exports = Router;
+
+
+/***/ }),
+/* 22 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var inputMgr = __webpack_require__(23);
+	var programMgr = __webpack_require__(24);
+
+	var RouterMgr = {};
+
+	RouterMgr.dir = {};
+
+	RouterMgr.route = function(name, handler) {
+	    RouterMgr.dir[name] = new programMgr(handler);
+	};
+
+	RouterMgr.refresh = function() {
+	    var _path = location.pathname.split("/");
+
+	    var list = [];
+	    for (let i = 0; i < _path.length; i++) {
+	        let _opt = _path[i];
+
+	        if (!_opt) continue;
+
+	        list.push(_opt);
+	    }
+
+	    var program = list[0] || "home";
+
+	    program = RouterMgr.dir[program];
+
+	    if (!program) return RouterMgr.dir["home"].deal([]);
+
+	    program.deal(list.slice(1, list.length));
+
+	};
+
+	RouterMgr.entry = function(e) {
+	    if (!inputMgr.isEnter(e)) return;
+
+	    var main = inputMgr.format();
+
+	    var program = RouterMgr.dir[main.program];
+
+	    if (!program) return;
+
+	    program.deal(main.parmas);
+
+		document.querySelector(cosDefine.mainInput).value = "";
+	};
+
+	module.exports = RouterMgr;
+
+
+/***/ }),
+/* 23 */
+/***/ (function(module, exports) {
+
+	module.exports = {
+	    input: function() {
+	        var mainInput = document.querySelector(cosDefine.mainInput);
+
+	        inputText = mainInput.value;
+
+	        inputText = inputText.split(" ");
+
+	        var str = "";
+
+	        for (let i = 0; i < inputText.length; i++) {
+	            let opt = inputText[i];
+
+	            let _ = cosDefine.urlSplice[i];
+
+	            if (!_) _ = "";
+
+	            let _splice = !!i ? `/${opt}` : opt;
+
+	            str += _splice
+	        }
+
+	        return {
+	            url: str,
+	            program: inputText[0],
+	            parma: inputText[1]
+	        }
+	    },
+
+	    isEnter: function(e) {
+	        return e.keyCode === cosDefine.ENTER_CODE && !e.ctrlKey;
+	    },
+
+	    format: function() {
+	        var mainInput = document.querySelector(cosDefine.mainInput);
+
+	        inputText = mainInput.value.split(" ");
+	        parmas = inputText.slice(1, inputText.length);
+
+	        return {
+	            program: inputText[0],
+	            parmas: parmas
+	        }
+	    }
+	}
+
+
+/***/ }),
+/* 24 */
+/***/ (function(module, exports) {
+
+	var programMgr = function(o) {
+	    this.program = o;
+	    this.parma = null;
+	};
+
+	/*
+	 *	Deal program likes pipe -> last result is next parma
+	 * */
+	programMgr.prototype.deal = function(parmas) {
+
+	    var r = this
+	        .format(parmas)
+	        .check()
+
+	    if (!r) return;
+
+	    for (let i = 0; i < this.list_programs.length; i++) {
+	        let handler = this.list_programs[i];
+
+	        if (!handler) continue;
+
+	        this.parma = this.run(handler, this.parma, this.list_parmas);
+
+	    }
+
+	};
+
+	programMgr.prototype.format = function(parmas) {
+
+	    this.list_programs = [];
+	    this.list_parmas = [];
+
+	    for (let i = 0; i < parmas.length; i++) {
+	        let parma = parmas[i];
+
+	        let handler = this.program[parma]
+
+	        if (!!handler) this.list_programs.push(handler);
+	        else this.list_parmas.push(parma);
+	    }
+
+	    if (!this.list_programs.length) this.list_programs.push(this.program.default);
+
+	    return this;
+	};
+
+	programMgr.prototype.check = function() {
+	    if (this.list_parmas.length > 1) {
+	        return;
+	    }
+
+	    this.list_parmas = this.list_parmas[0];
+	    return this;
+	};
+
+	programMgr.prototype.run = function(program, result, parma) {
+	    var result = program(result, parma);
+
+	    if (window.urlStateChange) this.updateUrl();
+
+	    window.urlStateChange = false;
+	};
+
+	programMgr.prototype.updateUrl = function() {
+
+		var parmas = !!this.list_parmas ? "/" + this.list_parmas : "";
+
+		var state = {
+			url: "/" + this.program.name + parmas
+		}
+		history.pushState(state,"EAVES",state.url);
+	};
+
+	module.exports = programMgr;
+
+
+/***/ }),
+/* 25 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var loadMgr = __webpack_require__(26);
+	var $ = __webpack_require__(29);
+	var styles = __webpack_require__(30);
+	var markdown = __webpack_require__(40).markdown;
+	var tools = __webpack_require__(1);
+	var netMgr = __webpack_require__(45);
+
+	var TAG = __webpack_require__(37);
+	var PREVIEW = __webpack_require__(34);
+
+	var main = module.exports = {
+
+	    name: "editor",
+
+	    default: function(parma, _id) {
+
+	        window.urlStateChange = true;
+
+	        window.blog_gen_id = _id || tools.Date.format("2017", 8).substr(2);
+
+	        loadMgr(cosDefine.vmDoms.editor);
+
+	        var preview = new PREVIEW();
+
+	        document.querySelector(cosDefine.mainView).appendChild(preview.dom);
+
+	        main.init();
+
+	        _id && main.renderData(_id)
+	    },
+
+	    init: function() {
+	        main.onTag();
+	        main.extraKey();
+	    },
+
+	    renderData: function(_id) {
+
+	        netMgr.post(cosDefine.postPath.blogOne + _id, JSON.stringify({
+	            _id: _id
+	        })).then(function(res) {
+
+	            res.json().then(function(_json) {
+
+	                document.querySelector("#editor-title").value = _json.title;
+	                document.querySelector("#editor-content").value = _json.contain;
+
+	            });
+	        });
+	    },
+
+	    extraKey: function() {
+	        document.addEventListener("keyup", main.previewDown);
+	    },
+
+	    previewDown: function(e) {
+	        if (e.keyCode !== cosDefine.CANCLE_CODE) return;
+
+	        var previewDOM = document.querySelector("#preview");
+
+	        previewDOM.style.display = "none";
+	    },
+
+	    onTag: function() {
+	        var tags = document.getElementById("editor-tags");
+	        var tags_show = document.getElementById("editor-tags-show");
+
+	        tags.addEventListener("keyup", function(e) {
+
+	            var text = this.value;
+
+	            if (e.keyCode !== cosDefine.SPLIT_CODE) return;
+
+	            main.addTag(text, tags_show);
+
+	            this.value = "";
+	        });
+
+	    },
+
+	    addTag: function(text, show) {
+
+	        if (!text) return;
+			
+			var tag = new TAG({
+				text: text
+			});
+
+	        show.appendChild(tag.dom);
+	    },
+
+	    preview: function() {
+	        var previewDOM = document.querySelector("#preview");
+	        var text = document.querySelector("#editor-content").value;
+
+	        previewDOM.innerHTML = markdown.toHTML(text)
+
+	        previewDOM.style.display = "block";
+	    }
+	};
+
+
+/***/ }),
+/* 26 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	 // var animate = require("velocity-animate");
+
+	 var PLUGIN_STATE = [];
+
+	 var mainView = document.querySelector(cosDefine.mainView);
+
+	 var uninstallPlugin = function(name) {
+
+	     var dom = document.getElementById(name);
+
+	     if (!dom) return; //Log.warn("No this dom",name);
+
+	     // dom.remove();
+
+	     // dom = null;
+
+	     mainView.innerHTML = "";
+
+	     return true;
+	 };
+
+	 var loadPlugin = function(name) {
+
+	     var _dom = __webpack_require__(27)("./" + name);
+
+	     var vm_dom = new _dom();
+
+	     if (!vm_dom) return; //Log.warn("No this vm dom ->",name);
+
+	     mainView.appendChild(vm_dom.dom);
+
+	     PLUGIN_STATE.push(name);
+
+	     return vm_dom;
+	 };
+
+	 module.exports = function(pluginName) {
+
+	     var len = PLUGIN_STATE.length,
+	         inStateDom;
+
+	     for (var i = 0; i < len; i++) {
+	         inStateDom = PLUGIN_STATE[i];
+
+	         if (!inStateDom) continue;
+
+	         var uninstallSuccess = uninstallPlugin(inStateDom);
+
+	         if (uninstallSuccess) {
+	             PLUGIN_STATE.splice(i, 1);
+
+	             i--;
+	         }
+	     }
+
+	     return loadPlugin(pluginName);
+	 };
+
+
+/***/ }),
+/* 27 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var map = {
+		"./editor": 28,
+		"./editor.js": 28,
+		"./home": 32,
+		"./home-opt": 33,
+		"./home-opt.js": 33,
+		"./home.js": 32,
+		"./preview": 34,
+		"./preview.js": 34,
+		"./reptile": 35,
+		"./reptile-tagsContain": 36,
+		"./reptile-tagsContain.js": 36,
+		"./reptile.js": 35,
+		"./tag": 37,
+		"./tag.js": 37,
+		"./tips": 38,
+		"./tips.js": 38,
+		"./view": 39,
+		"./view.js": 39
+	};
+	function webpackContext(req) {
+		return __webpack_require__(webpackContextResolve(req));
+	};
+	function webpackContextResolve(req) {
+		return map[req] || (function() { throw new Error("Cannot find module '" + req + "'.") }());
+	};
+	webpackContext.keys = function webpackContextKeys() {
+		return Object.keys(map);
+	};
+	webpackContext.resolve = webpackContextResolve;
+	module.exports = webpackContext;
+	webpackContext.id = 27;
+
+
+/***/ }),
+/* 28 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var $ = __webpack_require__(29);
+	var styles = __webpack_require__(30);
+
+	module.exports = function() {
+
+	    var main = new $({
+	        name: "editor",
+	        id: "editor",
+	    });
+
+	    var titleContain = new $({
+	        className: "row",
+	    });
+	    var contentContain = new $({
+	        className: "row",
+	    });
+	    var tagsContain = new $({
+	        className: "row",
+	    });
+
+	    var titleInput = new $({
+	        tag: "input",
+	        name: "editor-title",
+	        id: "editor-title",
+	        styles: styles.editor.title,
+	    });
+
+	    var contentInput = new $({
+	        tag: "textarea",
+	        name: "editor-content",
+	        id: "editor-content",
+	        styles: styles.editor.content
+	    });
+
+	    var tagsInput = new $({
+	        tag: "input",
+	        name: "editor-tags",
+	        id: "editor-tags",
+	        styles: styles.editor.tag,
+	    });
+
+	    var tagsShow = new $({
+	        id: "editor-tags-show",
+	        className: "row",
+			styles: styles.editor.tagsShow,
+	    });
+		
+	    titleContain.include(titleInput);
+	    contentContain.include(contentInput);
+	    tagsContain.include(tagsInput);
+
+	    main.include(
+	        titleContain,
+	        contentContain,
+	        tagsContain,
+	        tagsShow
+	    )
+		
+		main.render();
+
+	    return main;
+	};
+
+
+/***/ }),
+/* 29 */
+/***/ (function(module, exports) {
+
+	/*
+	 *		View(
+	 *			
+	 *			option,		{}
+	 * 			Title,		Plugin
+	 * 			Contain,
+	 * 			Author,
+	 * 			Time,
+	 *
+	 *		)
+	 *
+	 * */
+
+	var Dom = module.exports = function(option) {
+	    this.tag = option.tag || "div";
+
+	    this.prop = {};
+	    this.prop.id = option.id || "";
+	    this.prop.name = option.name || "";
+	    this.prop.class = option.className || "";
+	    this.prop.text = option.text || "";
+
+	    this.styles = !!option.styles ? option.styles : {};
+
+	    this.childNodes = [];
+
+	    this.rendered = false;
+	}
+
+	Dom.prototype.include = function() {
+	    var _domlist = Object.keys(arguments),
+	        len = _domlist.length,
+	        _dom;
+
+	    for (var i = 0; i < len; i++) {
+	        _dom = arguments[i];
+
+	        if (this.rendered && _dom.rendered) this.dom.appendChild(_dom.dom);
+
+	        if (!(_dom instanceof Dom)) {
+
+	            Log.warn("Not instance of Dom");
+
+	            continue;
+	        }
+
+	        this.childNodes.push(_dom);
+	    }
+	}
+
+	Dom.prototype.render = function() {
+
+	    var that = this;
+	    if (this.rendered) return this;
+
+	    this.dom = document.createElement(this.tag);
+
+	    var _dom = this.dom;
+
+	    for (var k in this.prop) {
+	        if (!!this.prop[k]) _dom.setAttribute(k, this.prop[k]);
+
+	        if (k === "text") _dom.innerHTML = this.prop[k]
+
+	    }
+	    var _styles = Object.keys(this.styles),
+	        l = _styles.length,
+	        _style, _value;
+
+	    for (var i = 0; i < l; i++) {
+	        _style = _styles[i];
+	        _value = this.styles[_style];
+
+	        _dom.style[_style] = _value;
+
+	    }
+
+	    this.childNodes.forEach(function(_vm) {
+	        _dom.appendChild(_vm.render().dom);
+	    });
+
+	    this.rendered = true;
+
+	    return this;
+	}
+
+	Dom.prototype.query = function(tag) {
+
+	    let c = [];
+	    let len = this.childNodes.length;
+
+	    for (let i = 0; i < len; i++) {
+	        let child = this.childNodes[i];
+
+	        if (child.dom === this.dom.querySelector(tag)) c.push(child);
+	    }
+
+	    return c;
+	}
+
+	Dom.prototype.text = function(str) {
+	    this.dom.innerText = str;
+
+	    return this;
+	};
+
+	Dom.prototype.remove = function(){
+
+		var that = this;
+		
+		console.log(that.dom.parentNode)
+		that.dom.parentNode.removeChild(that.dom);
+
+		that = null;
+	};
+
+
+
+/***/ }),
+/* 30 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var colorMgr = __webpack_require__(31);
+
+	var main = module.exports = {
+	    editor: {
+	        title: {
+	            width: "100%",
+	            fontSize: "160%",
+	            border: "none",
+	            borderBottom: "2px solid #ccc",
+	            paddingTop: "2vh",
+	            marginTop: "2vh",
+	            placeholder: "Title here."
+	        },
+	        content: {
+	            width: "70vw",
+	            height: "70vh",
+	            resize: "none",
+	            border: "none",
+	            fontSize: "120%",
+	        },
+	        tag: {
+	            width: "100%",
+	            border: "none",
+	            fontSize: "110%",
+	            borderBottom: "1px solid #ccc",
+	            placeholder: "Tags"
+	        },
+	        tagsShow: {
+	            padding: "5px 0"
+	        }
+	    },
+	    tag: {
+	        padding: "1px 10px",
+	        margin: "2px 5px",
+	        borderRadius: "5px",
+	        color: "#fff",
+	    },
+
+	    opt: {
+	        main: {
+	            display: "flex",
+	            height: "5vh",
+	            margin: "1vh 0",
+	            padding: "0 50px",
+	            lineHeight: "5vh",
+	            cursor: "pointer"
+	        },
+	        title: {
+	            // display: "flex",
+	            flex: 6,
+	            fontSize: "2vw",
+	        },
+	        tag: {
+	            // display: "flex",
+	            flex: 2,
+	        },
+	        id: {
+	            // displayer: "flex",
+	            flex: 2,
+	            color: "#bbb",
+
+	        }
+	    },
+	    view: {
+	        main: {
+
+	        },
+	        title: {
+	            fontSize: "160%",
+	            border: "none",
+	            borderBottom: "2px solid #ccc",
+	            paddingTop: "2vh",
+	            marginTop: "2vh",
+	            display: "flex"
+	        },
+
+	        title_text: {
+	            flex: 7
+	        },
+
+	        title_id: {
+	            flex: 3,
+	            color: "#ccc",
+	            fontSize: "80%",
+	            lineHeight: "6vh"
+	        },
+
+	        tags: {},
+
+	        contain: {
+	            marginTop: "1vh"
+	        }
+	    },
+	    preview: {
+	        main: {
+	            border: "1px solid #bbb",
+	            borderRadius: "5px",
+	            position: "absolute",
+	            top: "10vh",
+	            left: "35vw",
+	            transform: "translate(-50%,0%)",
+	            width: "60vw",
+	            height: "70vh",
+	            overflowY: "auto",
+	            padding: "1vh",
+	            display: "none",
+	            backgroundColor: "rgba(255,255,255,0.8)"
+	        }
+	    },
+
+	    reptile: {
+	        row: {
+	            margin: "1vh 0",
+	            display: "flex",
+	        },
+	        dominTitle: {
+	            flex: 2
+	        },
+	        dominInput: {
+	            flex: 8,
+	            border: "none",
+	            borderBottom: "1px solid #000",
+	        },
+
+	        tagTitle: {
+	            flex: 2
+	        },
+
+	        tagInput: {
+	            flex: 8,
+	            border: "none",
+	            borderBottom: "1px solid #000",
+	        },
+	    },
+
+	    tips: {
+	        position: "fixed",
+			top:0,
+			width:"100vw",
+			textIndent:"15vw",
+	        fontSize: "80%",
+			letterSpacing:"0.3em",
+			color:"#fff",
+	    }
+	};
+
+
+/***/ }),
+/* 31 */
+/***/ (function(module, exports) {
+
+	var main = module.exports = {};
+
+	main.randomColor = function() {
+
+	    var randomTagStyleIndex = tools.Math.random(0, cosDefine.COLORS.length);
+
+	    return cosDefine.COLORS[randomTagStyleIndex];
+	};
+
+
+/***/ }),
+/* 32 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var $ = __webpack_require__(29);
+
+	module.exports = function() {
+	    var main = new $({
+	        name: "home",
+	        className: "home-contain",
+	        id: "home"
+	    });
+
+	    main.render();
+
+	    return main;
+	};
+
+
+/***/ }),
+/* 33 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var $ = __webpack_require__(29);
+	var styles = __webpack_require__(30);
+	var colorMgr = __webpack_require__(31);
+
+	module.exports = function() {
+
+	    var mainStyle = styles.opt.main;
+	    mainStyle.borderLeft = "5px solid " + colorMgr.randomColor();
+
+	    var main = new $({
+	        className: "opt",
+	        styles: mainStyle
+	    });
+
+	    var title = new $({
+	        className: "opt-title",
+	        styles: styles.opt.title
+	    });
+
+	    var tags = new $({
+	        className: "opt-tags",
+	        styles: styles.opt.tag,
+	    });
+
+	    var id = new $({
+	        className: "opt-id",
+	        styles: styles.opt.id
+	    });
+
+	    main.include(title, tags, id);
+
+	    main.render();
+
+	    return main;
+	}
+
+
+/***/ }),
+/* 34 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var $ = __webpack_require__(29);
+	var styles = __webpack_require__(30);
+
+	module.exports = function(){
+
+		var main = new $({
+			name: "preview",
+			id: "preview",
+			styles: styles.preview.main
+		});
+		
+		main.render();
+
+		return main;
+	};
+
+
+/***/ }),
+/* 35 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var $ = __webpack_require__(29);
+	var styles = __webpack_require__(30);
+	var reptile_contain = __webpack_require__(36);
+
+	module.exports = function() {
+
+	    var main = new $({
+	        id: "reptile"
+	    });
+
+	    var infoContain = new $({
+	        className: "row",
+	        styles: styles.reptile.row
+	    });
+
+	    var dominTitle = new $({
+	        styles: styles.reptile.dominTitle,
+	        text: "Domin : "
+	    });
+
+	    var dominInput = new $({
+	        tag: "input",
+	        id: "reptile-domin",
+	        styles: styles.reptile.dominInput
+	    });
+
+	    var tagsContain = new reptile_contain();
+
+	    infoContain.include(dominTitle, dominInput);
+
+	    main.include(infoContain, tagsContain);
+
+	    main.render();
+
+	    return main
+	};
+
+
+/***/ }),
+/* 36 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var $ = __webpack_require__(29);
+	var styles = __webpack_require__(30);
+
+	module.exports = function() {
+
+	    var main = new $({
+	        className: "reptile-tagsContain",
+	        styles: styles.reptile.row,
+	    });
+
+	    var tagTitle = new $({
+	        className: "reptile-tagTitle",
+	        styles: styles.reptile.tagTitle,
+	        text: "Tags : "
+	    });
+
+	    var tagInput = new $({
+	        tag: "input",
+	        className: "reptile-tagInput",
+	        styles: styles.reptile.tagInput,
+	    });
+
+	    main.include(tagTitle, tagInput);
+
+	    main.render();
+
+	    return main;
+	};
+
+
+/***/ }),
+/* 37 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var $ = __webpack_require__(29);
+	var styles = __webpack_require__(30);
+	var colorMgr = __webpack_require__(31);
+
+	module.exports = function(o) {
+
+	    var style = styles.tag;
+	    style.backgroundColor = colorMgr.randomColor();
+
+	    var main = new $({
+	        tag: "span",
+	        name: "tag",
+	        className: "tag",
+	        text: o.text || "",
+	        styles: style
+	    });
+
+	    main.render();
+
+	    return main;
+	}
+
+
+/***/ }),
+/* 38 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var $ = __webpack_require__(29);
+	var styles = __webpack_require__(30);
+
+	module.exports = function(o) {
+		
+		var style = styles.tips;
+		style.backgroundColor = o.type
+
+	    var main = new $({
+	        name: "tips",
+	        className: "tips",
+	        styles: style,
+	        text: o.text || ""
+	    });
+
+		main.render();
+
+	    return main;
+	};
+
+
+/***/ }),
+/* 39 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var $ = __webpack_require__(29);
+	var styles = __webpack_require__(30);
+
+	module.exports = function() {
+	    var main = new $({
+	        name: "view",
+	        id: "view",
+	        styles: styles.view.main
+	    });
+
+	    var title = new $({
+	        id: "view-title",
+	        styles: styles.view.title
+	    });
+
+	    var title_text = new $({
+	        id: "view-title-text",
+	        styles: styles.view.title_text
+	    });
+
+	    var title_id = new $({
+	        id: "view-title-id",
+	        styles: styles.view.title_id
+	    });
+
+	    var contain = new $({
+	        id: "view-contain",
+	        styles: styles.view.contain
+	    });
+
+	    var tags = new $({
+	        id: "view-tags",
+	        styles: styles.view.tags
+	    });
+
+	    title.include(
+	        title_text,
+	        title_id
+	    );
+
+	    main.include(
+	        title,
+	        tags,
+	        contain
+	    );
+		
+		main.render();
+
+	    return main;
+	};
+
+
+/***/ }),
+/* 40 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	// super simple module for the most common nodejs use case.
+	exports.markdown = __webpack_require__(41);
+	exports.parse = exports.markdown.toHTML;
+
+
+/***/ }),
+/* 41 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	// Released under MIT license
+	// Copyright (c) 2009-2010 Dominic Baggott
+	// Copyright (c) 2009-2010 Ash Berlin
+	// Copyright (c) 2011 Christoph Dorn <christoph@christophdorn.com> (http://www.christophdorn.com)
+
+	/*jshint browser:true, devel:true */
+
+	(function( expose ) {
+
+	/**
+	 *  class Markdown
+	 *
+	 *  Markdown processing in Javascript done right. We have very particular views
+	 *  on what constitutes 'right' which include:
+	 *
+	 *  - produces well-formed HTML (this means that em and strong nesting is
+	 *    important)
+	 *
+	 *  - has an intermediate representation to allow processing of parsed data (We
+	 *    in fact have two, both as [JsonML]: a markdown tree and an HTML tree).
+	 *
+	 *  - is easily extensible to add new dialects without having to rewrite the
+	 *    entire parsing mechanics
+	 *
+	 *  - has a good test suite
+	 *
+	 *  This implementation fulfills all of these (except that the test suite could
+	 *  do with expanding to automatically run all the fixtures from other Markdown
+	 *  implementations.)
+	 *
+	 *  ##### Intermediate Representation
+	 *
+	 *  *TODO* Talk about this :) Its JsonML, but document the node names we use.
+	 *
+	 *  [JsonML]: http://jsonml.org/ "JSON Markup Language"
+	 **/
+	var Markdown = expose.Markdown = function(dialect) {
+	  switch (typeof dialect) {
+	    case "undefined":
+	      this.dialect = Markdown.dialects.Gruber;
+	      break;
+	    case "object":
+	      this.dialect = dialect;
+	      break;
+	    default:
+	      if ( dialect in Markdown.dialects ) {
+	        this.dialect = Markdown.dialects[dialect];
+	      }
+	      else {
+	        throw new Error("Unknown Markdown dialect '" + String(dialect) + "'");
+	      }
+	      break;
+	  }
+	  this.em_state = [];
+	  this.strong_state = [];
+	  this.debug_indent = "";
+	};
+
+	/**
+	 *  parse( markdown, [dialect] ) -> JsonML
+	 *  - markdown (String): markdown string to parse
+	 *  - dialect (String | Dialect): the dialect to use, defaults to gruber
+	 *
+	 *  Parse `markdown` and return a markdown document as a Markdown.JsonML tree.
+	 **/
+	expose.parse = function( source, dialect ) {
+	  // dialect will default if undefined
+	  var md = new Markdown( dialect );
+	  return md.toTree( source );
+	};
+
+	/**
+	 *  toHTML( markdown, [dialect]  ) -> String
+	 *  toHTML( md_tree ) -> String
+	 *  - markdown (String): markdown string to parse
+	 *  - md_tree (Markdown.JsonML): parsed markdown tree
+	 *
+	 *  Take markdown (either as a string or as a JsonML tree) and run it through
+	 *  [[toHTMLTree]] then turn it into a well-formated HTML fragment.
+	 **/
+	expose.toHTML = function toHTML( source , dialect , options ) {
+	  var input = expose.toHTMLTree( source , dialect , options );
+
+	  return expose.renderJsonML( input );
+	};
+
+	/**
+	 *  toHTMLTree( markdown, [dialect] ) -> JsonML
+	 *  toHTMLTree( md_tree ) -> JsonML
+	 *  - markdown (String): markdown string to parse
+	 *  - dialect (String | Dialect): the dialect to use, defaults to gruber
+	 *  - md_tree (Markdown.JsonML): parsed markdown tree
+	 *
+	 *  Turn markdown into HTML, represented as a JsonML tree. If a string is given
+	 *  to this function, it is first parsed into a markdown tree by calling
+	 *  [[parse]].
+	 **/
+	expose.toHTMLTree = function toHTMLTree( input, dialect , options ) {
+	  // convert string input to an MD tree
+	  if ( typeof input ==="string" ) input = this.parse( input, dialect );
+
+	  // Now convert the MD tree to an HTML tree
+
+	  // remove references from the tree
+	  var attrs = extract_attr( input ),
+	      refs = {};
+
+	  if ( attrs && attrs.references ) {
+	    refs = attrs.references;
+	  }
+
+	  var html = convert_tree_to_html( input, refs , options );
+	  merge_text_nodes( html );
+	  return html;
+	};
+
+	// For Spidermonkey based engines
+	function mk_block_toSource() {
+	  return "Markdown.mk_block( " +
+	          uneval(this.toString()) +
+	          ", " +
+	          uneval(this.trailing) +
+	          ", " +
+	          uneval(this.lineNumber) +
+	          " )";
+	}
+
+	// node
+	function mk_block_inspect() {
+	  var util = __webpack_require__(42);
+	  return "Markdown.mk_block( " +
+	          util.inspect(this.toString()) +
+	          ", " +
+	          util.inspect(this.trailing) +
+	          ", " +
+	          util.inspect(this.lineNumber) +
+	          " )";
+
+	}
+
+	var mk_block = Markdown.mk_block = function(block, trail, line) {
+	  // Be helpful for default case in tests.
+	  if ( arguments.length == 1 ) trail = "\n\n";
+
+	  var s = new String(block);
+	  s.trailing = trail;
+	  // To make it clear its not just a string
+	  s.inspect = mk_block_inspect;
+	  s.toSource = mk_block_toSource;
+
+	  if ( line != undefined )
+	    s.lineNumber = line;
+
+	  return s;
+	};
+
+	function count_lines( str ) {
+	  var n = 0, i = -1;
+	  while ( ( i = str.indexOf("\n", i + 1) ) !== -1 ) n++;
+	  return n;
+	}
+
+	// Internal - split source into rough blocks
+	Markdown.prototype.split_blocks = function splitBlocks( input, startLine ) {
+	  input = input.replace(/(\r\n|\n|\r)/g, "\n");
+	  // [\s\S] matches _anything_ (newline or space)
+	  // [^] is equivalent but doesn't work in IEs.
+	  var re = /([\s\S]+?)($|\n#|\n(?:\s*\n|$)+)/g,
+	      blocks = [],
+	      m;
+
+	  var line_no = 1;
+
+	  if ( ( m = /^(\s*\n)/.exec(input) ) != null ) {
+	    // skip (but count) leading blank lines
+	    line_no += count_lines( m[0] );
+	    re.lastIndex = m[0].length;
+	  }
+
+	  while ( ( m = re.exec(input) ) !== null ) {
+	    if (m[2] == "\n#") {
+	      m[2] = "\n";
+	      re.lastIndex--;
+	    }
+	    blocks.push( mk_block( m[1], m[2], line_no ) );
+	    line_no += count_lines( m[0] );
+	  }
+
+	  return blocks;
+	};
+
+	/**
+	 *  Markdown#processBlock( block, next ) -> undefined | [ JsonML, ... ]
+	 *  - block (String): the block to process
+	 *  - next (Array): the following blocks
+	 *
+	 * Process `block` and return an array of JsonML nodes representing `block`.
+	 *
+	 * It does this by asking each block level function in the dialect to process
+	 * the block until one can. Succesful handling is indicated by returning an
+	 * array (with zero or more JsonML nodes), failure by a false value.
+	 *
+	 * Blocks handlers are responsible for calling [[Markdown#processInline]]
+	 * themselves as appropriate.
+	 *
+	 * If the blocks were split incorrectly or adjacent blocks need collapsing you
+	 * can adjust `next` in place using shift/splice etc.
+	 *
+	 * If any of this default behaviour is not right for the dialect, you can
+	 * define a `__call__` method on the dialect that will get invoked to handle
+	 * the block processing.
+	 */
+	Markdown.prototype.processBlock = function processBlock( block, next ) {
+	  var cbs = this.dialect.block,
+	      ord = cbs.__order__;
+
+	  if ( "__call__" in cbs ) {
+	    return cbs.__call__.call(this, block, next);
+	  }
+
+	  for ( var i = 0; i < ord.length; i++ ) {
+	    //D:this.debug( "Testing", ord[i] );
+	    var res = cbs[ ord[i] ].call( this, block, next );
+	    if ( res ) {
+	      //D:this.debug("  matched");
+	      if ( !isArray(res) || ( res.length > 0 && !( isArray(res[0]) ) ) )
+	        this.debug(ord[i], "didn't return a proper array");
+	      //D:this.debug( "" );
+	      return res;
+	    }
+	  }
+
+	  // Uhoh! no match! Should we throw an error?
+	  return [];
+	};
+
+	Markdown.prototype.processInline = function processInline( block ) {
+	  return this.dialect.inline.__call__.call( this, String( block ) );
+	};
+
+	/**
+	 *  Markdown#toTree( source ) -> JsonML
+	 *  - source (String): markdown source to parse
+	 *
+	 *  Parse `source` into a JsonML tree representing the markdown document.
+	 **/
+	// custom_tree means set this.tree to `custom_tree` and restore old value on return
+	Markdown.prototype.toTree = function toTree( source, custom_root ) {
+	  var blocks = source instanceof Array ? source : this.split_blocks( source );
+
+	  // Make tree a member variable so its easier to mess with in extensions
+	  var old_tree = this.tree;
+	  try {
+	    this.tree = custom_root || this.tree || [ "markdown" ];
+
+	    blocks:
+	    while ( blocks.length ) {
+	      var b = this.processBlock( blocks.shift(), blocks );
+
+	      // Reference blocks and the like won't return any content
+	      if ( !b.length ) continue blocks;
+
+	      this.tree.push.apply( this.tree, b );
+	    }
+	    return this.tree;
+	  }
+	  finally {
+	    if ( custom_root ) {
+	      this.tree = old_tree;
+	    }
+	  }
+	};
+
+	// Noop by default
+	Markdown.prototype.debug = function () {
+	  var args = Array.prototype.slice.call( arguments);
+	  args.unshift(this.debug_indent);
+	  if ( typeof print !== "undefined" )
+	      print.apply( print, args );
+	  if ( typeof console !== "undefined" && typeof console.log !== "undefined" )
+	      console.log.apply( null, args );
+	}
+
+	Markdown.prototype.loop_re_over_block = function( re, block, cb ) {
+	  // Dont use /g regexps with this
+	  var m,
+	      b = block.valueOf();
+
+	  while ( b.length && (m = re.exec(b) ) != null ) {
+	    b = b.substr( m[0].length );
+	    cb.call(this, m);
+	  }
+	  return b;
+	};
+
+	/**
+	 * Markdown.dialects
+	 *
+	 * Namespace of built-in dialects.
+	 **/
+	Markdown.dialects = {};
+
+	/**
+	 * Markdown.dialects.Gruber
+	 *
+	 * The default dialect that follows the rules set out by John Gruber's
+	 * markdown.pl as closely as possible. Well actually we follow the behaviour of
+	 * that script which in some places is not exactly what the syntax web page
+	 * says.
+	 **/
+	Markdown.dialects.Gruber = {
+	  block: {
+	    atxHeader: function atxHeader( block, next ) {
+	      var m = block.match( /^(#{1,6})\s*(.*?)\s*#*\s*(?:\n|$)/ );
+
+	      if ( !m ) return undefined;
+
+	      var header = [ "header", { level: m[ 1 ].length } ];
+	      Array.prototype.push.apply(header, this.processInline(m[ 2 ]));
+
+	      if ( m[0].length < block.length )
+	        next.unshift( mk_block( block.substr( m[0].length ), block.trailing, block.lineNumber + 2 ) );
+
+	      return [ header ];
+	    },
+
+	    setextHeader: function setextHeader( block, next ) {
+	      var m = block.match( /^(.*)\n([-=])\2\2+(?:\n|$)/ );
+
+	      if ( !m ) return undefined;
+
+	      var level = ( m[ 2 ] === "=" ) ? 1 : 2;
+	      var header = [ "header", { level : level }, m[ 1 ] ];
+
+	      if ( m[0].length < block.length )
+	        next.unshift( mk_block( block.substr( m[0].length ), block.trailing, block.lineNumber + 2 ) );
+
+	      return [ header ];
+	    },
+
+	    code: function code( block, next ) {
+	      // |    Foo
+	      // |bar
+	      // should be a code block followed by a paragraph. Fun
+	      //
+	      // There might also be adjacent code block to merge.
+
+	      var ret = [],
+	          re = /^(?: {0,3}\t| {4})(.*)\n?/,
+	          lines;
+
+	      // 4 spaces + content
+	      if ( !block.match( re ) ) return undefined;
+
+	      block_search:
+	      do {
+	        // Now pull out the rest of the lines
+	        var b = this.loop_re_over_block(
+	                  re, block.valueOf(), function( m ) { ret.push( m[1] ); } );
+
+	        if ( b.length ) {
+	          // Case alluded to in first comment. push it back on as a new block
+	          next.unshift( mk_block(b, block.trailing) );
+	          break block_search;
+	        }
+	        else if ( next.length ) {
+	          // Check the next block - it might be code too
+	          if ( !next[0].match( re ) ) break block_search;
+
+	          // Pull how how many blanks lines follow - minus two to account for .join
+	          ret.push ( block.trailing.replace(/[^\n]/g, "").substring(2) );
+
+	          block = next.shift();
+	        }
+	        else {
+	          break block_search;
+	        }
+	      } while ( true );
+
+	      return [ [ "code_block", ret.join("\n") ] ];
+	    },
+
+	    horizRule: function horizRule( block, next ) {
+	      // this needs to find any hr in the block to handle abutting blocks
+	      var m = block.match( /^(?:([\s\S]*?)\n)?[ \t]*([-_*])(?:[ \t]*\2){2,}[ \t]*(?:\n([\s\S]*))?$/ );
+
+	      if ( !m ) {
+	        return undefined;
+	      }
+
+	      var jsonml = [ [ "hr" ] ];
+
+	      // if there's a leading abutting block, process it
+	      if ( m[ 1 ] ) {
+	        jsonml.unshift.apply( jsonml, this.processBlock( m[ 1 ], [] ) );
+	      }
+
+	      // if there's a trailing abutting block, stick it into next
+	      if ( m[ 3 ] ) {
+	        next.unshift( mk_block( m[ 3 ] ) );
+	      }
+
+	      return jsonml;
+	    },
+
+	    // There are two types of lists. Tight and loose. Tight lists have no whitespace
+	    // between the items (and result in text just in the <li>) and loose lists,
+	    // which have an empty line between list items, resulting in (one or more)
+	    // paragraphs inside the <li>.
+	    //
+	    // There are all sorts weird edge cases about the original markdown.pl's
+	    // handling of lists:
+	    //
+	    // * Nested lists are supposed to be indented by four chars per level. But
+	    //   if they aren't, you can get a nested list by indenting by less than
+	    //   four so long as the indent doesn't match an indent of an existing list
+	    //   item in the 'nest stack'.
+	    //
+	    // * The type of the list (bullet or number) is controlled just by the
+	    //    first item at the indent. Subsequent changes are ignored unless they
+	    //    are for nested lists
+	    //
+	    lists: (function( ) {
+	      // Use a closure to hide a few variables.
+	      var any_list = "[*+-]|\\d+\\.",
+	          bullet_list = /[*+-]/,
+	          number_list = /\d+\./,
+	          // Capture leading indent as it matters for determining nested lists.
+	          is_list_re = new RegExp( "^( {0,3})(" + any_list + ")[ \t]+" ),
+	          indent_re = "(?: {0,3}\\t| {4})";
+
+	      // TODO: Cache this regexp for certain depths.
+	      // Create a regexp suitable for matching an li for a given stack depth
+	      function regex_for_depth( depth ) {
+
+	        return new RegExp(
+	          // m[1] = indent, m[2] = list_type
+	          "(?:^(" + indent_re + "{0," + depth + "} {0,3})(" + any_list + ")\\s+)|" +
+	          // m[3] = cont
+	          "(^" + indent_re + "{0," + (depth-1) + "}[ ]{0,4})"
+	        );
+	      }
+	      function expand_tab( input ) {
+	        return input.replace( / {0,3}\t/g, "    " );
+	      }
+
+	      // Add inline content `inline` to `li`. inline comes from processInline
+	      // so is an array of content
+	      function add(li, loose, inline, nl) {
+	        if ( loose ) {
+	          li.push( [ "para" ].concat(inline) );
+	          return;
+	        }
+	        // Hmmm, should this be any block level element or just paras?
+	        var add_to = li[li.length -1] instanceof Array && li[li.length - 1][0] == "para"
+	                   ? li[li.length -1]
+	                   : li;
+
+	        // If there is already some content in this list, add the new line in
+	        if ( nl && li.length > 1 ) inline.unshift(nl);
+
+	        for ( var i = 0; i < inline.length; i++ ) {
+	          var what = inline[i],
+	              is_str = typeof what == "string";
+	          if ( is_str && add_to.length > 1 && typeof add_to[add_to.length-1] == "string" ) {
+	            add_to[ add_to.length-1 ] += what;
+	          }
+	          else {
+	            add_to.push( what );
+	          }
+	        }
+	      }
+
+	      // contained means have an indent greater than the current one. On
+	      // *every* line in the block
+	      function get_contained_blocks( depth, blocks ) {
+
+	        var re = new RegExp( "^(" + indent_re + "{" + depth + "}.*?\\n?)*$" ),
+	            replace = new RegExp("^" + indent_re + "{" + depth + "}", "gm"),
+	            ret = [];
+
+	        while ( blocks.length > 0 ) {
+	          if ( re.exec( blocks[0] ) ) {
+	            var b = blocks.shift(),
+	                // Now remove that indent
+	                x = b.replace( replace, "");
+
+	            ret.push( mk_block( x, b.trailing, b.lineNumber ) );
+	          }
+	          else {
+	            break;
+	          }
+	        }
+	        return ret;
+	      }
+
+	      // passed to stack.forEach to turn list items up the stack into paras
+	      function paragraphify(s, i, stack) {
+	        var list = s.list;
+	        var last_li = list[list.length-1];
+
+	        if ( last_li[1] instanceof Array && last_li[1][0] == "para" ) {
+	          return;
+	        }
+	        if ( i + 1 == stack.length ) {
+	          // Last stack frame
+	          // Keep the same array, but replace the contents
+	          last_li.push( ["para"].concat( last_li.splice(1, last_li.length - 1) ) );
+	        }
+	        else {
+	          var sublist = last_li.pop();
+	          last_li.push( ["para"].concat( last_li.splice(1, last_li.length - 1) ), sublist );
+	        }
+	      }
+
+	      // The matcher function
+	      return function( block, next ) {
+	        var m = block.match( is_list_re );
+	        if ( !m ) return undefined;
+
+	        function make_list( m ) {
+	          var list = bullet_list.exec( m[2] )
+	                   ? ["bulletlist"]
+	                   : ["numberlist"];
+
+	          stack.push( { list: list, indent: m[1] } );
+	          return list;
+	        }
+
+
+	        var stack = [], // Stack of lists for nesting.
+	            list = make_list( m ),
+	            last_li,
+	            loose = false,
+	            ret = [ stack[0].list ],
+	            i;
+
+	        // Loop to search over block looking for inner block elements and loose lists
+	        loose_search:
+	        while ( true ) {
+	          // Split into lines preserving new lines at end of line
+	          var lines = block.split( /(?=\n)/ );
+
+	          // We have to grab all lines for a li and call processInline on them
+	          // once as there are some inline things that can span lines.
+	          var li_accumulate = "";
+
+	          // Loop over the lines in this block looking for tight lists.
+	          tight_search:
+	          for ( var line_no = 0; line_no < lines.length; line_no++ ) {
+	            var nl = "",
+	                l = lines[line_no].replace(/^\n/, function(n) { nl = n; return ""; });
+
+	            // TODO: really should cache this
+	            var line_re = regex_for_depth( stack.length );
+
+	            m = l.match( line_re );
+	            //print( "line:", uneval(l), "\nline match:", uneval(m) );
+
+	            // We have a list item
+	            if ( m[1] !== undefined ) {
+	              // Process the previous list item, if any
+	              if ( li_accumulate.length ) {
+	                add( last_li, loose, this.processInline( li_accumulate ), nl );
+	                // Loose mode will have been dealt with. Reset it
+	                loose = false;
+	                li_accumulate = "";
+	              }
+
+	              m[1] = expand_tab( m[1] );
+	              var wanted_depth = Math.floor(m[1].length/4)+1;
+	              //print( "want:", wanted_depth, "stack:", stack.length);
+	              if ( wanted_depth > stack.length ) {
+	                // Deep enough for a nested list outright
+	                //print ( "new nested list" );
+	                list = make_list( m );
+	                last_li.push( list );
+	                last_li = list[1] = [ "listitem" ];
+	              }
+	              else {
+	                // We aren't deep enough to be strictly a new level. This is
+	                // where Md.pl goes nuts. If the indent matches a level in the
+	                // stack, put it there, else put it one deeper then the
+	                // wanted_depth deserves.
+	                var found = false;
+	                for ( i = 0; i < stack.length; i++ ) {
+	                  if ( stack[ i ].indent != m[1] ) continue;
+	                  list = stack[ i ].list;
+	                  stack.splice( i+1, stack.length - (i+1) );
+	                  found = true;
+	                  break;
+	                }
+
+	                if (!found) {
+	                  //print("not found. l:", uneval(l));
+	                  wanted_depth++;
+	                  if ( wanted_depth <= stack.length ) {
+	                    stack.splice(wanted_depth, stack.length - wanted_depth);
+	                    //print("Desired depth now", wanted_depth, "stack:", stack.length);
+	                    list = stack[wanted_depth-1].list;
+	                    //print("list:", uneval(list) );
+	                  }
+	                  else {
+	                    //print ("made new stack for messy indent");
+	                    list = make_list(m);
+	                    last_li.push(list);
+	                  }
+	                }
+
+	                //print( uneval(list), "last", list === stack[stack.length-1].list );
+	                last_li = [ "listitem" ];
+	                list.push(last_li);
+	              } // end depth of shenegains
+	              nl = "";
+	            }
+
+	            // Add content
+	            if ( l.length > m[0].length ) {
+	              li_accumulate += nl + l.substr( m[0].length );
+	            }
+	          } // tight_search
+
+	          if ( li_accumulate.length ) {
+	            add( last_li, loose, this.processInline( li_accumulate ), nl );
+	            // Loose mode will have been dealt with. Reset it
+	            loose = false;
+	            li_accumulate = "";
+	          }
+
+	          // Look at the next block - we might have a loose list. Or an extra
+	          // paragraph for the current li
+	          var contained = get_contained_blocks( stack.length, next );
+
+	          // Deal with code blocks or properly nested lists
+	          if ( contained.length > 0 ) {
+	            // Make sure all listitems up the stack are paragraphs
+	            forEach( stack, paragraphify, this);
+
+	            last_li.push.apply( last_li, this.toTree( contained, [] ) );
+	          }
+
+	          var next_block = next[0] && next[0].valueOf() || "";
+
+	          if ( next_block.match(is_list_re) || next_block.match( /^ / ) ) {
+	            block = next.shift();
+
+	            // Check for an HR following a list: features/lists/hr_abutting
+	            var hr = this.dialect.block.horizRule( block, next );
+
+	            if ( hr ) {
+	              ret.push.apply(ret, hr);
+	              break;
+	            }
+
+	            // Make sure all listitems up the stack are paragraphs
+	            forEach( stack, paragraphify, this);
+
+	            loose = true;
+	            continue loose_search;
+	          }
+	          break;
+	        } // loose_search
+
+	        return ret;
+	      };
+	    })(),
+
+	    blockquote: function blockquote( block, next ) {
+	      if ( !block.match( /^>/m ) )
+	        return undefined;
+
+	      var jsonml = [];
+
+	      // separate out the leading abutting block, if any. I.e. in this case:
+	      //
+	      //  a
+	      //  > b
+	      //
+	      if ( block[ 0 ] != ">" ) {
+	        var lines = block.split( /\n/ ),
+	            prev = [],
+	            line_no = block.lineNumber;
+
+	        // keep shifting lines until you find a crotchet
+	        while ( lines.length && lines[ 0 ][ 0 ] != ">" ) {
+	            prev.push( lines.shift() );
+	            line_no++;
+	        }
+
+	        var abutting = mk_block( prev.join( "\n" ), "\n", block.lineNumber );
+	        jsonml.push.apply( jsonml, this.processBlock( abutting, [] ) );
+	        // reassemble new block of just block quotes!
+	        block = mk_block( lines.join( "\n" ), block.trailing, line_no );
+	      }
+
+
+	      // if the next block is also a blockquote merge it in
+	      while ( next.length && next[ 0 ][ 0 ] == ">" ) {
+	        var b = next.shift();
+	        block = mk_block( block + block.trailing + b, b.trailing, block.lineNumber );
+	      }
+
+	      // Strip off the leading "> " and re-process as a block.
+	      var input = block.replace( /^> ?/gm, "" ),
+	          old_tree = this.tree,
+	          processedBlock = this.toTree( input, [ "blockquote" ] ),
+	          attr = extract_attr( processedBlock );
+
+	      // If any link references were found get rid of them
+	      if ( attr && attr.references ) {
+	        delete attr.references;
+	        // And then remove the attribute object if it's empty
+	        if ( isEmpty( attr ) ) {
+	          processedBlock.splice( 1, 1 );
+	        }
+	      }
+
+	      jsonml.push( processedBlock );
+	      return jsonml;
+	    },
+
+	    referenceDefn: function referenceDefn( block, next) {
+	      var re = /^\s*\[(.*?)\]:\s*(\S+)(?:\s+(?:(['"])(.*?)\3|\((.*?)\)))?\n?/;
+	      // interesting matches are [ , ref_id, url, , title, title ]
+
+	      if ( !block.match(re) )
+	        return undefined;
+
+	      // make an attribute node if it doesn't exist
+	      if ( !extract_attr( this.tree ) ) {
+	        this.tree.splice( 1, 0, {} );
+	      }
+
+	      var attrs = extract_attr( this.tree );
+
+	      // make a references hash if it doesn't exist
+	      if ( attrs.references === undefined ) {
+	        attrs.references = {};
+	      }
+
+	      var b = this.loop_re_over_block(re, block, function( m ) {
+
+	        if ( m[2] && m[2][0] == "<" && m[2][m[2].length-1] == ">" )
+	          m[2] = m[2].substring( 1, m[2].length - 1 );
+
+	        var ref = attrs.references[ m[1].toLowerCase() ] = {
+	          href: m[2]
+	        };
+
+	        if ( m[4] !== undefined )
+	          ref.title = m[4];
+	        else if ( m[5] !== undefined )
+	          ref.title = m[5];
+
+	      } );
+
+	      if ( b.length )
+	        next.unshift( mk_block( b, block.trailing ) );
+
+	      return [];
+	    },
+
+	    para: function para( block, next ) {
+	      // everything's a para!
+	      return [ ["para"].concat( this.processInline( block ) ) ];
+	    }
+	  }
+	};
+
+	Markdown.dialects.Gruber.inline = {
+
+	    __oneElement__: function oneElement( text, patterns_or_re, previous_nodes ) {
+	      var m,
+	          res,
+	          lastIndex = 0;
+
+	      patterns_or_re = patterns_or_re || this.dialect.inline.__patterns__;
+	      var re = new RegExp( "([\\s\\S]*?)(" + (patterns_or_re.source || patterns_or_re) + ")" );
+
+	      m = re.exec( text );
+	      if (!m) {
+	        // Just boring text
+	        return [ text.length, text ];
+	      }
+	      else if ( m[1] ) {
+	        // Some un-interesting text matched. Return that first
+	        return [ m[1].length, m[1] ];
+	      }
+
+	      var res;
+	      if ( m[2] in this.dialect.inline ) {
+	        res = this.dialect.inline[ m[2] ].call(
+	                  this,
+	                  text.substr( m.index ), m, previous_nodes || [] );
+	      }
+	      // Default for now to make dev easier. just slurp special and output it.
+	      res = res || [ m[2].length, m[2] ];
+	      return res;
+	    },
+
+	    __call__: function inline( text, patterns ) {
+
+	      var out = [],
+	          res;
+
+	      function add(x) {
+	        //D:self.debug("  adding output", uneval(x));
+	        if ( typeof x == "string" && typeof out[out.length-1] == "string" )
+	          out[ out.length-1 ] += x;
+	        else
+	          out.push(x);
+	      }
+
+	      while ( text.length > 0 ) {
+	        res = this.dialect.inline.__oneElement__.call(this, text, patterns, out );
+	        text = text.substr( res.shift() );
+	        forEach(res, add )
+	      }
+
+	      return out;
+	    },
+
+	    // These characters are intersting elsewhere, so have rules for them so that
+	    // chunks of plain text blocks don't include them
+	    "]": function () {},
+	    "}": function () {},
+
+	    __escape__ : /^\\[\\`\*_{}\[\]()#\+.!\-]/,
+
+	    "\\": function escaped( text ) {
+	      // [ length of input processed, node/children to add... ]
+	      // Only esacape: \ ` * _ { } [ ] ( ) # * + - . !
+	      if ( this.dialect.inline.__escape__.exec( text ) )
+	        return [ 2, text.charAt( 1 ) ];
+	      else
+	        // Not an esacpe
+	        return [ 1, "\\" ];
+	    },
+
+	    "![": function image( text ) {
+
+	      // Unlike images, alt text is plain text only. no other elements are
+	      // allowed in there
+
+	      // ![Alt text](/path/to/img.jpg "Optional title")
+	      //      1          2            3       4         <--- captures
+	      var m = text.match( /^!\[(.*?)\][ \t]*\([ \t]*([^")]*?)(?:[ \t]+(["'])(.*?)\3)?[ \t]*\)/ );
+
+	      if ( m ) {
+	        if ( m[2] && m[2][0] == "<" && m[2][m[2].length-1] == ">" )
+	          m[2] = m[2].substring( 1, m[2].length - 1 );
+
+	        m[2] = this.dialect.inline.__call__.call( this, m[2], /\\/ )[0];
+
+	        var attrs = { alt: m[1], href: m[2] || "" };
+	        if ( m[4] !== undefined)
+	          attrs.title = m[4];
+
+	        return [ m[0].length, [ "img", attrs ] ];
+	      }
+
+	      // ![Alt text][id]
+	      m = text.match( /^!\[(.*?)\][ \t]*\[(.*?)\]/ );
+
+	      if ( m ) {
+	        // We can't check if the reference is known here as it likely wont be
+	        // found till after. Check it in md tree->hmtl tree conversion
+	        return [ m[0].length, [ "img_ref", { alt: m[1], ref: m[2].toLowerCase(), original: m[0] } ] ];
+	      }
+
+	      // Just consume the '!['
+	      return [ 2, "![" ];
+	    },
+
+	    "[": function link( text ) {
+
+	      var orig = String(text);
+	      // Inline content is possible inside `link text`
+	      var res = Markdown.DialectHelpers.inline_until_char.call( this, text.substr(1), "]" );
+
+	      // No closing ']' found. Just consume the [
+	      if ( !res ) return [ 1, "[" ];
+
+	      var consumed = 1 + res[ 0 ],
+	          children = res[ 1 ],
+	          link,
+	          attrs;
+
+	      // At this point the first [...] has been parsed. See what follows to find
+	      // out which kind of link we are (reference or direct url)
+	      text = text.substr( consumed );
+
+	      // [link text](/path/to/img.jpg "Optional title")
+	      //                 1            2       3         <--- captures
+	      // This will capture up to the last paren in the block. We then pull
+	      // back based on if there a matching ones in the url
+	      //    ([here](/url/(test))
+	      // The parens have to be balanced
+	      var m = text.match( /^\s*\([ \t]*([^"']*)(?:[ \t]+(["'])(.*?)\2)?[ \t]*\)/ );
+	      if ( m ) {
+	        var url = m[1];
+	        consumed += m[0].length;
+
+	        if ( url && url[0] == "<" && url[url.length-1] == ">" )
+	          url = url.substring( 1, url.length - 1 );
+
+	        // If there is a title we don't have to worry about parens in the url
+	        if ( !m[3] ) {
+	          var open_parens = 1; // One open that isn't in the capture
+	          for ( var len = 0; len < url.length; len++ ) {
+	            switch ( url[len] ) {
+	            case "(":
+	              open_parens++;
+	              break;
+	            case ")":
+	              if ( --open_parens == 0) {
+	                consumed -= url.length - len;
+	                url = url.substring(0, len);
+	              }
+	              break;
+	            }
+	          }
+	        }
+
+	        // Process escapes only
+	        url = this.dialect.inline.__call__.call( this, url, /\\/ )[0];
+
+	        attrs = { href: url || "" };
+	        if ( m[3] !== undefined)
+	          attrs.title = m[3];
+
+	        link = [ "link", attrs ].concat( children );
+	        return [ consumed, link ];
+	      }
+
+	      // [Alt text][id]
+	      // [Alt text] [id]
+	      m = text.match( /^\s*\[(.*?)\]/ );
+
+	      if ( m ) {
+
+	        consumed += m[ 0 ].length;
+
+	        // [links][] uses links as its reference
+	        attrs = { ref: ( m[ 1 ] || String(children) ).toLowerCase(),  original: orig.substr( 0, consumed ) };
+
+	        link = [ "link_ref", attrs ].concat( children );
+
+	        // We can't check if the reference is known here as it likely wont be
+	        // found till after. Check it in md tree->hmtl tree conversion.
+	        // Store the original so that conversion can revert if the ref isn't found.
+	        return [ consumed, link ];
+	      }
+
+	      // [id]
+	      // Only if id is plain (no formatting.)
+	      if ( children.length == 1 && typeof children[0] == "string" ) {
+
+	        attrs = { ref: children[0].toLowerCase(),  original: orig.substr( 0, consumed ) };
+	        link = [ "link_ref", attrs, children[0] ];
+	        return [ consumed, link ];
+	      }
+
+	      // Just consume the "["
+	      return [ 1, "[" ];
+	    },
+
+
+	    "<": function autoLink( text ) {
+	      var m;
+
+	      if ( ( m = text.match( /^<(?:((https?|ftp|mailto):[^>]+)|(.*?@.*?\.[a-zA-Z]+))>/ ) ) != null ) {
+	        if ( m[3] ) {
+	          return [ m[0].length, [ "link", { href: "mailto:" + m[3] }, m[3] ] ];
+
+	        }
+	        else if ( m[2] == "mailto" ) {
+	          return [ m[0].length, [ "link", { href: m[1] }, m[1].substr("mailto:".length ) ] ];
+	        }
+	        else
+	          return [ m[0].length, [ "link", { href: m[1] }, m[1] ] ];
+	      }
+
+	      return [ 1, "<" ];
+	    },
+
+	    "`": function inlineCode( text ) {
+	      // Inline code block. as many backticks as you like to start it
+	      // Always skip over the opening ticks.
+	      var m = text.match( /(`+)(([\s\S]*?)\1)/ );
+
+	      if ( m && m[2] )
+	        return [ m[1].length + m[2].length, [ "inlinecode", m[3] ] ];
+	      else {
+	        // TODO: No matching end code found - warn!
+	        return [ 1, "`" ];
+	      }
+	    },
+
+	    "  \n": function lineBreak( text ) {
+	      return [ 3, [ "linebreak" ] ];
+	    }
+
+	};
+
+	// Meta Helper/generator method for em and strong handling
+	function strong_em( tag, md ) {
+
+	  var state_slot = tag + "_state",
+	      other_slot = tag == "strong" ? "em_state" : "strong_state";
+
+	  function CloseTag(len) {
+	    this.len_after = len;
+	    this.name = "close_" + md;
+	  }
+
+	  return function ( text, orig_match ) {
+
+	    if ( this[state_slot][0] == md ) {
+	      // Most recent em is of this type
+	      //D:this.debug("closing", md);
+	      this[state_slot].shift();
+
+	      // "Consume" everything to go back to the recrusion in the else-block below
+	      return[ text.length, new CloseTag(text.length-md.length) ];
+	    }
+	    else {
+	      // Store a clone of the em/strong states
+	      var other = this[other_slot].slice(),
+	          state = this[state_slot].slice();
+
+	      this[state_slot].unshift(md);
+
+	      //D:this.debug_indent += "  ";
+
+	      // Recurse
+	      var res = this.processInline( text.substr( md.length ) );
+	      //D:this.debug_indent = this.debug_indent.substr(2);
+
+	      var last = res[res.length - 1];
+
+	      //D:this.debug("processInline from", tag + ": ", uneval( res ) );
+
+	      var check = this[state_slot].shift();
+	      if ( last instanceof CloseTag ) {
+	        res.pop();
+	        // We matched! Huzzah.
+	        var consumed = text.length - last.len_after;
+	        return [ consumed, [ tag ].concat(res) ];
+	      }
+	      else {
+	        // Restore the state of the other kind. We might have mistakenly closed it.
+	        this[other_slot] = other;
+	        this[state_slot] = state;
+
+	        // We can't reuse the processed result as it could have wrong parsing contexts in it.
+	        return [ md.length, md ];
+	      }
+	    }
+	  }; // End returned function
+	}
+
+	Markdown.dialects.Gruber.inline["**"] = strong_em("strong", "**");
+	Markdown.dialects.Gruber.inline["__"] = strong_em("strong", "__");
+	Markdown.dialects.Gruber.inline["*"]  = strong_em("em", "*");
+	Markdown.dialects.Gruber.inline["_"]  = strong_em("em", "_");
+
+
+	// Build default order from insertion order.
+	Markdown.buildBlockOrder = function(d) {
+	  var ord = [];
+	  for ( var i in d ) {
+	    if ( i == "__order__" || i == "__call__" ) continue;
+	    ord.push( i );
+	  }
+	  d.__order__ = ord;
+	};
+
+	// Build patterns for inline matcher
+	Markdown.buildInlinePatterns = function(d) {
+	  var patterns = [];
+
+	  for ( var i in d ) {
+	    // __foo__ is reserved and not a pattern
+	    if ( i.match( /^__.*__$/) ) continue;
+	    var l = i.replace( /([\\.*+?|()\[\]{}])/g, "\\$1" )
+	             .replace( /\n/, "\\n" );
+	    patterns.push( i.length == 1 ? l : "(?:" + l + ")" );
+	  }
+
+	  patterns = patterns.join("|");
+	  d.__patterns__ = patterns;
+	  //print("patterns:", uneval( patterns ) );
+
+	  var fn = d.__call__;
+	  d.__call__ = function(text, pattern) {
+	    if ( pattern != undefined ) {
+	      return fn.call(this, text, pattern);
+	    }
+	    else
+	    {
+	      return fn.call(this, text, patterns);
+	    }
+	  };
+	};
+
+	Markdown.DialectHelpers = {};
+	Markdown.DialectHelpers.inline_until_char = function( text, want ) {
+	  var consumed = 0,
+	      nodes = [];
+
+	  while ( true ) {
+	    if ( text.charAt( consumed ) == want ) {
+	      // Found the character we were looking for
+	      consumed++;
+	      return [ consumed, nodes ];
+	    }
+
+	    if ( consumed >= text.length ) {
+	      // No closing char found. Abort.
+	      return null;
+	    }
+
+	    var res = this.dialect.inline.__oneElement__.call(this, text.substr( consumed ) );
+	    consumed += res[ 0 ];
+	    // Add any returned nodes.
+	    nodes.push.apply( nodes, res.slice( 1 ) );
+	  }
+	}
+
+	// Helper function to make sub-classing a dialect easier
+	Markdown.subclassDialect = function( d ) {
+	  function Block() {}
+	  Block.prototype = d.block;
+	  function Inline() {}
+	  Inline.prototype = d.inline;
+
+	  return { block: new Block(), inline: new Inline() };
+	};
+
+	Markdown.buildBlockOrder ( Markdown.dialects.Gruber.block );
+	Markdown.buildInlinePatterns( Markdown.dialects.Gruber.inline );
+
+	Markdown.dialects.Maruku = Markdown.subclassDialect( Markdown.dialects.Gruber );
+
+	Markdown.dialects.Maruku.processMetaHash = function processMetaHash( meta_string ) {
+	  var meta = split_meta_hash( meta_string ),
+	      attr = {};
+
+	  for ( var i = 0; i < meta.length; ++i ) {
+	    // id: #foo
+	    if ( /^#/.test( meta[ i ] ) ) {
+	      attr.id = meta[ i ].substring( 1 );
+	    }
+	    // class: .foo
+	    else if ( /^\./.test( meta[ i ] ) ) {
+	      // if class already exists, append the new one
+	      if ( attr["class"] ) {
+	        attr["class"] = attr["class"] + meta[ i ].replace( /./, " " );
+	      }
+	      else {
+	        attr["class"] = meta[ i ].substring( 1 );
+	      }
+	    }
+	    // attribute: foo=bar
+	    else if ( /\=/.test( meta[ i ] ) ) {
+	      var s = meta[ i ].split( /\=/ );
+	      attr[ s[ 0 ] ] = s[ 1 ];
+	    }
+	  }
+
+	  return attr;
+	}
+
+	function split_meta_hash( meta_string ) {
+	  var meta = meta_string.split( "" ),
+	      parts = [ "" ],
+	      in_quotes = false;
+
+	  while ( meta.length ) {
+	    var letter = meta.shift();
+	    switch ( letter ) {
+	      case " " :
+	        // if we're in a quoted section, keep it
+	        if ( in_quotes ) {
+	          parts[ parts.length - 1 ] += letter;
+	        }
+	        // otherwise make a new part
+	        else {
+	          parts.push( "" );
+	        }
+	        break;
+	      case "'" :
+	      case '"' :
+	        // reverse the quotes and move straight on
+	        in_quotes = !in_quotes;
+	        break;
+	      case "\\" :
+	        // shift off the next letter to be used straight away.
+	        // it was escaped so we'll keep it whatever it is
+	        letter = meta.shift();
+	      default :
+	        parts[ parts.length - 1 ] += letter;
+	        break;
+	    }
+	  }
+
+	  return parts;
+	}
+
+	Markdown.dialects.Maruku.block.document_meta = function document_meta( block, next ) {
+	  // we're only interested in the first block
+	  if ( block.lineNumber > 1 ) return undefined;
+
+	  // document_meta blocks consist of one or more lines of `Key: Value\n`
+	  if ( ! block.match( /^(?:\w+:.*\n)*\w+:.*$/ ) ) return undefined;
+
+	  // make an attribute node if it doesn't exist
+	  if ( !extract_attr( this.tree ) ) {
+	    this.tree.splice( 1, 0, {} );
+	  }
+
+	  var pairs = block.split( /\n/ );
+	  for ( p in pairs ) {
+	    var m = pairs[ p ].match( /(\w+):\s*(.*)$/ ),
+	        key = m[ 1 ].toLowerCase(),
+	        value = m[ 2 ];
+
+	    this.tree[ 1 ][ key ] = value;
+	  }
+
+	  // document_meta produces no content!
+	  return [];
+	};
+
+	Markdown.dialects.Maruku.block.block_meta = function block_meta( block, next ) {
+	  // check if the last line of the block is an meta hash
+	  var m = block.match( /(^|\n) {0,3}\{:\s*((?:\\\}|[^\}])*)\s*\}$/ );
+	  if ( !m ) return undefined;
+
+	  // process the meta hash
+	  var attr = this.dialect.processMetaHash( m[ 2 ] );
+
+	  var hash;
+
+	  // if we matched ^ then we need to apply meta to the previous block
+	  if ( m[ 1 ] === "" ) {
+	    var node = this.tree[ this.tree.length - 1 ];
+	    hash = extract_attr( node );
+
+	    // if the node is a string (rather than JsonML), bail
+	    if ( typeof node === "string" ) return undefined;
+
+	    // create the attribute hash if it doesn't exist
+	    if ( !hash ) {
+	      hash = {};
+	      node.splice( 1, 0, hash );
+	    }
+
+	    // add the attributes in
+	    for ( a in attr ) {
+	      hash[ a ] = attr[ a ];
+	    }
+
+	    // return nothing so the meta hash is removed
+	    return [];
+	  }
+
+	  // pull the meta hash off the block and process what's left
+	  var b = block.replace( /\n.*$/, "" ),
+	      result = this.processBlock( b, [] );
+
+	  // get or make the attributes hash
+	  hash = extract_attr( result[ 0 ] );
+	  if ( !hash ) {
+	    hash = {};
+	    result[ 0 ].splice( 1, 0, hash );
+	  }
+
+	  // attach the attributes to the block
+	  for ( a in attr ) {
+	    hash[ a ] = attr[ a ];
+	  }
+
+	  return result;
+	};
+
+	Markdown.dialects.Maruku.block.definition_list = function definition_list( block, next ) {
+	  // one or more terms followed by one or more definitions, in a single block
+	  var tight = /^((?:[^\s:].*\n)+):\s+([\s\S]+)$/,
+	      list = [ "dl" ],
+	      i, m;
+
+	  // see if we're dealing with a tight or loose block
+	  if ( ( m = block.match( tight ) ) ) {
+	    // pull subsequent tight DL blocks out of `next`
+	    var blocks = [ block ];
+	    while ( next.length && tight.exec( next[ 0 ] ) ) {
+	      blocks.push( next.shift() );
+	    }
+
+	    for ( var b = 0; b < blocks.length; ++b ) {
+	      var m = blocks[ b ].match( tight ),
+	          terms = m[ 1 ].replace( /\n$/, "" ).split( /\n/ ),
+	          defns = m[ 2 ].split( /\n:\s+/ );
+
+	      // print( uneval( m ) );
+
+	      for ( i = 0; i < terms.length; ++i ) {
+	        list.push( [ "dt", terms[ i ] ] );
+	      }
+
+	      for ( i = 0; i < defns.length; ++i ) {
+	        // run inline processing over the definition
+	        list.push( [ "dd" ].concat( this.processInline( defns[ i ].replace( /(\n)\s+/, "$1" ) ) ) );
+	      }
+	    }
+	  }
+	  else {
+	    return undefined;
+	  }
+
+	  return [ list ];
+	};
+
+	// splits on unescaped instances of @ch. If @ch is not a character the result
+	// can be unpredictable
+
+	Markdown.dialects.Maruku.block.table = function table (block, next) {
+
+	    var _split_on_unescaped = function(s, ch) {
+	        ch = ch || '\\s';
+	        if (ch.match(/^[\\|\[\]{}?*.+^$]$/)) { ch = '\\' + ch; }
+	        var res = [ ],
+	            r = new RegExp('^((?:\\\\.|[^\\\\' + ch + '])*)' + ch + '(.*)'),
+	            m;
+	        while(m = s.match(r)) {
+	            res.push(m[1]);
+	            s = m[2];
+	        }
+	        res.push(s);
+	        return res;
+	    }
+
+	    var leading_pipe = /^ {0,3}\|(.+)\n {0,3}\|\s*([\-:]+[\-| :]*)\n((?:\s*\|.*(?:\n|$))*)(?=\n|$)/,
+	        // find at least an unescaped pipe in each line
+	        no_leading_pipe = /^ {0,3}(\S(?:\\.|[^\\|])*\|.*)\n {0,3}([\-:]+\s*\|[\-| :]*)\n((?:(?:\\.|[^\\|])*\|.*(?:\n|$))*)(?=\n|$)/,
+	        i, m;
+	    if (m = block.match(leading_pipe)) {
+	        // remove leading pipes in contents
+	        // (header and horizontal rule already have the leading pipe left out)
+	        m[3] = m[3].replace(/^\s*\|/gm, '');
+	    } else if (! ( m = block.match(no_leading_pipe))) {
+	        return undefined;
+	    }
+
+	    var table = [ "table", [ "thead", [ "tr" ] ], [ "tbody" ] ];
+
+	    // remove trailing pipes, then split on pipes
+	    // (no escaped pipes are allowed in horizontal rule)
+	    m[2] = m[2].replace(/\|\s*$/, '').split('|');
+
+	    // process alignment
+	    var html_attrs = [ ];
+	    forEach (m[2], function (s) {
+	        if (s.match(/^\s*-+:\s*$/))       html_attrs.push({align: "right"});
+	        else if (s.match(/^\s*:-+\s*$/))  html_attrs.push({align: "left"});
+	        else if (s.match(/^\s*:-+:\s*$/)) html_attrs.push({align: "center"});
+	        else                              html_attrs.push({});
+	    });
+
+	    // now for the header, avoid escaped pipes
+	    m[1] = _split_on_unescaped(m[1].replace(/\|\s*$/, ''), '|');
+	    for (i = 0; i < m[1].length; i++) {
+	        table[1][1].push(['th', html_attrs[i] || {}].concat(
+	            this.processInline(m[1][i].trim())));
+	    }
+
+	    // now for body contents
+	    forEach (m[3].replace(/\|\s*$/mg, '').split('\n'), function (row) {
+	        var html_row = ['tr'];
+	        row = _split_on_unescaped(row, '|');
+	        for (i = 0; i < row.length; i++) {
+	            html_row.push(['td', html_attrs[i] || {}].concat(this.processInline(row[i].trim())));
+	        }
+	        table[2].push(html_row);
+	    }, this);
+
+	    return [table];
+	}
+
+	Markdown.dialects.Maruku.inline[ "{:" ] = function inline_meta( text, matches, out ) {
+	  if ( !out.length ) {
+	    return [ 2, "{:" ];
+	  }
+
+	  // get the preceeding element
+	  var before = out[ out.length - 1 ];
+
+	  if ( typeof before === "string" ) {
+	    return [ 2, "{:" ];
+	  }
+
+	  // match a meta hash
+	  var m = text.match( /^\{:\s*((?:\\\}|[^\}])*)\s*\}/ );
+
+	  // no match, false alarm
+	  if ( !m ) {
+	    return [ 2, "{:" ];
+	  }
+
+	  // attach the attributes to the preceeding element
+	  var meta = this.dialect.processMetaHash( m[ 1 ] ),
+	      attr = extract_attr( before );
+
+	  if ( !attr ) {
+	    attr = {};
+	    before.splice( 1, 0, attr );
+	  }
+
+	  for ( var k in meta ) {
+	    attr[ k ] = meta[ k ];
+	  }
+
+	  // cut out the string and replace it with nothing
+	  return [ m[ 0 ].length, "" ];
+	};
+
+	Markdown.dialects.Maruku.inline.__escape__ = /^\\[\\`\*_{}\[\]()#\+.!\-|:]/;
+
+	Markdown.buildBlockOrder ( Markdown.dialects.Maruku.block );
+	Markdown.buildInlinePatterns( Markdown.dialects.Maruku.inline );
+
+	var isArray = Array.isArray || function(obj) {
+	  return Object.prototype.toString.call(obj) == "[object Array]";
+	};
+
+	var forEach;
+	// Don't mess with Array.prototype. Its not friendly
+	if ( Array.prototype.forEach ) {
+	  forEach = function( arr, cb, thisp ) {
+	    return arr.forEach( cb, thisp );
+	  };
+	}
+	else {
+	  forEach = function(arr, cb, thisp) {
+	    for (var i = 0; i < arr.length; i++) {
+	      cb.call(thisp || arr, arr[i], i, arr);
+	    }
+	  }
+	}
+
+	var isEmpty = function( obj ) {
+	  for ( var key in obj ) {
+	    if ( hasOwnProperty.call( obj, key ) ) {
+	      return false;
+	    }
+	  }
+
+	  return true;
+	}
+
+	function extract_attr( jsonml ) {
+	  return isArray(jsonml)
+	      && jsonml.length > 1
+	      && typeof jsonml[ 1 ] === "object"
+	      && !( isArray(jsonml[ 1 ]) )
+	      ? jsonml[ 1 ]
+	      : undefined;
+	}
+
+
+
+	/**
+	 *  renderJsonML( jsonml[, options] ) -> String
+	 *  - jsonml (Array): JsonML array to render to XML
+	 *  - options (Object): options
+	 *
+	 *  Converts the given JsonML into well-formed XML.
+	 *
+	 *  The options currently understood are:
+	 *
+	 *  - root (Boolean): wether or not the root node should be included in the
+	 *    output, or just its children. The default `false` is to not include the
+	 *    root itself.
+	 */
+	expose.renderJsonML = function( jsonml, options ) {
+	  options = options || {};
+	  // include the root element in the rendered output?
+	  options.root = options.root || false;
+
+	  var content = [];
+
+	  if ( options.root ) {
+	    content.push( render_tree( jsonml ) );
+	  }
+	  else {
+	    jsonml.shift(); // get rid of the tag
+	    if ( jsonml.length && typeof jsonml[ 0 ] === "object" && !( jsonml[ 0 ] instanceof Array ) ) {
+	      jsonml.shift(); // get rid of the attributes
+	    }
+
+	    while ( jsonml.length ) {
+	      content.push( render_tree( jsonml.shift() ) );
+	    }
+	  }
+
+	  return content.join( "\n\n" );
+	};
+
+	function escapeHTML( text ) {
+	  return text.replace( /&/g, "&amp;" )
+	             .replace( /</g, "&lt;" )
+	             .replace( />/g, "&gt;" )
+	             .replace( /"/g, "&quot;" )
+	             .replace( /'/g, "&#39;" );
+	}
+
+	function render_tree( jsonml ) {
+	  // basic case
+	  if ( typeof jsonml === "string" ) {
+	    return escapeHTML( jsonml );
+	  }
+
+	  var tag = jsonml.shift(),
+	      attributes = {},
+	      content = [];
+
+	  if ( jsonml.length && typeof jsonml[ 0 ] === "object" && !( jsonml[ 0 ] instanceof Array ) ) {
+	    attributes = jsonml.shift();
+	  }
+
+	  while ( jsonml.length ) {
+	    content.push( render_tree( jsonml.shift() ) );
+	  }
+
+	  var tag_attrs = "";
+	  for ( var a in attributes ) {
+	    tag_attrs += " " + a + '="' + escapeHTML( attributes[ a ] ) + '"';
+	  }
+
+	  // be careful about adding whitespace here for inline elements
+	  if ( tag == "img" || tag == "br" || tag == "hr" ) {
+	    return "<"+ tag + tag_attrs + "/>";
+	  }
+	  else {
+	    return "<"+ tag + tag_attrs + ">" + content.join( "" ) + "</" + tag + ">";
+	  }
+	}
+
+	function convert_tree_to_html( tree, references, options ) {
+	  var i;
+	  options = options || {};
+
+	  // shallow clone
+	  var jsonml = tree.slice( 0 );
+
+	  if ( typeof options.preprocessTreeNode === "function" ) {
+	      jsonml = options.preprocessTreeNode(jsonml, references);
+	  }
+
+	  // Clone attributes if they exist
+	  var attrs = extract_attr( jsonml );
+	  if ( attrs ) {
+	    jsonml[ 1 ] = {};
+	    for ( i in attrs ) {
+	      jsonml[ 1 ][ i ] = attrs[ i ];
+	    }
+	    attrs = jsonml[ 1 ];
+	  }
+
+	  // basic case
+	  if ( typeof jsonml === "string" ) {
+	    return jsonml;
+	  }
+
+	  // convert this node
+	  switch ( jsonml[ 0 ] ) {
+	    case "header":
+	      jsonml[ 0 ] = "h" + jsonml[ 1 ].level;
+	      delete jsonml[ 1 ].level;
+	      break;
+	    case "bulletlist":
+	      jsonml[ 0 ] = "ul";
+	      break;
+	    case "numberlist":
+	      jsonml[ 0 ] = "ol";
+	      break;
+	    case "listitem":
+	      jsonml[ 0 ] = "li";
+	      break;
+	    case "para":
+	      jsonml[ 0 ] = "p";
+	      break;
+	    case "markdown":
+	      jsonml[ 0 ] = "html";
+	      if ( attrs ) delete attrs.references;
+	      break;
+	    case "code_block":
+	      jsonml[ 0 ] = "pre";
+	      i = attrs ? 2 : 1;
+	      var code = [ "code" ];
+	      code.push.apply( code, jsonml.splice( i, jsonml.length - i ) );
+	      jsonml[ i ] = code;
+	      break;
+	    case "inlinecode":
+	      jsonml[ 0 ] = "code";
+	      break;
+	    case "img":
+	      jsonml[ 1 ].src = jsonml[ 1 ].href;
+	      delete jsonml[ 1 ].href;
+	      break;
+	    case "linebreak":
+	      jsonml[ 0 ] = "br";
+	    break;
+	    case "link":
+	      jsonml[ 0 ] = "a";
+	      break;
+	    case "link_ref":
+	      jsonml[ 0 ] = "a";
+
+	      // grab this ref and clean up the attribute node
+	      var ref = references[ attrs.ref ];
+
+	      // if the reference exists, make the link
+	      if ( ref ) {
+	        delete attrs.ref;
+
+	        // add in the href and title, if present
+	        attrs.href = ref.href;
+	        if ( ref.title ) {
+	          attrs.title = ref.title;
+	        }
+
+	        // get rid of the unneeded original text
+	        delete attrs.original;
+	      }
+	      // the reference doesn't exist, so revert to plain text
+	      else {
+	        return attrs.original;
+	      }
+	      break;
+	    case "img_ref":
+	      jsonml[ 0 ] = "img";
+
+	      // grab this ref and clean up the attribute node
+	      var ref = references[ attrs.ref ];
+
+	      // if the reference exists, make the link
+	      if ( ref ) {
+	        delete attrs.ref;
+
+	        // add in the href and title, if present
+	        attrs.src = ref.href;
+	        if ( ref.title ) {
+	          attrs.title = ref.title;
+	        }
+
+	        // get rid of the unneeded original text
+	        delete attrs.original;
+	      }
+	      // the reference doesn't exist, so revert to plain text
+	      else {
+	        return attrs.original;
+	      }
+	      break;
+	  }
+
+	  // convert all the children
+	  i = 1;
+
+	  // deal with the attribute node, if it exists
+	  if ( attrs ) {
+	    // if there are keys, skip over it
+	    for ( var key in jsonml[ 1 ] ) {
+	        i = 2;
+	        break;
+	    }
+	    // if there aren't, remove it
+	    if ( i === 1 ) {
+	      jsonml.splice( i, 1 );
+	    }
+	  }
+
+	  for ( ; i < jsonml.length; ++i ) {
+	    jsonml[ i ] = convert_tree_to_html( jsonml[ i ], references, options );
+	  }
+
+	  return jsonml;
+	}
+
+
+	// merges adjacent text nodes into a single node
+	function merge_text_nodes( jsonml ) {
+	  // skip the tag name and attribute hash
+	  var i = extract_attr( jsonml ) ? 2 : 1;
+
+	  while ( i < jsonml.length ) {
+	    // if it's a string check the next item too
+	    if ( typeof jsonml[ i ] === "string" ) {
+	      if ( i + 1 < jsonml.length && typeof jsonml[ i + 1 ] === "string" ) {
+	        // merge the second string into the first and remove it
+	        jsonml[ i ] += jsonml.splice( i + 1, 1 )[ 0 ];
+	      }
+	      else {
+	        ++i;
+	      }
+	    }
+	    // if it's not a string recurse
+	    else {
+	      merge_text_nodes( jsonml[ i ] );
+	      ++i;
+	    }
+	  }
+	}
+
+	} )( (function() {
+	  if ( false ) {
+	    window.markdown = {};
+	    return window.markdown;
+	  }
+	  else {
+	    return exports;
+	  }
+	} )() );
+
+
+/***/ }),
+/* 42 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(global, process) {// Copyright Joyent, Inc. and other Node contributors.
+	//
+	// Permission is hereby granted, free of charge, to any person obtaining a
+	// copy of this software and associated documentation files (the
+	// "Software"), to deal in the Software without restriction, including
+	// without limitation the rights to use, copy, modify, merge, publish,
+	// distribute, sublicense, and/or sell copies of the Software, and to permit
+	// persons to whom the Software is furnished to do so, subject to the
+	// following conditions:
+	//
+	// The above copyright notice and this permission notice shall be included
+	// in all copies or substantial portions of the Software.
+	//
+	// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+	// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+	// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+	// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+	// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+	// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+	// USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+	var formatRegExp = /%[sdj%]/g;
+	exports.format = function(f) {
+	  if (!isString(f)) {
+	    var objects = [];
+	    for (var i = 0; i < arguments.length; i++) {
+	      objects.push(inspect(arguments[i]));
+	    }
+	    return objects.join(' ');
+	  }
+
+	  var i = 1;
+	  var args = arguments;
+	  var len = args.length;
+	  var str = String(f).replace(formatRegExp, function(x) {
+	    if (x === '%%') return '%';
+	    if (i >= len) return x;
+	    switch (x) {
+	      case '%s': return String(args[i++]);
+	      case '%d': return Number(args[i++]);
+	      case '%j':
+	        try {
+	          return JSON.stringify(args[i++]);
+	        } catch (_) {
+	          return '[Circular]';
+	        }
+	      default:
+	        return x;
+	    }
+	  });
+	  for (var x = args[i]; i < len; x = args[++i]) {
+	    if (isNull(x) || !isObject(x)) {
+	      str += ' ' + x;
+	    } else {
+	      str += ' ' + inspect(x);
+	    }
+	  }
+	  return str;
+	};
+
+
+	// Mark that a method should not be used.
+	// Returns a modified function which warns once by default.
+	// If --no-deprecation is set, then it is a no-op.
+	exports.deprecate = function(fn, msg) {
+	  // Allow for deprecating things in the process of starting up.
+	  if (isUndefined(global.process)) {
+	    return function() {
+	      return exports.deprecate(fn, msg).apply(this, arguments);
+	    };
+	  }
+
+	  if (process.noDeprecation === true) {
+	    return fn;
+	  }
+
+	  var warned = false;
+	  function deprecated() {
+	    if (!warned) {
+	      if (process.throwDeprecation) {
+	        throw new Error(msg);
+	      } else if (process.traceDeprecation) {
+	        console.trace(msg);
+	      } else {
+	        console.error(msg);
+	      }
+	      warned = true;
+	    }
+	    return fn.apply(this, arguments);
+	  }
+
+	  return deprecated;
+	};
+
+
+	var debugs = {};
+	var debugEnviron;
+	exports.debuglog = function(set) {
+	  if (isUndefined(debugEnviron))
+	    debugEnviron = process.env.NODE_DEBUG || '';
+	  set = set.toUpperCase();
+	  if (!debugs[set]) {
+	    if (new RegExp('\\b' + set + '\\b', 'i').test(debugEnviron)) {
+	      var pid = process.pid;
+	      debugs[set] = function() {
+	        var msg = exports.format.apply(exports, arguments);
+	        console.error('%s %d: %s', set, pid, msg);
+	      };
+	    } else {
+	      debugs[set] = function() {};
+	    }
+	  }
+	  return debugs[set];
+	};
+
+
+	/**
+	 * Echos the value of a value. Trys to print the value out
+	 * in the best way possible given the different types.
+	 *
+	 * @param {Object} obj The object to print out.
+	 * @param {Object} opts Optional options object that alters the output.
+	 */
+	/* legacy: obj, showHidden, depth, colors*/
+	function inspect(obj, opts) {
+	  // default options
+	  var ctx = {
+	    seen: [],
+	    stylize: stylizeNoColor
+	  };
+	  // legacy...
+	  if (arguments.length >= 3) ctx.depth = arguments[2];
+	  if (arguments.length >= 4) ctx.colors = arguments[3];
+	  if (isBoolean(opts)) {
+	    // legacy...
+	    ctx.showHidden = opts;
+	  } else if (opts) {
+	    // got an "options" object
+	    exports._extend(ctx, opts);
+	  }
+	  // set default options
+	  if (isUndefined(ctx.showHidden)) ctx.showHidden = false;
+	  if (isUndefined(ctx.depth)) ctx.depth = 2;
+	  if (isUndefined(ctx.colors)) ctx.colors = false;
+	  if (isUndefined(ctx.customInspect)) ctx.customInspect = true;
+	  if (ctx.colors) ctx.stylize = stylizeWithColor;
+	  return formatValue(ctx, obj, ctx.depth);
+	}
+	exports.inspect = inspect;
+
+
+	// http://en.wikipedia.org/wiki/ANSI_escape_code#graphics
+	inspect.colors = {
+	  'bold' : [1, 22],
+	  'italic' : [3, 23],
+	  'underline' : [4, 24],
+	  'inverse' : [7, 27],
+	  'white' : [37, 39],
+	  'grey' : [90, 39],
+	  'black' : [30, 39],
+	  'blue' : [34, 39],
+	  'cyan' : [36, 39],
+	  'green' : [32, 39],
+	  'magenta' : [35, 39],
+	  'red' : [31, 39],
+	  'yellow' : [33, 39]
+	};
+
+	// Don't use 'blue' not visible on cmd.exe
+	inspect.styles = {
+	  'special': 'cyan',
+	  'number': 'yellow',
+	  'boolean': 'yellow',
+	  'undefined': 'grey',
+	  'null': 'bold',
+	  'string': 'green',
+	  'date': 'magenta',
+	  // "name": intentionally not styling
+	  'regexp': 'red'
+	};
+
+
+	function stylizeWithColor(str, styleType) {
+	  var style = inspect.styles[styleType];
+
+	  if (style) {
+	    return '\u001b[' + inspect.colors[style][0] + 'm' + str +
+	           '\u001b[' + inspect.colors[style][1] + 'm';
+	  } else {
+	    return str;
+	  }
+	}
+
+
+	function stylizeNoColor(str, styleType) {
+	  return str;
+	}
+
+
+	function arrayToHash(array) {
+	  var hash = {};
+
+	  array.forEach(function(val, idx) {
+	    hash[val] = true;
+	  });
+
+	  return hash;
+	}
+
+
+	function formatValue(ctx, value, recurseTimes) {
+	  // Provide a hook for user-specified inspect functions.
+	  // Check that value is an object with an inspect function on it
+	  if (ctx.customInspect &&
+	      value &&
+	      isFunction(value.inspect) &&
+	      // Filter out the util module, it's inspect function is special
+	      value.inspect !== exports.inspect &&
+	      // Also filter out any prototype objects using the circular check.
+	      !(value.constructor && value.constructor.prototype === value)) {
+	    var ret = value.inspect(recurseTimes, ctx);
+	    if (!isString(ret)) {
+	      ret = formatValue(ctx, ret, recurseTimes);
+	    }
+	    return ret;
+	  }
+
+	  // Primitive types cannot have properties
+	  var primitive = formatPrimitive(ctx, value);
+	  if (primitive) {
+	    return primitive;
+	  }
+
+	  // Look up the keys of the object.
+	  var keys = Object.keys(value);
+	  var visibleKeys = arrayToHash(keys);
+
+	  if (ctx.showHidden) {
+	    keys = Object.getOwnPropertyNames(value);
+	  }
+
+	  // IE doesn't make error fields non-enumerable
+	  // http://msdn.microsoft.com/en-us/library/ie/dww52sbt(v=vs.94).aspx
+	  if (isError(value)
+	      && (keys.indexOf('message') >= 0 || keys.indexOf('description') >= 0)) {
+	    return formatError(value);
+	  }
+
+	  // Some type of object without properties can be shortcutted.
+	  if (keys.length === 0) {
+	    if (isFunction(value)) {
+	      var name = value.name ? ': ' + value.name : '';
+	      return ctx.stylize('[Function' + name + ']', 'special');
+	    }
+	    if (isRegExp(value)) {
+	      return ctx.stylize(RegExp.prototype.toString.call(value), 'regexp');
+	    }
+	    if (isDate(value)) {
+	      return ctx.stylize(Date.prototype.toString.call(value), 'date');
+	    }
+	    if (isError(value)) {
+	      return formatError(value);
+	    }
+	  }
+
+	  var base = '', array = false, braces = ['{', '}'];
+
+	  // Make Array say that they are Array
+	  if (isArray(value)) {
+	    array = true;
+	    braces = ['[', ']'];
+	  }
+
+	  // Make functions say that they are functions
+	  if (isFunction(value)) {
+	    var n = value.name ? ': ' + value.name : '';
+	    base = ' [Function' + n + ']';
+	  }
+
+	  // Make RegExps say that they are RegExps
+	  if (isRegExp(value)) {
+	    base = ' ' + RegExp.prototype.toString.call(value);
+	  }
+
+	  // Make dates with properties first say the date
+	  if (isDate(value)) {
+	    base = ' ' + Date.prototype.toUTCString.call(value);
+	  }
+
+	  // Make error with message first say the error
+	  if (isError(value)) {
+	    base = ' ' + formatError(value);
+	  }
+
+	  if (keys.length === 0 && (!array || value.length == 0)) {
+	    return braces[0] + base + braces[1];
+	  }
+
+	  if (recurseTimes < 0) {
+	    if (isRegExp(value)) {
+	      return ctx.stylize(RegExp.prototype.toString.call(value), 'regexp');
+	    } else {
+	      return ctx.stylize('[Object]', 'special');
+	    }
+	  }
+
+	  ctx.seen.push(value);
+
+	  var output;
+	  if (array) {
+	    output = formatArray(ctx, value, recurseTimes, visibleKeys, keys);
+	  } else {
+	    output = keys.map(function(key) {
+	      return formatProperty(ctx, value, recurseTimes, visibleKeys, key, array);
+	    });
+	  }
+
+	  ctx.seen.pop();
+
+	  return reduceToSingleString(output, base, braces);
+	}
+
+
+	function formatPrimitive(ctx, value) {
+	  if (isUndefined(value))
+	    return ctx.stylize('undefined', 'undefined');
+	  if (isString(value)) {
+	    var simple = '\'' + JSON.stringify(value).replace(/^"|"$/g, '')
+	                                             .replace(/'/g, "\\'")
+	                                             .replace(/\\"/g, '"') + '\'';
+	    return ctx.stylize(simple, 'string');
+	  }
+	  if (isNumber(value))
+	    return ctx.stylize('' + value, 'number');
+	  if (isBoolean(value))
+	    return ctx.stylize('' + value, 'boolean');
+	  // For some reason typeof null is "object", so special case here.
+	  if (isNull(value))
+	    return ctx.stylize('null', 'null');
+	}
+
+
+	function formatError(value) {
+	  return '[' + Error.prototype.toString.call(value) + ']';
+	}
+
+
+	function formatArray(ctx, value, recurseTimes, visibleKeys, keys) {
+	  var output = [];
+	  for (var i = 0, l = value.length; i < l; ++i) {
+	    if (hasOwnProperty(value, String(i))) {
+	      output.push(formatProperty(ctx, value, recurseTimes, visibleKeys,
+	          String(i), true));
+	    } else {
+	      output.push('');
+	    }
+	  }
+	  keys.forEach(function(key) {
+	    if (!key.match(/^\d+$/)) {
+	      output.push(formatProperty(ctx, value, recurseTimes, visibleKeys,
+	          key, true));
+	    }
+	  });
+	  return output;
+	}
+
+
+	function formatProperty(ctx, value, recurseTimes, visibleKeys, key, array) {
+	  var name, str, desc;
+	  desc = Object.getOwnPropertyDescriptor(value, key) || { value: value[key] };
+	  if (desc.get) {
+	    if (desc.set) {
+	      str = ctx.stylize('[Getter/Setter]', 'special');
+	    } else {
+	      str = ctx.stylize('[Getter]', 'special');
+	    }
+	  } else {
+	    if (desc.set) {
+	      str = ctx.stylize('[Setter]', 'special');
+	    }
+	  }
+	  if (!hasOwnProperty(visibleKeys, key)) {
+	    name = '[' + key + ']';
+	  }
+	  if (!str) {
+	    if (ctx.seen.indexOf(desc.value) < 0) {
+	      if (isNull(recurseTimes)) {
+	        str = formatValue(ctx, desc.value, null);
+	      } else {
+	        str = formatValue(ctx, desc.value, recurseTimes - 1);
+	      }
+	      if (str.indexOf('\n') > -1) {
+	        if (array) {
+	          str = str.split('\n').map(function(line) {
+	            return '  ' + line;
+	          }).join('\n').substr(2);
+	        } else {
+	          str = '\n' + str.split('\n').map(function(line) {
+	            return '   ' + line;
+	          }).join('\n');
+	        }
+	      }
+	    } else {
+	      str = ctx.stylize('[Circular]', 'special');
+	    }
+	  }
+	  if (isUndefined(name)) {
+	    if (array && key.match(/^\d+$/)) {
+	      return str;
+	    }
+	    name = JSON.stringify('' + key);
+	    if (name.match(/^"([a-zA-Z_][a-zA-Z_0-9]*)"$/)) {
+	      name = name.substr(1, name.length - 2);
+	      name = ctx.stylize(name, 'name');
+	    } else {
+	      name = name.replace(/'/g, "\\'")
+	                 .replace(/\\"/g, '"')
+	                 .replace(/(^"|"$)/g, "'");
+	      name = ctx.stylize(name, 'string');
+	    }
+	  }
+
+	  return name + ': ' + str;
+	}
+
+
+	function reduceToSingleString(output, base, braces) {
+	  var numLinesEst = 0;
+	  var length = output.reduce(function(prev, cur) {
+	    numLinesEst++;
+	    if (cur.indexOf('\n') >= 0) numLinesEst++;
+	    return prev + cur.replace(/\u001b\[\d\d?m/g, '').length + 1;
+	  }, 0);
+
+	  if (length > 60) {
+	    return braces[0] +
+	           (base === '' ? '' : base + '\n ') +
+	           ' ' +
+	           output.join(',\n  ') +
+	           ' ' +
+	           braces[1];
+	  }
+
+	  return braces[0] + base + ' ' + output.join(', ') + ' ' + braces[1];
+	}
+
+
+	// NOTE: These type checking functions intentionally don't use `instanceof`
+	// because it is fragile and can be easily faked with `Object.create()`.
+	function isArray(ar) {
+	  return Array.isArray(ar);
+	}
+	exports.isArray = isArray;
+
+	function isBoolean(arg) {
+	  return typeof arg === 'boolean';
+	}
+	exports.isBoolean = isBoolean;
+
+	function isNull(arg) {
+	  return arg === null;
+	}
+	exports.isNull = isNull;
+
+	function isNullOrUndefined(arg) {
+	  return arg == null;
+	}
+	exports.isNullOrUndefined = isNullOrUndefined;
+
+	function isNumber(arg) {
+	  return typeof arg === 'number';
+	}
+	exports.isNumber = isNumber;
+
+	function isString(arg) {
+	  return typeof arg === 'string';
+	}
+	exports.isString = isString;
+
+	function isSymbol(arg) {
+	  return typeof arg === 'symbol';
+	}
+	exports.isSymbol = isSymbol;
+
+	function isUndefined(arg) {
+	  return arg === void 0;
+	}
+	exports.isUndefined = isUndefined;
+
+	function isRegExp(re) {
+	  return isObject(re) && objectToString(re) === '[object RegExp]';
+	}
+	exports.isRegExp = isRegExp;
+
+	function isObject(arg) {
+	  return typeof arg === 'object' && arg !== null;
+	}
+	exports.isObject = isObject;
+
+	function isDate(d) {
+	  return isObject(d) && objectToString(d) === '[object Date]';
+	}
+	exports.isDate = isDate;
+
+	function isError(e) {
+	  return isObject(e) &&
+	      (objectToString(e) === '[object Error]' || e instanceof Error);
+	}
+	exports.isError = isError;
+
+	function isFunction(arg) {
+	  return typeof arg === 'function';
+	}
+	exports.isFunction = isFunction;
+
+	function isPrimitive(arg) {
+	  return arg === null ||
+	         typeof arg === 'boolean' ||
+	         typeof arg === 'number' ||
+	         typeof arg === 'string' ||
+	         typeof arg === 'symbol' ||  // ES6 symbol
+	         typeof arg === 'undefined';
+	}
+	exports.isPrimitive = isPrimitive;
+
+	exports.isBuffer = __webpack_require__(43);
+
+	function objectToString(o) {
+	  return Object.prototype.toString.call(o);
+	}
+
+
+	function pad(n) {
+	  return n < 10 ? '0' + n.toString(10) : n.toString(10);
+	}
+
+
+	var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep',
+	              'Oct', 'Nov', 'Dec'];
+
+	// 26 Feb 16:19:34
+	function timestamp() {
+	  var d = new Date();
+	  var time = [pad(d.getHours()),
+	              pad(d.getMinutes()),
+	              pad(d.getSeconds())].join(':');
+	  return [d.getDate(), months[d.getMonth()], time].join(' ');
+	}
+
+
+	// log is just a thin wrapper to console.log that prepends a timestamp
+	exports.log = function() {
+	  console.log('%s - %s', timestamp(), exports.format.apply(exports, arguments));
+	};
+
+
+	/**
+	 * Inherit the prototype methods from one constructor into another.
+	 *
+	 * The Function.prototype.inherits from lang.js rewritten as a standalone
+	 * function (not on Function.prototype). NOTE: If this file is to be loaded
+	 * during bootstrapping this function needs to be rewritten using some native
+	 * functions as prototype setup using normal JavaScript does not work as
+	 * expected during bootstrapping (see mirror.js in r114903).
+	 *
+	 * @param {function} ctor Constructor function which needs to inherit the
+	 *     prototype.
+	 * @param {function} superCtor Constructor function to inherit prototype from.
+	 */
+	exports.inherits = __webpack_require__(44);
+
+	exports._extend = function(origin, add) {
+	  // Don't do anything if add isn't an object
+	  if (!add || !isObject(add)) return origin;
+
+	  var keys = Object.keys(add);
+	  var i = keys.length;
+	  while (i--) {
+	    origin[keys[i]] = add[keys[i]];
+	  }
+	  return origin;
+	};
+
+	function hasOwnProperty(obj, prop) {
+	  return Object.prototype.hasOwnProperty.call(obj, prop);
+	}
+
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(10)))
+
+/***/ }),
+/* 43 */
+/***/ (function(module, exports) {
+
+	module.exports = function isBuffer(arg) {
+	  return arg && typeof arg === 'object'
+	    && typeof arg.copy === 'function'
+	    && typeof arg.fill === 'function'
+	    && typeof arg.readUInt8 === 'function';
+	}
+
+/***/ }),
+/* 44 */
+/***/ (function(module, exports) {
+
+	if (typeof Object.create === 'function') {
+	  // implementation from standard node.js 'util' module
+	  module.exports = function inherits(ctor, superCtor) {
+	    ctor.super_ = superCtor
+	    ctor.prototype = Object.create(superCtor.prototype, {
+	      constructor: {
+	        value: ctor,
+	        enumerable: false,
+	        writable: true,
+	        configurable: true
+	      }
+	    });
+	  };
+	} else {
+	  // old school shim for old browsers
+	  module.exports = function inherits(ctor, superCtor) {
+	    ctor.super_ = superCtor
+	    var TempCtor = function () {}
+	    TempCtor.prototype = superCtor.prototype
+	    ctor.prototype = new TempCtor()
+	    ctor.prototype.constructor = ctor
+	  }
+	}
+
+
+/***/ }),
+/* 45 */
+/***/ (function(module, exports) {
+
+	module.exports = {
+		post: function(path,body){
+			return fetch(path,{
+				credentials: 'include',
+				headers:{
+					"Accept": "application/json",
+					"Content-type": "application/json",
+				},
+				method: 'POST',
+				body: body,
+			});
+		}
+	}
+
+
+/***/ }),
+/* 46 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var netMgr = __webpack_require__(45);
+	var $ = __webpack_require__(29);
+	var styles = __webpack_require__(30);
+	var loadMgr = __webpack_require__(26);
+
+	var OPT = __webpack_require__(33);
+	var TAG = __webpack_require__(37);
+
+	var main = module.exports = {
+	    name: "home",
+	    default: function() {
+
+	        window.urlStateChange = true;
+
+	        loadMgr(cosDefine.vmDoms.home);
+	        main.init();
+	    },
+	    init: function() {
+
+	        var showContain = document.querySelector("#home");
+
+	        netMgr
+	            .post(cosDefine.postPath.blogAll)
+	            .then(function(res) {
+	                res.json().then(function(_json) {
+
+	                    if (!_json) return;
+
+	                    let len = _json.length;
+	                    for (let i = 0; i < len; i++) {
+	                        let one = _json[i];
+
+	                        var opt = new OPT();
+
+	                        opt.query(".opt-title").forEach(function(dom) {
+	                            dom.text(one.title);
+	                        });
+
+	                        opt.query(".opt-id").forEach(function(dom) {
+	                            dom.text(one.id);
+	                        });
+
+	                        var tags = one.tags.split(" ");
+	                        for (let j = 0; j < tags.length; j++) {
+	                            let tag = tags[j];
+	                            if (!tag) continue;
+
+	                            var _tag = new TAG({
+	                                text: tag
+	                            });
+
+	                            opt.query(".opt-tags").forEach(function(dom) {
+	                                dom.include(_tag);
+	                            });
+
+	                        }
+
+	                        opt.dom.addEventListener("click", function() {
+	                            location.href = "/blog/" + one.id;
+	                        });
+
+	                        showContain.appendChild(opt.dom)
+	                            /*for (let j = 0; j < tags.length; j++) {
+
+	                            if (tags[j] === "") continue;
+	                            var _tag_single = new $(TAG_SINGLE);
+
+	                            _tag_single.render();
+	                            _tag_single.dom.innerHTML = tags[j];
+
+	                            _tag.dom.appendChild(_tag_single.dom);
+	                        }
+
+	                        _title.dom.innerText = one.title;
+	                        _id.dom.innerText = `id: ${one.id}`;
+
+	                        _opt.dom.addEventListener("click", function() {
+	                            window.location.href = "/blog/" + one.id
+	                        });
+
+	                        showContain.appendChild(_opt.dom);
+							*/
+	                    }
+
+	                });
+	            });
+	    }
+	};
+
+
+/***/ }),
+/* 47 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var netMgr = __webpack_require__(45);
+	var loadMgr = __webpack_require__(26);
+	var $ = __webpack_require__(29);
+	var styles = __webpack_require__(30);
+	var markdown = __webpack_require__(40).markdown;
+	var Editor = __webpack_require__(25);
+	var tipsMgr = __webpack_require__(48);
+
+	var main = module.exports = {
+	    name: "blog",
+	    default: function(r, id) {
+
+	        if (!id) return;
+
+	        window.urlStateChange = true;
+
+	        var dom = loadMgr("view");
+
+	        var path = cosDefine.postPath.blogOne + id;
+	        var Title_text = document.querySelector("#view-title-text"),
+	            Title_id = document.querySelector("#view-title-id"),
+	            Contain = document.querySelector("#view-contain"),
+	            Tags = document.querySelector("#view-tags");
+
+	        var body = JSON.stringify({
+	            _id: id
+	        });
+
+	        netMgr.post(path, body)
+	            .then(function(res) {
+	                res.json().then(function(_json) {
+
+	                    Title_text.innerHTML = _json.title;
+	                    Title_id.innerHTML = `id: ${_json._id}`;
+	                    Contain.innerHTML = markdown.toHTML(_json.contain);
+
+	                    var tags = _json.tags.split(" ");
+
+	                    for (let i = 0; i < tags.length; i++) {
+	                        let _tag = tags[i];
+
+	                        Editor.addTag(_tag, Tags);
+	                        if (!_tag) continue;
+
+	                    }
+	                });
+	            });
+
+	    },
+	    update: function() {
+
+	        var title = document.getElementById("editor-title").value,
+	            contain = document.getElementById("editor-content").value;
+	        var tags = document.getElementsByClassName("tag");
+	        var tags_text = "";
+
+	        for (let i = 0; i < tags.length; i++) {
+	            let text = tags[i].innerText;
+	            tags_text += " " + text;
+	        }
+
+	        if (!title || !contain || !tags) return;
+
+	        var data = {
+	            title: title,
+	            contain: contain,
+	            tags: tags_text,
+	            id: window.blog_gen_id,
+	            isPersonal: tags_text.indexOf("personal") > -1,
+	        };
+
+	        var json_data = JSON.stringify(data);
+	        var rep = netMgr.post(cosDefine.postPath.blogPublish, json_data);
+
+	        rep.then(function(res) {
+	            if (res.ok) {
+					tipsMgr.show({
+						type: cosDefine.Tips.Success,
+						text: "Update success"
+					})
+				}
+	        });
+	    },
+
+	    delete: function(r, id) {
+	        netMgr.post(cosDefine.postPath.blogDelete, JSON.stringify({
+	            _id: id
+	        })).then(function(res) {
+				if(res.ok) {
+					tipsMgr.show({
+						type:cosDefine.Tips.Success,
+						text:"Blog delete success"
+					})
+				}
+	        });
+	    }
+
+	}
+
+
+/***/ }),
+/* 48 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var Tip = __webpack_require__(38);
+
+	var tipsMgr = module.exports = {};
+
+	// hook -> finish one then start one.
+
+	tipsMgr.show = function(o) {
+
+		var tip = new Tip(o);
+
+	    return new Promise(function(resolve) {
+
+	        tip.render();
+
+			document.querySelector("body").appendChild(tip.dom);
+
+	        setTimeout(tipsMgr.hidden(resolve, tip), cosDefine.Tips.Timeout)
+	    });
+
+	};
+
+	tipsMgr.hidden = function(resolve, tip) {
+
+	    return function() {
+			
+	        tip.remove();
+	        resolve();
+	    }
+	};
+
+
+/***/ }),
+/* 49 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var netMgr = __webpack_require__(45);
+	var cookiesMgr = __webpack_require__(50);
+
+	var login = module.exports = {
+
+	    state: {
+	        name: "",
+	        passwd: ""
+	    },
+
+	    default: function(parma) {
+	    },
+
+	    name: function(r, parma) {
+	        login.state.name = parma;
+	    },
+
+	    passwd: function(r, parma) {
+
+	        login.state.passwd = parma;
+
+	        var body = JSON.stringify(login.state);
+
+	        netMgr.post(cosDefine.postPath.login, body).then(function(res) {
+
+	            if (res.ok) cookiesMgr.online();
+				
+	        });
+	    }
+	};
+
+
+/***/ }),
+/* 50 */
+/***/ (function(module, exports) {
+
+	var cookiesMgr = module.exports = {};
+
+	cookiesMgr.init = () => {
+	    let cookies = document.cookie.split(";");
+
+	    for (let i = 0; i < cookies.length; i++) {
+	        let cookie = cookies[i].split("=");
+
+	        let o = {
+	            key: cookie[0],
+	            value: cookie[1]
+	        };
+
+	        if (cookiesMgr.alreadyLogin(o)) cookiesMgr.online();
+
+	    }
+	};
+
+	cookiesMgr.alreadyLogin = (cookie) => {
+	    return (cookie.key === cosDefine.LOGIN_STATE && cookie.value === "online")
+	};
+
+	cookiesMgr.online = () =>{
+		document.querySelector(cosDefine.userName).innerHTML = "EAVES";
+	}
+
+
+/***/ }),
+/* 51 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var netMgr = __webpack_require__(45);
+	var $ = __webpack_require__(29);
+	var loadMgr = __webpack_require__(26);
+	var reptile_contain = __webpack_require__(36);
+	var tipsMgr = __webpack_require__(48);
+
+	var main = module.exports = {
+
+	    name: "replite",
+
+	    default: function(r, url) {
+	        window.urlStateChange = true;
+
+	        loadMgr("reptile")
+	    },
+
+	    view: function() {
+
+	    },
+
+	    /*
+	        add: function() {
+	            var REPTILE_VIEW = new reptile_contain();
+
+	            var mainView = document.querySelector("#reptile");
+
+	            mainView.appendChild(REPTILE_VIEW.dom);
+	        },
+	    	*/
+
+	    go: function() {
+	        var body = {};
+
+	        var mainView = document.querySelector("#reptile");
+
+	        body.domin = mainView.querySelector("#reptile-domin").value;
+	        body.main = "";
+
+	        var contains = mainView.getElementsByClassName("reptile-tagsContain")[0];
+
+	        // for (let i = 0; i < contains.length; i++) {
+	        // let one = contains[i];
+
+	        body.main += contains.querySelector(".reptile-tagInput").value
+
+	        // }
+
+	        netMgr.post(cosDefine.postPath.reptileGO, JSON.stringify(body))
+	            .then(function(res) {
+	                if (res.ok) tipsMgr.show({
+	                    type: cosDefine.Tips.Success,
+	                    text: "Task is running"
+	                })
+	            });
+
+	    }
+
+	}
+
+
+/***/ }),
+/* 52 */
+/***/ (function(module, exports) {
+
+	var keyMgr = module.exports = {};
+
+	var mainInput = document.querySelector(cosDefine.mainInput);
+
+	var focus_main_input = function(e) {
+	    if (e.keyCode === cosDefine.ENTER_CODE && e.ctrlKey) {
+	        mainInput.focus();
+	    }
+	};
+
+	keyMgr.init = function(routerMgr) {
+	    window.urlStateChange = false;
+	    window.onload = routerMgr.refresh;
+	    window.onpopstate = routerMgr.refresh;
+
+	    mainInput.addEventListener("keyup", routerMgr.entry);
+	    document.addEventListener("keydown", focus_main_input);
+	};
+
+
+/***/ })
+/******/ ]);</script></body></html>

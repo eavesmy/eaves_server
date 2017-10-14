@@ -30,6 +30,7 @@ func Routes() []*gear.Router {
 	})
 
 	userRoutes.Post("/login", handler.Login_Ver)
+	userRoutes.Post("/sign", handler.Sign)
 	routes = append(routes, userRoutes)
 
 	reptileRoutes := gear.NewRouter(gear.RouterOptions{

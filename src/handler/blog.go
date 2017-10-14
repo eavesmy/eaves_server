@@ -3,7 +3,6 @@ package handler
 import (
 	"../cos"
 	"../manager"
-	"fmt"
 	"github.com/teambition/gear"
 	"github.com/zemirco/couchdb"
 	"time"
@@ -50,14 +49,21 @@ func Blog_One(ctx *gear.Context) error {
 
 	article := manager.GetOne(struct_id.Id)
 
+	if article.IsPersonal {
+
+		isAdmin := manager.CookieCheck(ctx)
+
+		if isAdmin {
+			return ctx.HTML(403, "forbidden")
+		}
+	}
+
 	return ctx.JSON(200, article)
 }
 
 func Blog_Publish(ctx *gear.Context) error {
 
 	isUser := manager.CookieCheck(ctx)
-
-	fmt.Println("===================", isUser)
 
 	if !isUser {
 		return ctx.HTML(403, "forbidden")

@@ -2,7 +2,8 @@ package handler
 
 import (
 	"../cos"
-	// "../manager"
+	"../manager"
+	"fmt"
 	"github.com/teambition/gear"
 	"net/http/httputil"
 	"net/url"
@@ -19,8 +20,15 @@ func (b *reptileGo) Validate() error {
 
 func Forward2Reptile(ctx *gear.Context) error {
 
+	isUser := manager.CookieCheck(ctx)
+
+	if !isUser {
+		return ctx.HTML(403, "forbidden")
+	}
+
 	url, _ := url.Parse("http://" + cos.Get("REPTILE_HOST"))
 
+	fmt.Println(url)
 	proxy := httputil.NewSingleHostReverseProxy(url)
 
 	proxy.ServeHTTP(ctx.Res, ctx.Req)

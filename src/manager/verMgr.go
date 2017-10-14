@@ -8,9 +8,9 @@ import (
 )
 
 func CookieCheck(ctx *gear.Context) bool {
-	// id, err := ctx.Cookies.Get("u")
+	id, _ := ctx.Cookies.Get("u")
 
-	return true //id == SetID()
+	return id == SetID()
 }
 
 func SetID() string {
